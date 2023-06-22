@@ -1,0 +1,4 @@
+build
+dist
+py_pkg/__pycache__
+py_pkg.egg-info
