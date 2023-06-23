@@ -40,25 +40,26 @@
 pip install HydroRollCore
 ```
 
-2. 创建机器人实例
+2. 创建规则包实例
 
 ``` shell
-mkdir mybot && cd mybot && mkdir plugins 
-echo.> config.toml && echo.> main.py :: 创建空的配置文件和python运行脚本
+mkdir myrules && cd myrules && mkdir rule1
+echo.> config.toml && echo.> __init__.py :: 创建空的配置文件和python运行脚本
 ```
 
-在 `main.py` 导入 `Bot` 类, 创建一个 `bot` 实例并开启热加载, 最后通过 `run` 方法启动水系骰娘。
+在 `__init__.py` 创建一个 `rule` 实例并继承 `Rule` 基类, 通过编写合适的相关方法与类注册规则包实现规则的自定义。
 
 ``` python
-from hydroroll import Bot
+from hydrorollcore import Rule
 
-bot = Bot(hot_reload=True)
+class rule(Rule):
+  ...
 
-if __name__ == "__main__":
-    bot.run()
+class Wiki(rule):
+  ...
 ```
 
-3. 使用合适的适配器, 合理修改你的 `config.toml` 配置文件, 等待连接!
+3. 合理修改你的 `config.toml` 配置文件，完成注册!
 
 ## 💕 Contributing
 
@@ -66,7 +67,7 @@ if __name__ == "__main__":
 
 ## 🙋‍ Community
 
-HydroRoll 水系 的论坛在 [GitHub Discussions](https://github.com/HydroRoll-Team/HydroRoll/discussions), 你可以在这里提出任何问题, 分享任何想法。
+HydroRollCore 水系核心 的论坛在 [GitHub Discussions](https://github.com/HydroRoll-Team/HydroRollCore/discussions), 你可以在这里提出任何问题, 分享任何想法。
 
 目前你可以加入 [![](https://img.shields.io/badge/-QQ群126211793-002FA7?style=flat-square&logo=TencentQQ&logoColor=white)]() 和社区里的其它用户交流, 同时也能在里面体验到最新开发的水系骰子(krypton)。
 
