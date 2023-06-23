@@ -24,12 +24,6 @@
   </a>
 </p>
 
-水系是一个基于深度学习框架iamai的跨平台骰系，尽管只是作为iamai的插件示例，但它仍然有自己的创新之处与标准遵循:
-
-- **语法高度严谨且自由**: 命令语法贴切实际，输入灵活方便。
-
-- **概念继承但焕然一新**: 因为开发者混迹的骰系群以及使用过的骰系很多，因此继承学习了相当一部分各个骰系做的比较好的地方，同时也引入了诸多类似(规则模块、世界主、模型模块)等概念。
-
 ## 🎁 Getting
 
 1. 安装库
@@ -60,34 +54,6 @@ class Wiki(rule):
 ```
 
 3. 合理修改你的 `config.toml` 配置文件，完成注册!
-
-## 💕 Contributing
-
-欢迎阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)
-
-## 🙋‍ Community
-
-HydroRollCore 水系核心 的论坛在 [GitHub Discussions](https://github.com/HydroRoll-Team/HydroRollCore/discussions), 你可以在这里提出任何问题, 分享任何想法。
-
-目前你可以加入 [![](https://img.shields.io/badge/-QQ群126211793-002FA7?style=flat-square&logo=TencentQQ&logoColor=white)]() 和社区里的其它用户交流, 同时也能在里面体验到最新开发的水系骰子(krypton)。
-
-我们的 [行为准则(Code of Conduct)](https://github.com/retrofor/HydroRoll/blob/main/CODE_OF_CONDUCT.md) 适用于 HydroRoll'水系 社区内的所有交流渠道。
-
-## ✨ Updates
-
-1. 使用 `pip` 更新
-
-``` shell
-pip install --upgrade HydroRollCore
-```
-
-
-## 👨‍🚀 Contributors
-
-<a href="https://github.com/HydroRoll-Team/HydroRollCore/graphs/contributors">
-  <img width="150" src="https://contrib.rocks/image?repo=HydroRoll-Team/HydroRollCore" />
-</a>
-
 
 ## 📄 License
 
