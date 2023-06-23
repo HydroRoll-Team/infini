@@ -6,7 +6,7 @@
   </a>
 </p>
 
-## 🎁 Getting <img align="right" src="https://hydroroll.retrofor.space/HydroRollBlue.png" height="256">
+## 🎁 Getting <img align="right" src="https://hydroroll.retrofor.space/HydroRollBlue.png" height="220">
 
 1. 安装库
 
