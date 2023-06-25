@@ -33,13 +33,13 @@ echo.> config.toml && echo.> __init__.py :: 创建空的配置文件和python运
 在 `__init__.py` 创建一个 `rule` 实例并继承 `Rule` 基类, 通过编写合适的相关方法与类注册规则包实现规则的自定义。
 
 ``` python
-from hydrorollcore import Rule
+from HydroRollCore import Rules
 
-class rule(Rule):
-  ...
+class Myrule(Rules):
+  """自设规则包，继承 Rules 基类"""
 
-class Wiki(rule):
-  ...
+class Wiki(Myrule):
+  """wiki 词条类，继承 Myrule 类"""
 ```
 
 3. 合理修改你的 `config.toml` 配置文件，完成注册!
