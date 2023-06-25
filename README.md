@@ -7,7 +7,7 @@
   <a href="https://pypi.org/project/HydroRollCore">
     <img src="https://img.shields.io/pypi/v/hydrorollcore?labelColor=000000">
   </a>
-  <a href="https://github.com/HydroRoll-Team/HydroRollCore/blob/master/license">
+  <a href="https://github.com/HydroRoll-Team/HydroRollCore/blob/master/LICENSE">
     <img alt="" src="https://img.shields.io/pypi/l/hydrorollcore.svg?labelColor=000000&color=">
   </a>
  
