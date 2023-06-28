@@ -23,12 +23,14 @@ jobs:
 
       - name: Install dependencies
         run: pip install pyinstaller
-
+        
       - name: Build executable
-        run: pyinstaller -F ./HydroRollCore/__init__.py
+        run: |
+          cd HydroRollCore  # 进入HydroRollCore目录
+          pyinstaller --onefile __init__.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: executable
-          path: dist/HydroRollCore.exe
+          path: HydroRollCore.exe
