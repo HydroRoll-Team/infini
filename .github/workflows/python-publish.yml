@@ -28,6 +28,6 @@ jobs:
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
       - run: |
           ls
-          cd ./HydroRollCore
+          cd ./hydrorollcore
           poetry publish --build
         shell: bash
