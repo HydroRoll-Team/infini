@@ -7,7 +7,7 @@ readme = "README.md"
 keywords = ["HydroRoll", "core"]
 homepage = "https://github.com/HydoRoll-Team/HydroRollCore"
 packages = [
-    { include = "src", from = "." }
+    { include = "core", from = "." }
 ]
 
 [tool.poetry.dependencies]
