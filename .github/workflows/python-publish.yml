@@ -10,12 +10,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-#         with:
-#           path: 'HydroRollCore'
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          path: 'HydroRollCore/HydroRollCore'
       - name: Install poetry
-        run: pipx install poetry
+        run: |
+          cd ./HydroRollCore/HydroRollCore
+          pipx install poetry
         shell: bash
       - uses: actions/setup-python@v4
         with:
