@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "HydroRollCore"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["简律纯 <i@jyunko.cn>"]
 description = "Core of HydroRoll."
 readme = "README.md"
 keywords = ["HydroRoll", "core"]
 homepage = "https://github.com/HydoRoll-Team/HydroRollCore"
 packages = [
-    { include = "core", from = "." }
+    { include = "HydroRollCore", from = "." }
 ]
 
 [tool.poetry.dependencies]
