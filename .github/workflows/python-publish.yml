@@ -27,7 +27,5 @@ jobs:
         env:
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
       - run: |
-          ls
-          cd ./hydrorollcore
           poetry publish --build
         shell: bash
