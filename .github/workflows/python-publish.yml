@@ -22,6 +22,7 @@ jobs:
           cache: "poetry"
       - run: |
           ls
+          cd ./HydroRollCore
           poetry install
         shell: bash
       - run: poetry config pypi-token.pypi "$PYPI_TOKEN"
