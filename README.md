@@ -20,7 +20,9 @@
 在命令行输入。
 
 ``` shell
-pip install HydroRollCore
+poetry install --no-dev HydroRollCore # 推荐
+pnpm install HydroRollCore # 不推荐
+pip install HydroRollCore # 不推荐
 ```
 
 2. 创建规则包实例
@@ -37,9 +39,6 @@ from HydroRollCore import Rules
 
 class Myrule(Rules):
   """自设规则包，继承 Rules 基类"""
-
-class Wiki(Myrule):
-  """wiki 词条类，继承 Myrule 类"""
 ```
 
 3. 合理修改你的 `config.toml` 配置文件，完成注册!
