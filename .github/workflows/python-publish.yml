@@ -10,10 +10,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          path: 'HydroRollCore'
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+#         with:
+#           path: 'HydroRollCore'
       - name: Install poetry
         run: pipx install poetry
         shell: bash
@@ -24,11 +24,9 @@ jobs:
           cache: "poetry"
       - run: poetry install
         shell: bash
-
       - run: poetry config pypi-token.pypi "$PYPI_TOKEN"
         shell: bash
         env:
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
-
       - run: poetry publish --build
         shell: bash
