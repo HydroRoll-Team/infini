@@ -17,20 +17,30 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
+          cache: pip
+          architecture: x64
       - name: Install dependencies
-        run: pip install pyinstaller
-        
-      - name: Build executable
         run: |
-          cd HydroRollCore  # 进入HydroRollCore目录
-          pyinstaller --onefile __init__.py
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
+          python -m pip install --upgrade pip
+          python -m pip install -r ./requirements_win.txt
+      - name: Run packing
+        run: |
+          pyinstaller ./main.spec
+      - name: Run artifact
+        run: |
+          mkdir HydroRollCore-Win
+          cp ./dist/main.exe ./HydroRollCore-win/HydroRollCore.exe
+      - name: Packing HydroRollCore-Win
+        uses: actions/upload-artifact@v3
         with:
-          name: executable
-          path: HydroRollCore.exe
+          name: HydroRollCore-Win-old-origin
+          path: ./HydroRollCore-Win
+      - name: Ready for Packing
+        run: |
+          mkdir ./HydroRollCore-Win/lib
+          curl -L https://github.com/Mrs4s/go-cqhttp/releases/latest/download/go-cqhttp_windows_amd64.exe -o ./HydroRollCore-Win/lib/go-cqhttp.exe
+      - name: Packing HydroRollCore-Win-with-lib
+        uses: actions/upload-artifact@v3
+        with:
+          name: HydroRollCore-Win-old
+          path: ./HydroRollCore-Win
