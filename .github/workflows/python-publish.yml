@@ -12,7 +12,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install poetry
         run: |
-          ls
           pipx install poetry
         shell: bash
       - uses: actions/setup-python@v4
@@ -21,8 +20,6 @@ jobs:
           architecture: "x64"
           cache: "poetry"
       - run: |
-          ls
-          cd ./HydroRollCore
           poetry install
         shell: bash
       - run: poetry config pypi-token.pypi "$PYPI_TOKEN"
@@ -31,5 +28,6 @@ jobs:
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
       - run: |
           ls
+          cd ./HydroRollCore
           poetry publish --build
         shell: bash
