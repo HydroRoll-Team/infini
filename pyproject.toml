@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "HydroRollCore"
+name = "hydrorollcore"
 version = "0.1.1"
 authors = ["简律纯 <i@jyunko.cn>"]
 description = "Core of HydroRoll."
