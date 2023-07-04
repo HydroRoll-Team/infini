@@ -8,7 +8,7 @@ version = "0.1.1"
 authors = ["简律纯 <i@jyunko.cn>"]
 description = "Core of HydroRoll."
 long_description = """
-The long description of your project.
+水系核心。
 """
 keywords = ["HydroRoll", "core"]
 homepage = "https://github.com/HydoRoll-Team/HydroRollCore"
