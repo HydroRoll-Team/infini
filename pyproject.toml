@@ -14,7 +14,7 @@ python = ">=3.8"
 class = "poetry_plugin.plugin.Plugin"
 
 [tool.poetry.scripts]
-HydroRollCore = "HydroRollCore.__init__:main"
+HydroRollCore = "HydroRollCore.main:main"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"
