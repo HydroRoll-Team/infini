@@ -12,6 +12,7 @@
   </a>
    
   [![.github/workflows/python-publish.yml](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml)
+  [![CodeQL](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml)
   
 </p>
 
