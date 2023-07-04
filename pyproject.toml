@@ -1,7 +1,3 @@
-[build-system]
-requires = ["setuptools>=42", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [tool.poetry]
 name = "HydroRollCore"
 version = "0.1.1"
@@ -13,27 +9,18 @@ homepage = "https://github.com/HydoRoll-Team/HydroRollCore"
 
 [tool.poetry.dependencies]
 python = ">=3.8"
-tkinter = "^8.6.10"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.plugins."poetry-plugin"]
-class = "poetry_plugin.plugin.Plugin"
-
-[tool.poetry.plugins."poetry-plugin".scripts]
-HydroRoll = "HydroRoll.__init__:main"
-
-[tool.poetry.dependencies]
-python = "^3.8"
 tomli = { version = "^2.0.0", python = "<3.11" }
 pydantic = "^1.10.0"
 loguru = "^0.6.0"
 typing-extensions = "^4.4.0"
 
+[tool.poetry.plugins."poetry-plugin"]
+class = "poetry_plugin.plugin.Plugin"
+
+[tool.poetry.scripts]
+HydroRollCore = "HydroRollCore.__init__:main"
+
 [tool.poetry.group.dev.dependencies]
-sophia-doc = "^0.1.0"
 black = "^23.1.0"
 isort = "^5.12.0"
 pre-commit = "^3.1.0"
@@ -68,3 +55,7 @@ reportUnnecessaryIsInstance = false
 
 [tool.pydantic-pycharm-plugin]
 ignore-init-method-arguments = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
