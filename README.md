@@ -23,9 +23,11 @@
 在命令行输入。
 
 ``` shell
-poetry install --no-dev HydroRollCore # 推荐
-pnpm install HydroRollCore # 不推荐
-pip install HydroRollCore # 不推荐
+git clone https://github.com/HydroRoll-Team/HydroRollCore.git
+cd HydroRollCore
+poetry install --no-dev
+# 或者使用pip
+# pip install HydroRollCore
 ```
 
 2. 创建规则包实例
