@@ -1,0 +1,6 @@
+mkdocs-material
+mkdocs-blog-plugin
+mkdocs-git-revision-date-localized-plugin
+mkdocs-git-authors-plugin
+mkdocs-material-extensions>=1.1
+neoteroi-mkdocs

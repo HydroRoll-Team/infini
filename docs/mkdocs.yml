@@ -1,0 +1,150 @@
+site_name: HydroRollCore 核心文档 (草案)
+repo_url: https://github.com/HydroRoll-Team/HydroRollCore
+repo_name: HydroRoll-Team/HydroRollCore
+edit_uri: edit/master/docs/docs/
+site_author: Hsiang Nianian
+site_description: >-
+  HydroRollCore -- 水系核心，一个基于通用规则包标准的规则包读取框架。
+  
+theme:
+  name: material
+  language: zh
+  icon:
+    logo: material/library-outline
+    repo: fontawesome/brands/git-alt 
+  custom_dir: overrides
+  features:
+    - content.action.edit
+    - content.action.view
+    - navigation.footer
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes 
+    - toc.follow
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - search.share
+    - header.autohide
+    - navigation.footer
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  
+extra:
+  homepage: https://HydroRollCore.retrofor.space
+  alternate:
+    # - name: English
+    #   link: /en/ 
+    #   lang: en
+    - name: 中文
+      link: /
+      lang: zh
+  consent:
+    title: Cookie 偏好设置
+    description: >- 
+      我们使用Cookie来识别您的重复访问和偏好，以及衡量我们的文档的有效性和用户是否找到他们搜索的内容。在您的同意下，这将帮助我们改善我们的文档。
+    actions:
+      - accept
+      - manage
+    cookies:
+        analytics: 
+          name: Google Analytics
+          checked: true
+        github: 
+          name: GitHub
+          checked: true
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/HydroRoll-Team
+  
+extra_css:
+  - stylesheets/extra.css
+  - css/neoteroi-mkdocs.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+copyright: >
+  Copyright &copy; 2013 - PRESENT. <a href="https://github.com/HydroRoll-Team">HydroRoll-Team</a> –
+  <a href="#__consent">管理Cookie</a>
+
+markdown_extensions:
+  - neoteroi.timeline
+  - neoteroi.cards
+  - neoteroi.projects
+  - neoteroi.spantable
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  
+plugins:
+  - blog
+  - search
+  - git-authors
+  - git-revision-date-localized:
+        enable_creation_date: true
+        fallback_to_build_date: true
+        timezone: Asia/Shanghai
+        type: timeago
+        custom_format: "%d. %B %Y"
+  # - git-committers:
+  #     repository: HydroRoll-Team/psi
+  #     branch: main
