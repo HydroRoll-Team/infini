@@ -91,7 +91,7 @@ copyright: >
   <a href="#__consent">管理Cookie</a>
 
 markdown_extensions:
-  - neoteroi.timeline
+  # - neoteroi.timeline
   - neoteroi.cards
   - neoteroi.projects
   - neoteroi.spantable
