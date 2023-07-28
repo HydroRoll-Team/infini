@@ -153,17 +153,21 @@ nav:
   - 主页: "index.md"
   - 水系核心:
     - "核心概览": Core/index.md
+  - 规则包入门:
+    - 整体结构: 
+      - "类": RulePackage/Structure/class.md
+      - "方法": RulePackage/Structure/method.md
+      - "属性": RulePackage/Structure/attribute.md
+    - 实战内容: 
+      - "了解Python": RulePackage/Write/python.md
+      - "准备规则书": RulePackage/Write/prepare.md
+      - "编写规则包": RulePackage/Write/write.md
   - 通用规则包标准:
     - 什么是规则包?: Standard/what-is-rule-package.md
     - 为什么要做规则包?: Standard/why-rule-package.md
     - 什么是通用规则包标准?: Standard/what-is-standard.md
-    - 整体结构: 
-      - "类": Standard/Structure/class.md
-      - "方法": Standard/Structure/method.md
-      - "属性": Standard/Structure/attribute.md
-    - 实战编写: 
-      - "了解Python": Standard/Write/python.md
-      - "准备规则书": Standard/Write/prepare.md
-      - "编写规则包": Standard/Write/write.md
+    - 术语表: 
+      - 鉴定: Standard/Term/appriasal.md
+      - ...: #
   - API Reference:
     - "API Reference": API/index.md
