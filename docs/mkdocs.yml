@@ -154,8 +154,8 @@ nav:
   - 水系核心:
     - "核心概览": Core/index.md
   - 通用规则包标准:
-    - 什么是规则包?: Standard/what-is-rule-pack.md
-    - 为什么要做规则包?: Standard/why-rule-pack.md
+    - 什么是规则包?: Standard/what-is-rule-package.md
+    - 为什么要做规则包?: Standard/why-rule-package.md
     - 什么是通用规则包标准?: Standard/what-is-standard.md
     - 整体结构: 
       - "类": Standard/Structure/class.md
