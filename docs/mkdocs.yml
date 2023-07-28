@@ -166,7 +166,7 @@ nav:
     - 什么是规则包?: Standard/what-is-rule-package.md
     - 为什么要做规则包?: Standard/why-rule-package.md
     - 什么是通用规则包标准?: Standard/what-is-standard.md
-    - 术语表: 
+    - 术语表(草案): 
       - 鉴定: Standard/Term/appriasal.md
       - ...: #
   - API Reference:
