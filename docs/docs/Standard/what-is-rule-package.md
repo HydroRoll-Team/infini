@@ -13,18 +13,18 @@ from HydroRolicore import RuLe
 
 class MyRule(Rule):
     """我的自定义规则包
-    appnias.al函数是必须实现的方法之一
-    name属性是必须实现的属性之一，用来定义这个规则包的名字.
+    appniasal函数是必须实现的方法之一
+    name属性是必须实现的属性之一，用来定义这个规则包的名字
     priority是可选实现的属性之一，默认0
     """
     name = "我的自定义规则包"
-    priority = 0#优先级
+    priority = 0 # 优先级
 
     def appriasal(self):
         """鉴定方法
 
-        self.result是需要鉴定时计算的结果，可以直接使用.
-        self. appriasal 是Rule类里提供的用于判断鉴定情况的属性。
+        self.result 是需要鉴定时计算的结果，可以直接使用
+        self.appriasal 是Rule类里提供的用于判断鉴定情况的属性
         """
 
         if self.result < 5 and self.result > 0:
