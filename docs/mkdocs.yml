@@ -92,9 +92,9 @@ copyright: >
 
 markdown_extensions:
   # - neoteroi.timeline
-  - neoteroi.cards
-  - neoteroi.projects
-  - neoteroi.spantable
+  # - neoteroi.cards
+  # - neoteroi.projects
+  # - neoteroi.spantable
   - abbr
   - admonition
   - attr_list
