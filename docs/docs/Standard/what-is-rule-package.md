@@ -17,6 +17,7 @@ class MyRule(Rule):
     name属性是必须实现的属性之一，用来定义这个规则包的名字
     priority是可选实现的属性之一，默认0
     """
+    
     name = "我的自定义规则包"
     priority = 0 # 优先级
 
