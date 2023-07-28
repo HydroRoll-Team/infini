@@ -20,15 +20,15 @@ class MyRule(Rule):
     name = "我的自定义规则包"
     priority = 0 # 优先级
 
-    def appriasal(self):
+    def ability(self):
         """鉴定方法
 
         self.result 是需要鉴定时计算的结果，可以直接使用
-        self.appriasal 是Rule类里提供的用于判断鉴定情况的属性
+        self.rule.ability 是Rule类里提供的用于判断鉴定情况的属性
         """
 
         if self.result < 5 and self.result > 0:
-            return self.appriasal.success # 返回大成功时骰主自定义的大成功文本
+            return self.rule.ability.success # 返回大成功时骰主自定义的大成功文本
         else:
             ... # 其他的鉴定情况
 ```
