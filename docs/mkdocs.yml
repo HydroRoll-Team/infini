@@ -150,7 +150,7 @@ plugins:
   #     branch: main
 
 nav:
-  - 主页: "index.md"
+  - 主页: index.md
   - 水系核心:
     - "核心概览": Core/index.md
   - 规则包入门:
@@ -168,6 +168,6 @@ nav:
     - 什么是通用规则包标准?: Standard/what-is-standard.md
     - 术语表(草案): 
       - 检定: Standard/Term/ability.md
-      - ...: #
+      - 待添加: ""
   - API Reference:
     - "API Reference": API/index.md
