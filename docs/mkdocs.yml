@@ -162,12 +162,21 @@ nav:
       - "了解Python": RulePackage/Write/python.md
       - "准备规则书": RulePackage/Write/prepare.md
       - "编写规则包": RulePackage/Write/write.md
-  - 通用规则包标准:
+  - 通用规则包标准(GRPS1):
     - 什么是规则包?: Standard/what-is-rule-package.md
     - 为什么要做规则包?: Standard/why-rule-package.md
     - 什么是通用规则包标准?: Standard/what-is-standard.md
     - 术语表(草案): 
-      - 检定: Standard/Term/ability.md
-      - 待添加: ""
+      - setting 背景: Standard/Term/setting.md
+      - scenario 剧本: Standard/Term/scenario.md
+      - duration 时长:
+        - sene 场: Standard/Term/Duration/sene.md
+        - module 模组: Standard/Term/Duration/module.md
+        - campaign 战役: Standard/Term/Duration/campaign.md
+      - face 骰子面数: Standard/Term/dice-face.md
+      - count 骰子个数: Standard/Term/dice-count.md
+      - check 检定: 
+        - Standard/Term/check/index.md
+        - ability 检定: Standard/Term/check/ability.md
   - API Reference:
     - "API Reference": API/index.md

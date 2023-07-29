@@ -10,13 +10,9 @@
   <a href="https://github.com/HydroRoll-Team/HydroRollCore/blob/master/LICENSE">
     <img alt="" src="https://img.shields.io/pypi/l/hydrorollcore.svg?labelColor=000000&color=">
   </a>
-   
-  [![.github/workflows/python-publish.yml](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml)
-  [![CodeQL](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml)
-  
 </p>
 
-## 🎁 Getting <img align="right" src="https://hydroroll.retrofor.space/HydroRollBlue.png" height="120">
+## 🎁 Getting
 
 1. 安装库
 
