@@ -1,6 +1,6 @@
 ---
 title: ability 检定
-icon: material/progress-question
+icon: material/tooltip-plus
 status: question
 ---
 !!! warning
