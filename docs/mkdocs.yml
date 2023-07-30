@@ -16,6 +16,7 @@ theme:
   features:
     - content.action.edit
     - content.action.view
+    - content.tooltips
     - navigation.footer
     - navigation.tabs
     # - navigation.tabs.sticky
