@@ -94,7 +94,8 @@ markdown_extensions:
   # - neoteroi.timeline
   # - neoteroi.cards
   # - neoteroi.projects
-  # - neoteroi.spantable
+  # - neoteroi.spantabs
+  - pymdownx.snippets
   - abbr
   - admonition
   - attr_list
