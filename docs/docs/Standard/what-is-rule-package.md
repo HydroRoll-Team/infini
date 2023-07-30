@@ -13,7 +13,8 @@ from HydroRolicore import RuLe
 
 class MyRule(Rule):
     """我的自定义规则包
-    appniasal函数是必须实现的方法之一
+
+    check 函数是必须实现的方法之一
     name属性是必须实现的属性之一，用来定义这个规则包的名字
     priority是可选实现的属性之一，默认0
     """
@@ -21,7 +22,7 @@ class MyRule(Rule):
     name = "我的自定义规则包"
     priority = 0 # 优先级
 
-    def ability(self):
+    def check(self):
         """检定方法
 
         self.result 是需要检定时计算的结果，可以直接使用
