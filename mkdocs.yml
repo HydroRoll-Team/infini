@@ -53,7 +53,7 @@ theme:
         name: Switch to system preference
   
 extra:
-  homepage: https://hydroroll-team.github.io # HydroRollCore.retrofor.space
+  homepage: https://grps.retrofor.space # hydroroll-team.github.io
   alternate:
     # - name: English
     #   link: /en/ 
@@ -137,7 +137,7 @@ markdown_extensions:
 plugins:
   - blog
   - search
-  - git-authors
+  # - git-authors
   - git-revision-date-localized:
         enable_creation_date: true
         fallback_to_build_date: true
