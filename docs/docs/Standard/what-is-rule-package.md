@@ -13,7 +13,8 @@ from HydroRolicore import RuLe
 
 class MyRule(Rule):
     """我的自定义规则包
-    appniasal函数是必须实现的方法之一
+
+    check 函数是必须实现的方法之一
     name属性是必须实现的属性之一，用来定义这个规则包的名字
     priority是可选实现的属性之一，默认0
     """
@@ -21,19 +22,19 @@ class MyRule(Rule):
     name = "我的自定义规则包"
     priority = 0 # 优先级
 
-    def ability(self):
-        """鉴定方法
+    def check(self):
+        """检定方法
 
-        self.result 是需要鉴定时计算的结果，可以直接使用
-        self.rule.ability 是Rule类里提供的用于判断鉴定情况的属性
+        self.result 是需要检定时计算的结果，可以直接使用
+        self.rule.ability 是Rule类里提供的用于判断检定情况的属性
         """
 
         if self.result < 5 and self.result > 0:
             return self.rule.ability.success # 返回大成功时骰主自定义的大成功文本
         else:
-            ... # 其他的鉴定情况
+            ... # 其他的检定情况
 ```
 
-这样就实现了一个水系规则包，当pl使用ability()方法，如果检定结果数值小于5且大于0那么返回大成功。
+这样就实现了一个水系规则包，当pl使用检定掷骰指令时就会调用check()方法，如果检定结果数值小于5且大于0那么返回大成功。
 
 我们要做的通用规则包标准就是这样一个“到底需要在Rule的子类MyRule里必须实现哪些方法？”的问题。
