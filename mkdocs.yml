@@ -53,7 +53,7 @@ theme:
         name: Switch to system preference
   
 extra:
-  homepage: https://HydroRollCore.retrofor.space
+  homepage: https://hydroroll-team.github.io # HydroRollCore.retrofor.space
   alternate:
     # - name: English
     #   link: /en/ 
