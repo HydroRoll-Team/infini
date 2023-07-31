@@ -96,7 +96,9 @@ markdown_extensions:
   # - neoteroi.cards
   # - neoteroi.projects
   # - neoteroi.spantabs
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
   - abbr
   - admonition
   - attr_list
@@ -147,9 +149,6 @@ plugins:
         timezone: Asia/Shanghai
         type: timeago
         custom_format: "%d. %B %Y"
-  # - git-committers:
-  #     repository: HydroRoll-Team/psi
-  #     branch: main
 
 nav:
   - 主页: index.md
