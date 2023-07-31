@@ -149,6 +149,9 @@ plugins:
         timezone: Asia/Shanghai
         type: timeago
         custom_format: "%d. %B %Y"
+  - git-committers:
+      repository: HydroRoll-Team/HydroRollCore
+      branch: master
 
 nav:
   - 主页: index.md
