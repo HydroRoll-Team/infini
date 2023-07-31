@@ -1,7 +1,7 @@
 site_name: HydroRollCore 核心文档 (草案)
 repo_url: https://github.com/HydroRoll-Team/HydroRollCore
 repo_name: HydroRoll-Team/HydroRollCore
-edit_uri: edit/master/docs/docs/
+edit_uri: edit/master/docs/
 site_author: Hsiang Nianian
 site_description: >-
   HydroRollCore -- 水系核心，一个基于通用规则包标准的规则包读取框架。
@@ -82,7 +82,6 @@ extra:
   
 extra_css:
   - stylesheets/extra.css
-  - css/neoteroi-mkdocs.css
 
 extra_javascript:
   - javascripts/extra.js
@@ -92,10 +91,6 @@ copyright: >
   <a href="#__consent">管理Cookie</a>
 
 markdown_extensions:
-  # - neoteroi.timeline
-  # - neoteroi.cards
-  # - neoteroi.projects
-  # - neoteroi.spantabs
   - pymdownx.snippets:
       auto_append:
         - includes/abbreviations.md
@@ -151,7 +146,6 @@ plugins:
         custom_format: "%d. %B %Y"
   - git-committers:
       repository: HydroRoll-Team/HydroRollCore
-      branch: master
 
 nav:
   - 主页: index.md

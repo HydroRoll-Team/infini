@@ -3,7 +3,8 @@
 {% block content %}
   {{ super() }}
 
-{% block footer %}
+  
+<!-- {% block footer %}
 <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
   <li class="contributors-holder">
     <span class="contributors-text">Contributors</span>
@@ -14,13 +15,14 @@
     </ul>
   </li>
 </ul>
-{% endblock %}
+{% endblock %} -->
 
-  <!-- {% if git_page_authors %}
+  {% if git_page_authors %}
     <div class="md-source-date">
       <small>
           Authors: {{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}
       </small>
     </div>
-  {% endif %} -->
+  {% endif %}
+  
 {% endblock %}
