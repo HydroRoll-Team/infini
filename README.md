@@ -52,7 +52,7 @@ class Myrule(Rules):
 ### 🎍Sites
 https://grps.retrofor.space _(recommend)_  
 https://grps-v1.netlify.app  
-https://hydroroll-team.github.io/HydroRollCore/  
+~~https://hydroroll-team.github.io/HydroRollCore/~~
 
 ## 📄 License
 
