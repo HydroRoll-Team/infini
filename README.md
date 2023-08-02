@@ -13,6 +13,7 @@
    
   [![.github/workflows/python-publish.yml](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml)
   [![CodeQL](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml)
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/edd25fa6-88b4-428f-b763-cb039bb08ef7/deploy-status)](https://app.netlify.com/sites/darling-genie-202d84/deploys)
   
 </p>
 
