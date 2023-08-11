@@ -168,6 +168,7 @@ nav:
       - setting 背景: Standard/Term/setting.md
       - scenario 剧本: Standard/Term/scenario.md
       - duration 时长:
+        - Standard/Term/duration/index.md
         - sene 场: Standard/Term/duration/sene.md
         - module 模组: Standard/Term/duration/module.md
         - campaign 战役: Standard/Term/duration/campaign.md
@@ -180,6 +181,5 @@ nav:
         - ability 检定: Standard/Term/check/ability.md
       - player_character 人物卡*:
         - Standard/Term/player_character/index.md
-      -
   - API Reference:
     - "API Reference": API/index.md
