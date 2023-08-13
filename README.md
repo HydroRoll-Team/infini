@@ -13,6 +13,7 @@
    
   [![.github/workflows/python-publish.yml](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml)
   [![CodeQL](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml)
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/edd25fa6-88b4-428f-b763-cb039bb08ef7/deploy-status)](https://app.netlify.com/sites/grps-v1/deploys)
   
 </p>
 
@@ -47,6 +48,11 @@ class Myrule(Rules):
 ```
 
 3. 合理修改你的 `config.toml` 配置文件，完成注册!
+
+### 🎍Sites
+https://grps.retrofor.space _(recommend)_  
+https://grps-v1.netlify.app  
+~~https://hydroroll-team.github.io/HydroRollCore/~~
 
 ## 📄 License
 
