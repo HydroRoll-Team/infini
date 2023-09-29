@@ -172,14 +172,14 @@ nav:
         - sene 场: Standard/Term/duration/sene.md
         - module 模组: Standard/Term/duration/module.md
         - campaign 战役: Standard/Term/duration/campaign.md
-      - default_dice 默认骰子*:
-        - Standard/Term/default_dice/index.md
-        - face 骰子面数: Standard/Term/default_dice/dice-face.md
-        - count 骰子个数: Standard/Term/default_dice/dice-count.md
+      - DefaultDice 默认骰子:
+        - Standard/Term/DefaultDice/index.md
+        - _sides 骰子面数: Standard/Term/DefaultDice/_sides.md
+        - _counts 骰子个数: Standard/Term/DefaultDice/_counts.md
       - check 检定: 
         - Standard/Term/check/index.md
         - ability 检定: Standard/Term/check/ability.md
-      - player_character 人物卡*:
-        - Standard/Term/player_character/index.md
+      - PlayerCard 人物卡:
+        - Standard/Term/PlayerCard/index.md
   - API Reference:
     - "API Reference": API/index.md

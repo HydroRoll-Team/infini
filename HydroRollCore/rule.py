@@ -8,7 +8,7 @@ from HydroRoll.typing import T_Event, T_Config
 
 if TYPE_CHECKING:
     from iamai.bot import Bot
-    
+
 class RuleLoadType(Enum):
     """插件加载类型。"""
 
