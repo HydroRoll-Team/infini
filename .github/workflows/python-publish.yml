@@ -46,7 +46,6 @@ jobs:
           git fetch origin gh-pages:gh-pages
           tag="${{ github.ref_name }}"
           DOC_VERSION=${tag%.*}
-          cd docs
           pdm run mike deploy --no-redirect --update-aliases "$DOC_VERSION" latest
           git push origin gh-pages
 
