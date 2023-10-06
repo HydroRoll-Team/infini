@@ -48,26 +48,26 @@ jobs:
           PDM_PUBLISH_PASSWORD: ${{ secrets.PDM_PUBLISH_PASSWORD }}
           PDM_PUBLISH_USERNAME: ${{ secrets.PDM_PUBLISH_USERNAME }}
 
-      - name: Get Changelog
-        id: get-changelog
-        run: |
-          awk '/-{3,}/{flag=1;next}/Release/{if (flag==1)exit}flag' CHANGELOG.md > .changelog.md
+      # - name: Get Changelog
+      #   id: get-changelog
+      #   run: |
+      #     awk '/-{3,}/{flag=1;next}/Release/{if (flag==1)exit}flag' CHANGELOG.md > .changelog.md
 
-      - name: Create Release
-        uses: actions/create-release@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: v${{ github.ref }}
-          body_path: .changelog.md
-          draft: false
-          prerelease: ${{ steps.check_version.outputs.PRERELEASE }}
+      # - name: Create Release
+      #   uses: actions/create-release@main
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: ${{ github.ref }}
+      #     release_name: v${{ github.ref }}
+      #     body_path: .changelog.md
+      #     draft: false
+      #     prerelease: ${{ steps.check_version.outputs.PRERELEASE }}
 
-      - name: Trigger Bucket Update
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: Excavator
-          repo: frostming/scoop-frostming
-          token: ${{ secrets.G_T }}
-          ref: master
+      # - name: Trigger Bucket Update
+      #   uses: benc-uk/workflow-dispatch@v1
+      #   with:
+      #     workflow: Excavator
+      #     repo: frostming/scoop-frostming
+      #     token: ${{ secrets.G_T }}
+      #     ref: master
