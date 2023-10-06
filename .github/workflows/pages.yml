@@ -1,4 +1,4 @@
-name: ci 
+name: build Pages
 on:
   push:
     branches:
@@ -22,5 +22,5 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: |
-          pip install -r requirements_mkdocs.txt
+          pip install -r requirements.txt
           mkdocs gh-deploy --force
