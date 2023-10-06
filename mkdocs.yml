@@ -185,7 +185,7 @@ nav:
           - "了解Python": RulePackage/Write/python.md
           - "准备规则书": RulePackage/Write/prepare.md
           - "编写规则包": RulePackage/Write/write.md
-  - 通用规则包标准(GRPS1):
+  - GRPS 通用规则包标准:
       - 什么是规则包?: Standard/what-is-rule-package.md
       - 为什么要做规则包?: Standard/why-rule-package.md
       - 什么是通用规则包标准?: Standard/what-is-standard.md

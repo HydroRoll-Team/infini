@@ -30,6 +30,7 @@ jobs:
 
       - name: Build Release Docs
         run: |
+          cp CHANGELOG.md docs/changelog.md
           pip install pdm mike mkdocstrings
           pdm install -G doc
           git config --local user.email "action@github.com"
@@ -37,7 +38,6 @@ jobs:
           git fetch origin gh-pages:gh-pages
           tag="${{ github.ref_name }}"
           DOC_VERSION=${tag%.*}
-          cp CHANGELOG.md docs/changelog.md
           pdm run mike deploy --no-redirect --update-aliases "$DOC_VERSION" latest
           git push origin gh-pages
 
