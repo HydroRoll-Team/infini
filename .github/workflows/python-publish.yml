@@ -30,7 +30,7 @@ jobs:
 
       - name: Build Release Docs
         run: |
-          pip install pdm, mike
+          pip install pdm mike
           pdm install -G doc
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
