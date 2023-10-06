@@ -28,7 +28,7 @@ jobs:
             mkdocs-material-
       - run: |
           pip install -r requirements.txt
-          pip install pdm mike
+          pip install pdm mike mkdocstrings
           pdm install -G doc
 
       - name: Build Documentation
