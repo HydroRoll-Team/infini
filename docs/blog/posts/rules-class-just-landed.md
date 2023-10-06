@@ -2,16 +2,14 @@
 date: 2023-10-07
 authors: [HsiangNianian]
 description: >
-  Our new blog is built with the brand new built-in blog plugin. You can build
-  a blog alongside your documentation or standalone
+  Rule 基类已经支持泛型了。
 categories:
   - Rules
 links:
-  - setup/setting-up-a-blog.md
-  - plugins/blog.md
+  - standard/what-is-rule-package
 ---
 
-# Blog support just landed
+# Rule 基类已经支持泛型了
 
 __Hey there! You're looking at our new blog, built with the brand new
 [built-in blog plugin]. With this plugin, you can easily build a blog alongside

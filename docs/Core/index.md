@@ -21,7 +21,7 @@
 ``` shell
 git clone https://github.com/HydroRoll-Team/HydroRollCore.git
 cd HydroRollCore
-poetry install --no-dev
+pdm install
 # 或者使用pip
 # pip install HydroRollCore
 ```
@@ -30,16 +30,17 @@ poetry install --no-dev
 
 ``` shell
 mkdir myrules && cd myrules && mkdir rule1
-echo.> config.toml && echo.> __init__.py :: 创建空的配置文件和python运行脚本
+echo.> config.toml
+echo.> __init__.py
 ```
 
 在 `__init__.py` 创建一个 `rule` 实例并继承 `Rule` 基类, 通过编写合适的相关方法与类注册规则包实现规则的自定义。
 
 ``` python
-from HydroRollCore import Rules
+from HydroRollCore import Rule
 
-class Myrule(Rules):
-  """自设规则包，继承 Rules 基类"""
+class Myrule(Rule):
+  """自设规则包，继承 Rule 基类"""
 ```
 
 3. 合理修改你的 `config.toml` 配置文件，完成注册!
