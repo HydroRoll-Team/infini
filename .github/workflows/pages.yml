@@ -29,13 +29,13 @@ jobs:
       - run: |
           pip install -r requirements.txt
           pip install pdm mike mkdocstrings
-          pdm install -G doc
+          pdm install
 
       - name: Build Documentation
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          cp CHANGELOG.md docs/changelog.md
           git fetch origin gh-pages:gh-pages
           pdm run mike deploy --update-aliases dev
-          mike set-default --push dev
           git push origin gh-pages
