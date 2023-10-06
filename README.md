@@ -13,8 +13,8 @@
    
   [![.github/workflows/python-publish.yml](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/python-publish.yml)
   [![CodeQL](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml/badge.svg)](https://github.com/HydroRoll-Team/HydroRollCore/actions/workflows/codeql.yml)
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/edd25fa6-88b4-428f-b763-cb039bb08ef7/deploy-status)](https://app.netlify.com/sites/grps-v1/deploys)
-  
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/ecbe4af3-223f-4fa4-a182-a37a776fd05b/deploy-status)](https://app.netlify.com/sites/grps-v1/deploys)
+
 </p>
 
 ## 🎁 Getting <img align="right" src="https://hydroroll.retrofor.space/HydroRollBlue.png" height="120">
