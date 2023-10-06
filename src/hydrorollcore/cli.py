@@ -1,7 +1,7 @@
 import argparse
 from tkinter import messagebox
 
-class Cli(object):
+class Cli:
     def parse_args():
         # 创建解析器对象
         parser = argparse.ArgumentParser(description='HydroRoll 命令行工具')
@@ -19,6 +19,3 @@ class Cli(object):
 
         if args.path:
             print('输入的路径:', args.path)
-
-    if __name__ == '__main__':
-        main()

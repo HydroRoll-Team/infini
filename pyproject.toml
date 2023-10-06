@@ -1,12 +1,9 @@
 [project]
 name = "HydroRollCore"
-version = "0.1.0-rc1"
+version = "0.1.1"
 description = "The Core of HydroRoll, The Loader of your rules packages."
-authors = [
-    {name = "简律纯", email = "i@jyunko.cn"},
-]
+authors = [{ name = "简律纯", email = "i@jyunko.cn" }]
 dependencies = [
-    "iamai>=3.2.3",
     "mkdocs>=1.5.3",
     "mkdocs-material>=9.4.4",
     "mkdocs-blog-plugin>=0.25",
@@ -24,13 +21,14 @@ dependencies = [
 ]
 requires-python = ">=3.8"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 
-[project.entry-points.pdm]
-HydroRollCore = "hydrollcore.cli:Cli.parse_args"
-HRC = "hydrollcore.cli:Cli.parse_args"
+[project.scripts]
+HydroRollCore = "HydroRollCore.cli:Cli.parse_args"
+HRC = "HydroRollCore.cli:Cli.parse_args"
 
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
+
