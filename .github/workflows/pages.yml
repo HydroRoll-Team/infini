@@ -2,8 +2,13 @@ name: build Pages
 on:
   push:
     branches:
-      - master 
+      - master
       - main
+    paths:
+      - "*.md"
+      - docs/**
+      - .github/workflows/pages.yml
+
 permissions:
   contents: write
 jobs:
@@ -14,7 +19,7 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - uses: actions/cache@v3
         with:
           key: mkdocs-material-${{ env.cache_id }}
@@ -23,4 +28,13 @@ jobs:
             mkdocs-material-
       - run: |
           pip install -r requirements.txt
-          mkdocs gh-deploy --force
+          pip install pdm
+          pdm install -G doc
+
+      - name: Build Documentation
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git fetch origin gh-pages:gh-pages
+          cd docs && pdm run mike deploy --update-aliases dev
+          git push origin gh-pages
