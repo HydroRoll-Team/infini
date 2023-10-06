@@ -1,6 +1,6 @@
 [project]
 name = "HydroRollCore"
-version = "0.1.1"
+version = "0.1.2"
 description = "The Core of HydroRoll, The Loader of your rules packages."
 authors = [{ name = "简律纯", email = "i@jyunko.cn" }]
 dependencies = [
