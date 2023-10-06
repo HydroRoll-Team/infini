@@ -6,7 +6,7 @@ groups = ["default"]
 cross_platform = true
 static_urls = false
 lock_version = "4.3"
-content_hash = "sha256:097eaf5671ea0a3d5d922ecc617a7352afc55051643229c403e398a000c4a06b"
+content_hash = "sha256:aac2ab75c17394665d42bf7713cd686f76c0c4a6f3a72b53e5f1cad7d78e113b"
 
 [[package]]
 name = "anyio"
@@ -290,6 +290,17 @@ summary = "XML bomb protection for Python stdlib modules"
 files = [
     {file = "defusedxml-0.7.1-py2.py3-none-any.whl", hash = "sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61"},
     {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
+]
+
+[[package]]
+name = "distribute"
+version = "0.7.3"
+summary = ""
+dependencies = [
+    "setuptools>=0.7",
+]
+files = [
+    {file = "distribute-0.7.3.zip", hash = "sha256:3dc7a8d059dcf72f0ead2fa2144a24ee0ef07dce816e8c3545d7345767138c5e"},
 ]
 
 [[package]]
@@ -1200,6 +1211,16 @@ dependencies = [
 files = [
     {file = "rich-13.6.0-py3-none-any.whl", hash = "sha256:2b38e2fe9ca72c9a00170a1a2d20c63c790d0e10ef1fe35eba76e1e7b1d7d245"},
     {file = "rich-13.6.0.tar.gz", hash = "sha256:5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"},
+]
+
+[[package]]
+name = "setuptools"
+version = "68.2.2"
+requires_python = ">=3.8"
+summary = "Easily download, build, install, upgrade, and uninstall Python packages"
+files = [
+    {file = "setuptools-68.2.2-py3-none-any.whl", hash = "sha256:b454a35605876da60632df1a60f736524eb73cc47bbc9f3f1ef1b644de74fd2a"},
+    {file = "setuptools-68.2.2.tar.gz", hash = "sha256:4ac1475276d2f1c48684874089fefcd83bd7162ddaafb81fac866ba0db282a87"},
 ]
 
 [[package]]

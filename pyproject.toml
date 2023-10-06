@@ -20,6 +20,7 @@ dependencies = [
     "mkdocs-redirects>=1.2.1",
     "mike>=1.1.2",
     "mkdocstrings>=0.23.0",
+    "distribute>=0.7.3",
 ]
 requires-python = ">=3.8"
 readme = "README.md"
