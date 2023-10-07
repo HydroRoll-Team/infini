@@ -2,9 +2,9 @@ site_name: HydroRollCore 核心文档 (草案)
 repo_url: https://github.com/HydroRoll-Team/HydroRollCore
 repo_name: HydroRoll-Team/HydroRollCore
 edit_uri: edit/master/docs/
-site_author: Hsiang Nianian
+site_author: HsiangNianian
 site_description: >-
-  一个基于通用规则包标准的规则包加载器。
+  一个基于通用规则包标准的规则包加载器
 
 theme:
   name: material
@@ -173,18 +173,20 @@ nav:
       - "核心概览": Core/index.md
   - 规则包入门:
       - 简介: RulePackage/intro.md
-      - 快速入门:
+      - 开始:
           - "类": RulePackage/getStart/class.md
           - "方法": RulePackage/getStart/method.md
           - "属性": RulePackage/getStart/attribute.md
-          - 深入研究:
+          - 深入:
               - "对象": RulePackage/getStart/getDeeper/object.md
               - "模块": RulePackage/getStart/getDeeper/Module.md
               - "包": RulePackage/getStart/getDeeper/Package.md
-      - 实战内容:
+      - 实战:
           - "了解Python": RulePackage/Write/python.md
           - "准备规则书": RulePackage/Write/prepare.md
           - "编写规则包": RulePackage/Write/write.md
+      - 技巧:
+        - RulePackage/skill/index.md
   - GRPS 通用规则包标准:
       - 什么是规则包?: Standard/what-is-rule-package.md
       - 为什么要做规则包?: Standard/why-rule-package.md
