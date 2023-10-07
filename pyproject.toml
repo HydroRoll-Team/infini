@@ -21,6 +21,7 @@ dependencies = [
     "mike>=1.1.2",
     "mkdocstrings>=0.23.0",
     "distribute>=0.7.3",
+    "reportlab[pycairo]>=4.0.5",
 ]
 requires-python = ">=3.8"
 readme = "README.md"

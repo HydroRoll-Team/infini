@@ -6,7 +6,7 @@ groups = ["default"]
 cross_platform = true
 static_urls = false
 lock_version = "4.3"
-content_hash = "sha256:aac2ab75c17394665d42bf7713cd686f76c0c4a6f3a72b53e5f1cad7d78e113b"
+content_hash = "sha256:5d7c1be81b0f4501c46e7c5f40f7b9b62ceedf2f3fa0b28003d5981dc3e1d0d9"
 
 [[package]]
 name = "anyio"
@@ -334,6 +334,21 @@ summary = "Backport of PEP 654 (exception groups)"
 files = [
     {file = "exceptiongroup-1.1.3-py3-none-any.whl", hash = "sha256:343280667a4585d195ca1cf9cef84a4e178c4b6cf2274caef9859782b567d5e3"},
     {file = "exceptiongroup-1.1.3.tar.gz", hash = "sha256:097acd85d473d75af5bb98e41b61ff7fe35efe6675e4f9370ec6ec5126d160e9"},
+]
+
+[[package]]
+name = "freetype-py"
+version = "2.3.0"
+requires_python = ">=3.7"
+summary = "Freetype python bindings"
+files = [
+    {file = "freetype-py-2.3.0.zip", hash = "sha256:f9b64ce3272a5c358dcee824800a32d70997fb872a0965a557adca20fce7a5d0"},
+    {file = "freetype_py-2.3.0-py3-none-macosx_10_9_universal2.whl", hash = "sha256:ca7155de937af6f26bfd9f9089a6e9b01fa8f9d3040a3ddc0aeb3a53cf88f428"},
+    {file = "freetype_py-2.3.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ccdb1616794a8ad48beaa9e29d3494e6643d24d8e925cc39263de21c062ea5a7"},
+    {file = "freetype_py-2.3.0-py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:c8f17c3ac35dc7cc9571ac37a00a6daa428a1a6d0fe6926a77d16066865ed5ef"},
+    {file = "freetype_py-2.3.0-py3-none-musllinux_1_1_aarch64.whl", hash = "sha256:89cee8f4e7cf0a37b73a43a08c88703d84e3b9f9243fc665d8dc0b72a5d206a8"},
+    {file = "freetype_py-2.3.0-py3-none-musllinux_1_1_x86_64.whl", hash = "sha256:b95ccd52ff7e9bef34505f8af724cee114a3c3cc9cf13e0fd406fa0cc92b988a"},
+    {file = "freetype_py-2.3.0-py3-none-win_amd64.whl", hash = "sha256:3a552265b06c2cb3fa54f86ed6fcbf045d8dc8176f9475bedddf9a1b31f5402f"},
 ]
 
 [[package]]
@@ -986,6 +1001,29 @@ files = [
 ]
 
 [[package]]
+name = "pycairo"
+version = "1.25.0"
+requires_python = ">=3.8"
+summary = "Python interface for cairo"
+files = [
+    {file = "pycairo-1.25.0-cp310-cp310-win32.whl", hash = "sha256:a8b08f198a45b5e505c1475ed9c3b1a39993b9ebff0e18dd9f194927de6411b7"},
+    {file = "pycairo-1.25.0-cp310-cp310-win_amd64.whl", hash = "sha256:f5d29720075d0d3cc1eef8abb3a3069951b466f04583976adfd770e71bc5be3a"},
+    {file = "pycairo-1.25.0-cp310-cp310-win_arm64.whl", hash = "sha256:7f1390e5e81719bfcf30ad667c09188caa1d3bd190f9af40efcd13e25b7cf25b"},
+    {file = "pycairo-1.25.0-cp311-cp311-win32.whl", hash = "sha256:2e4da8be0a696c2e8a1709f5a2bd849e802147769439ea4268f926695f4b5a55"},
+    {file = "pycairo-1.25.0-cp311-cp311-win_amd64.whl", hash = "sha256:c40ce034a07266460bc3318a179aa43b2824d36754906831a90c99fb4f246370"},
+    {file = "pycairo-1.25.0-cp311-cp311-win_arm64.whl", hash = "sha256:6654201d10c5f13975caec648796b1e0e2b0f8af1e4302a086dc3183bb8346ee"},
+    {file = "pycairo-1.25.0-cp312-cp312-win32.whl", hash = "sha256:caa76409cae523f7c5254ee75935d8d520efa96eaf22c64f26c8e24ca74f8281"},
+    {file = "pycairo-1.25.0-cp312-cp312-win_amd64.whl", hash = "sha256:ec0e05fe7a0d2fc1ef0d6babc19b8b2d731af3ab1638fcdcaad2d42204a487f2"},
+    {file = "pycairo-1.25.0-cp312-cp312-win_arm64.whl", hash = "sha256:8690cc2cba6bd223cc9703a9a7b392fe1bec78003662c6dbc9869d81ee343bdf"},
+    {file = "pycairo-1.25.0-cp38-cp38-win32.whl", hash = "sha256:439c62c3c744aabb70ab6b97f04e0d58e587cc35c2e9f52d1bb2f47f852ea2de"},
+    {file = "pycairo-1.25.0-cp38-cp38-win_amd64.whl", hash = "sha256:9f0ee34c6ca1e7ef970d51fb68e5a6a02a374d2e679ceddf891dfc53408b11c7"},
+    {file = "pycairo-1.25.0-cp39-cp39-win32.whl", hash = "sha256:659b0b701767bbfe16ad3cb291717039555bf4d0b857f64acc7e40e1b39660bc"},
+    {file = "pycairo-1.25.0-cp39-cp39-win_amd64.whl", hash = "sha256:1eb0fe7738e770057017f185a76aaad9aa280da1bdf0571fb85b7e116eeb3001"},
+    {file = "pycairo-1.25.0-cp39-cp39-win_arm64.whl", hash = "sha256:c986f7ee44dee9c6b119604f8f33480d9f5410e550a8bbda5d333742a867a53c"},
+    {file = "pycairo-1.25.0.tar.gz", hash = "sha256:37842b9bfa6339c45a5025f752e1d78d5840b1a0f82303bdd5610846ad8b5c4f"},
+]
+
+[[package]]
 name = "pycparser"
 version = "2.21"
 requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
@@ -1183,6 +1221,35 @@ files = [
 ]
 
 [[package]]
+name = "reportlab"
+version = "4.0.5"
+requires_python = ">=3.7,<4"
+summary = "The Reportlab Toolkit"
+dependencies = [
+    "pillow>=9.0.0",
+]
+files = [
+    {file = "reportlab-4.0.5-py3-none-any.whl", hash = "sha256:1344dbe779b9049a1888105503837d0e5b62163bf5c6b33bd1fbe84bad484f50"},
+    {file = "reportlab-4.0.5.tar.gz", hash = "sha256:9c68f277736f585c5c9938755b826dd57c877fcaeb203e21cefea12b3b1db4f5"},
+]
+
+[[package]]
+name = "reportlab"
+version = "4.0.5"
+extras = ["pycairo"]
+requires_python = ">=3.7,<4"
+summary = "The Reportlab Toolkit"
+dependencies = [
+    "freetype-py<2.4,>=2.3.0",
+    "reportlab==4.0.5",
+    "rlPyCairo<1,>=0.2.0",
+]
+files = [
+    {file = "reportlab-4.0.5-py3-none-any.whl", hash = "sha256:1344dbe779b9049a1888105503837d0e5b62163bf5c6b33bd1fbe84bad484f50"},
+    {file = "reportlab-4.0.5.tar.gz", hash = "sha256:9c68f277736f585c5c9938755b826dd57c877fcaeb203e21cefea12b3b1db4f5"},
+]
+
+[[package]]
 name = "requests"
 version = "2.31.0"
 requires_python = ">=3.7"
@@ -1211,6 +1278,19 @@ dependencies = [
 files = [
     {file = "rich-13.6.0-py3-none-any.whl", hash = "sha256:2b38e2fe9ca72c9a00170a1a2d20c63c790d0e10ef1fe35eba76e1e7b1d7d245"},
     {file = "rich-13.6.0.tar.gz", hash = "sha256:5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"},
+]
+
+[[package]]
+name = "rlpycairo"
+version = "0.3.0"
+requires_python = ">=3.7"
+summary = "Plugin backend renderer for reportlab.graphics.renderPM"
+dependencies = [
+    "freetype-py>=2.3",
+    "pycairo>=1.20.0",
+]
+files = [
+    {file = "rlPyCairo-0.3.0-py3-none-any.whl", hash = "sha256:f6ec712a76914f78c1491351e1d79eeb1a40d072accf5d36075e399963c17b17"},
 ]
 
 [[package]]

@@ -14,7 +14,11 @@
 }
 
 .md-header {
-    background-color: #30323a;
+    background-color: #1d2238;
+}
+
+.md-tabs {
+    background-color: #1d2238;
 }
 
 .md-typeset .twitter {

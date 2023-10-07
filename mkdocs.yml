@@ -9,8 +9,9 @@ site_description: >-
 theme:
   name: material
   language: zh
+  favicon: images/logo.png
   icon:
-    logo: material/library-outline
+    logo: material/book-sync
     repo: fontawesome/brands/git-alt
   custom_dir: material/overrides
   features:

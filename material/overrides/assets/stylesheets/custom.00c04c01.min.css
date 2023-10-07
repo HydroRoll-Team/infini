@@ -13,18 +13,6 @@
     }
 }
 
-.md-header {
-    background-color: #30323a;
-    box-shadow: 0 0 0.2rem #0000, 0 0.2rem 0.4rem #0000;
-    color: var(--md-primary-bg-color);
-    display: block;
-    left: 0;
-    position: sticky;
-    right: 0;
-    top: 0;
-    z-index: 4;
-}
-
 
 .md-typeset .twitter {
     color: #00acee
