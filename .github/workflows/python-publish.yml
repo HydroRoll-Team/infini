@@ -40,7 +40,6 @@ jobs:
           tag="${{ github.ref_name }}"
           DOC_VERSION=${tag%.*}
           pdm run mike deploy --no-redirect --update-aliases "$DOC_VERSION" latest
-          mike set-default --push latest
           git push origin gh-pages
 
       - run: |
