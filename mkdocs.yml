@@ -64,12 +64,6 @@ extra:
   version:
     provider: mike
   homepage: https://grps.retrofor.space # hydroroll-team.github.io
-  alternate:
-    - name: English
-      link: /en/
-      lang: en
-    - name: 中文
-      lang: zh
   consent:
     title: Cookie 偏好设置
     description: >-
