@@ -167,7 +167,7 @@ nav:
   - 水系核心:
       - "核心概览": Core/index.md
   - 规则包入门:
-      - 简介: RulePackage/intro.md
+      - 概述: RulePackage/intro.md
       - 开始:
           - "类": RulePackage/getStart/class.md
           - "方法": RulePackage/getStart/method.md

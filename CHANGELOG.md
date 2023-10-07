@@ -1,3 +1,22 @@
+---
+title: 变更日志
+---
+
+Changelog
+...
+
+
+### [1.0.4](https://github.com/HydroRoll-Team/HydroRollCore/compare/v1.0.3...v1.0.4) (2023-10-07)
+
+### FEATURES
+
+* **Docs:** 美化 `style`。
+* **Deps:** 添加 `reportlab` 依赖，用于以后的 `pdf` 生成。
+
+
+## [1.0.3](https://github.com/HydroRoll-Team/HydroRollCore/compare/v1.0.2...v1.0.3) (2023-10-07)
+
+
 ## [1.0.2](https://github.com/HydroRoll-Team/HydroRollCore/compare/v1.0.1...v1.0.2) (2023-10-07)
 
 ### FEATURES
