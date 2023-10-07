@@ -212,9 +212,9 @@ nav:
       - "CLI Reference": CLI/index.md
   - API Reference:
       - "API Reference": API/index.md
-  - Blog:
+  - 博客:
     - blog/index.md
-  - Changelog:
+  - 日志:
     - changelog.md
 
 extra_css:
