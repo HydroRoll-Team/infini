@@ -186,8 +186,8 @@ nav:
           - "准备规则书": RulePackage/Write/prepare.md
           - "编写规则包": RulePackage/Write/write.md
       - 技巧:
-        - RulePackage/skill/index.md
-  - GRPS 通用规则包标准:
+          - RulePackage/skill/index.md
+  - 通用规则包标准:
       - 什么是规则包?: Standard/what-is-rule-package.md
       - 为什么要做规则包?: Standard/why-rule-package.md
       - 什么是通用规则包标准?: Standard/what-is-standard.md
@@ -208,14 +208,14 @@ nav:
               - ability 检定: Standard/Term/check/ability.md
           - PlayerCard 人物卡:
               - Standard/Term/PlayerCard/index.md
-  - CLI Reference:
+  - CLI 参考:
       - "CLI Reference": CLI/index.md
-  - API Reference:
+  - API 参考:
       - "API Reference": API/index.md
   - 博客:
-    - blog/index.md
+      - blog/index.md
   - 日志:
-    - changelog.md
+      - changelog.md
 
 extra_css:
   - stylesheets/extra.css
