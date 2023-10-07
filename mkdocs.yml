@@ -181,6 +181,7 @@ nav:
           - "编写规则包": RulePackage/Write/write.md
       - 技巧:
           - RulePackage/skill/index.md
+          - "善用语法糖": RulePackage/skill/fstring.md
   - 通用规则包标准:
       - 什么是规则包?: Standard/what-is-rule-package.md
       - 为什么要做规则包?: Standard/why-rule-package.md
