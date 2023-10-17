@@ -15,7 +15,7 @@ from importlib.abc import MetaPathFinder
 from importlib.machinery import PathFinder
 from typing import Any, List, Type, Tuple, TypeVar, Callable, Iterable, Coroutine
 
-from HydroRollCore.config import ConfigModel
+from HydroRollCore.config import Config
 
 __all__ = [
     "ModulePathFinder",
@@ -55,7 +55,7 @@ def is_config_class(config_class: Any) -> bool:
     """
     return (
         inspect.isclass(config_class)
-        and issubclass(config_class, ConfigModel)
+        and issubclass(config_class, Config)
         and isinstance(getattr(config_class, "__config_name__", None), str)
         and ABC not in config_class.__bases__
         and not inspect.isabstract(config_class)

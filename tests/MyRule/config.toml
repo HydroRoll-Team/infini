@@ -1,0 +1,4 @@
+[plugins]
+[HydroRollCore]
+rules = []
+rule_dir = ["rules"]

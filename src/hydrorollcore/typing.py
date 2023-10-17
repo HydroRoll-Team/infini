@@ -1,23 +1,33 @@
-"""HydroRollCore 类型提示支持。
+from pydantic import BaseModel
 
-此模块定义了部分 HydroRollCore 使用的类型。
-"""
 
-from typing import TYPE_CHECKING, TypeVar
+class Config(BaseModel):
+    rule_dir: list = []
+    rules: list = []
 
-if TYPE_CHECKING:
-    from HydroRollCore.core import Core  # noqa
-    from HydroRollCore.rule import Rule  # noqa
-    from HydroRollCore.config import ConfigModel  # noqa
 
-__all__ = [
-    "T_State",
-    "T_Core",
-    "T_Rule",
-    "T_Config"
-]
+class DiceConfig(BaseModel):
+    sides: int
+    counts: int
+    init_dice_pool: int
 
-T_State = TypeVar("T_State")
-T_Core = TypeVar("T_Core", bound="Core")
-T_Rule = TypeVar("T_Rule", bound="Rule")
-T_Config = TypeVar("T_Config", bound="ConfigModel")
+
+class PlayerCard(BaseModel):
+    name: str
+    traits: list
+
+
+class Bonus(BaseModel):
+    level: int
+    cost: int
+
+
+class WikiPage(BaseModel):
+    title: str
+    content: str
+    tags: list = []
+
+
+class WikiModel:
+    class Setting(BaseModel):
+        desc: str

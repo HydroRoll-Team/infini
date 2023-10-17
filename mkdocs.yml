@@ -62,6 +62,9 @@ theme:
     text: Roboto
     code: Roboto Mono
 extra:
+  status:
+    new: 最近添加
+    deprecated: 已被废弃
   version:
     provider: mike
   homepage: https://grps.retrofor.space # hydroroll-team.github.io
@@ -215,3 +218,6 @@ nav:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - "https://samuelcolvin.github.io/mkdocs-run-code/run_code_main.js"
