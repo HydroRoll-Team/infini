@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 <h1 align="right">HydroRollCore'水系核心</h1>
 
 <p align="right">
