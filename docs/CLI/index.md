@@ -1,4 +1,6 @@
-# CLI Reference
+---
+title: CLI Reference
+---
 
 ```python exec="1" idprefix=""
 import argparse
