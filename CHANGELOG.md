@@ -2,9 +2,6 @@
 title: 变更日志
 ---
 
-Changelog
-...
-
 ## [1.0.5](https://github.com/HydroRoll-Team/HydroRollCore/compare/v1.0.3...v1.0.4) (2023-10-08)
 
 ###  BREAKING CHANGES
