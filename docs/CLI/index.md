@@ -6,7 +6,7 @@ title: CLI Reference
 import argparse
 import re
 from HydroRollCore import Cli
-
+ 
 parser = Cli().parser
 
 MONOSPACED = ("pyproject.toml", "pdm.lock", ".pdm-python", ":pre", ":post", ":all")
