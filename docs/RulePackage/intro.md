@@ -8,15 +8,15 @@ title: 概述
     
 水系规则包可以通过 `pip` Pyhton 包管理工具直接下载，但是为了方便，我们推荐以下两个安装方案。
 
-=== "使用`pdm`"
+=== "使用`pdm`管理器"
 
     ```shell
     pdm install MyRule # (1)! 
     ```
 
-    1.  :man_raising_hand: 具体的说是形如 `HydroRollCore-Rule-The_Pool`这样的包名。
+    1.  如果你使用`pdm`管理自己的规则包或开启自己的水系骰子，那么非常推荐使用这种方案来集成形如 `HydroRollCore-Rule-The_Pool`这般包名的规则。
 
-=== "使用`hrc`"
+=== "使用`hrc`管理器"
 
     Phasellus posuere in sem ut cursus (1)
 
