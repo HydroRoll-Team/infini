@@ -8,38 +8,18 @@ title: 概述
     
 水系规则包可以通过 `pip` Pyhton 包管理工具直接下载，但是为了方便，我们推荐以下两个安装方案。
 
-=== "Tab 1"
+=== "使用`pdm`"
 
-    Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
-    { .annotate }
+    ```shell
+    pdm install MyRule # (1)! 
+    ```
 
-    1.  :man_raising_hand: I'm an annotation!
+    1.  :man_raising_hand: 具体的说是形如 `HydroRollCore-Rule-The_Pool`这样的包名。
 
-=== "Tab 2"
+=== "使用`hrc`"
 
     Phasellus posuere in sem ut cursus (1)
-    { .annotate }
 
     1.  :woman_raising_hand: I'm an annotation as well!
 
-
-``` yaml
-site_name: My Blog
-theme:
-  name: material
-  features:
-    - navigation.sections
-plugins:
-  - blog:
-      blog_dir: . # (1)!
-  - search
-  - tags
-nav:
-  - index.md
-```
-
-1.  This is the important part – we're hosting the blog at the root of the
-    project, and not in a subdirectory. For more information, see the
-    [`blog_dir`][blog_dir] configuration option.
-
-  [blog_dir]: ../../setup/setting-up-a-blog.md#+blog.blog_dir
+***
