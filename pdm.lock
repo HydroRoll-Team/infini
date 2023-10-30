@@ -778,7 +778,7 @@ files = [
 
 [[package]]
 name = "mkdocs-git-revision-date-localized-plugin"
-version = "1.2.0"
+version = "1.2.1"
 requires_python = ">=3.6"
 summary = "Mkdocs plugin that enables displaying the localized date of the last git modification of a markdown file."
 dependencies = [
@@ -788,13 +788,13 @@ dependencies = [
     "pytz",
 ]
 files = [
-    {file = "mkdocs-git-revision-date-localized-plugin-1.2.0.tar.gz", hash = "sha256:7752edd7c4dcaa9383e9a5b6a4f729831a62d604b0c43b319331127720c6a2bf"},
-    {file = "mkdocs_git_revision_date_localized_plugin-1.2.0-py3-none-any.whl", hash = "sha256:540b9c930d8d48630c090b72ac2c3900ac2ed0799b23738a33b88e31f5198fe7"},
+    {file = "mkdocs-git-revision-date-localized-plugin-1.2.1.tar.gz", hash = "sha256:fc5b23a9d572cbba0114e9e17152001d01724990cb308830e58291fa614faf73"},
+    {file = "mkdocs_git_revision_date_localized_plugin-1.2.1-py3-none-any.whl", hash = "sha256:d57dc99d67af917899e69c392f1ebccd1779fa243d641255469b03f8a3596b96"},
 ]
 
 [[package]]
 name = "mkdocs-material"
-version = "9.4.4"
+version = "9.4.6"
 requires_python = ">=3.8"
 summary = "Documentation that simply works"
 dependencies = [
@@ -811,34 +811,34 @@ dependencies = [
     "requests~=2.26",
 ]
 files = [
-    {file = "mkdocs_material-9.4.4-py3-none-any.whl", hash = "sha256:86fe79253afccc7f085f89a2d8e9e3300f82c4813d9b910d9081ce57a7e68380"},
-    {file = "mkdocs_material-9.4.4.tar.gz", hash = "sha256:ab84a7cfaf009c47cd2926cdd7e6040b8cc12c3806cc533e8b16d57bd16d9c47"},
+    {file = "mkdocs_material-9.4.6-py3-none-any.whl", hash = "sha256:78802035d5768a78139c84ad7dce0c6493e8f7dc4861727d36ed91d1520a54da"},
+    {file = "mkdocs_material-9.4.6.tar.gz", hash = "sha256:09665e60df7ee9e5ff3a54af173f6d45be718b1ee7dd962bcff3102b81fb0c14"},
 ]
 
 [[package]]
 name = "mkdocs-material-extensions"
-version = "1.2"
-requires_python = ">=3.7"
+version = "1.3"
+requires_python = ">=3.8"
 summary = "Extension pack for Python Markdown and MkDocs Material."
 files = [
-    {file = "mkdocs_material_extensions-1.2-py3-none-any.whl", hash = "sha256:c767bd6d6305f6420a50f0b541b0c9966d52068839af97029be14443849fb8a1"},
-    {file = "mkdocs_material_extensions-1.2.tar.gz", hash = "sha256:27e2d1ed2d031426a6e10d5ea06989d67e90bb02acd588bc5673106b5ee5eedf"},
+    {file = "mkdocs_material_extensions-1.3-py3-none-any.whl", hash = "sha256:0297cc48ba68a9fdd1ef3780a3b41b534b0d0df1d1181a44676fda5f464eeadc"},
+    {file = "mkdocs_material_extensions-1.3.tar.gz", hash = "sha256:f0446091503acb110a7cab9349cbc90eeac51b58d1caa92a704a81ca1e24ddbd"},
 ]
 
 [[package]]
 name = "mkdocs-material"
-version = "9.4.4"
+version = "9.4.6"
 extras = ["imaging"]
 requires_python = ">=3.8"
 summary = "Documentation that simply works"
 dependencies = [
     "cairosvg~=2.6",
-    "mkdocs-material==9.4.4",
+    "mkdocs-material==9.4.6",
     "pillow~=9.4",
 ]
 files = [
-    {file = "mkdocs_material-9.4.4-py3-none-any.whl", hash = "sha256:86fe79253afccc7f085f89a2d8e9e3300f82c4813d9b910d9081ce57a7e68380"},
-    {file = "mkdocs_material-9.4.4.tar.gz", hash = "sha256:ab84a7cfaf009c47cd2926cdd7e6040b8cc12c3806cc533e8b16d57bd16d9c47"},
+    {file = "mkdocs_material-9.4.6-py3-none-any.whl", hash = "sha256:78802035d5768a78139c84ad7dce0c6493e8f7dc4861727d36ed91d1520a54da"},
+    {file = "mkdocs_material-9.4.6.tar.gz", hash = "sha256:09665e60df7ee9e5ff3a54af173f6d45be718b1ee7dd962bcff3102b81fb0c14"},
 ]
 
 [[package]]
@@ -1369,31 +1369,31 @@ files = [
 
 [[package]]
 name = "reportlab"
-version = "4.0.5"
+version = "4.0.6"
 requires_python = ">=3.7,<4"
 summary = "The Reportlab Toolkit"
 dependencies = [
     "pillow>=9.0.0",
 ]
 files = [
-    {file = "reportlab-4.0.5-py3-none-any.whl", hash = "sha256:1344dbe779b9049a1888105503837d0e5b62163bf5c6b33bd1fbe84bad484f50"},
-    {file = "reportlab-4.0.5.tar.gz", hash = "sha256:9c68f277736f585c5c9938755b826dd57c877fcaeb203e21cefea12b3b1db4f5"},
+    {file = "reportlab-4.0.6-py3-none-any.whl", hash = "sha256:ec062675202eb76f6100ed44da64f38ed3c7feb5016cf4fe7f17ce35423ab14a"},
+    {file = "reportlab-4.0.6.tar.gz", hash = "sha256:069aa35da7c882921f419f6e26327e14dac1d9d0adeb40b584cdadd974d99fc0"},
 ]
 
 [[package]]
 name = "reportlab"
-version = "4.0.5"
+version = "4.0.6"
 extras = ["pycairo"]
 requires_python = ">=3.7,<4"
 summary = "The Reportlab Toolkit"
 dependencies = [
     "freetype-py<2.4,>=2.3.0",
-    "reportlab==4.0.5",
+    "reportlab==4.0.6",
     "rlPyCairo<1,>=0.2.0",
 ]
 files = [
-    {file = "reportlab-4.0.5-py3-none-any.whl", hash = "sha256:1344dbe779b9049a1888105503837d0e5b62163bf5c6b33bd1fbe84bad484f50"},
-    {file = "reportlab-4.0.5.tar.gz", hash = "sha256:9c68f277736f585c5c9938755b826dd57c877fcaeb203e21cefea12b3b1db4f5"},
+    {file = "reportlab-4.0.6-py3-none-any.whl", hash = "sha256:ec062675202eb76f6100ed44da64f38ed3c7feb5016cf4fe7f17ce35423ab14a"},
+    {file = "reportlab-4.0.6.tar.gz", hash = "sha256:069aa35da7c882921f419f6e26327e14dac1d9d0adeb40b584cdadd974d99fc0"},
 ]
 
 [[package]]

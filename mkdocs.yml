@@ -13,11 +13,29 @@ theme:
   icon:
     logo: material/book-sync
     repo: fontawesome/brands/git-alt
+    annotation: material/arrow-right-circle 
   custom_dir: material/overrides
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - content.action.edit
     - content.action.view
     - content.tooltips
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
     - navigation.footer
     - navigation.tabs
     # - navigation.tabs.sticky
@@ -32,16 +50,10 @@ theme:
     - search.share
     - header.autohide
     - navigation.footer
-    - content.code.annotate
-    - content.code.copy
-    - content.code.select
+    - announce.dismiss
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
-  palette:
-    scheme: slate
-    primary: black
-    accent: blue
 
   font:
     text: Times New
@@ -79,17 +91,18 @@ copyright: >
   <a href="#__consent">管理Cookies</a>
 
 markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
   - pymdownx.snippets:
       auto_append:
         - RulePackage/getStart/getDeeper/Module.md
   - abbr
   - admonition
-  - attr_list
   - def_list
   - footnotes
-  - md_in_html
   - toc:
-      permalink: ⚓︎
+      permalink: ⚓
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:

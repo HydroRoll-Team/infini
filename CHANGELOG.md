@@ -5,8 +5,24 @@ title: 变更日志
 Changelog
 ...
 
+## [1.0.5](https://github.com/HydroRoll-Team/HydroRollCore/compare/v1.0.3...v1.0.4) (2023-10-08)
 
-### [1.0.4](https://github.com/HydroRoll-Team/HydroRollCore/compare/v1.0.3...v1.0.4) (2023-10-07)
+###  BREAKING CHANGES
+
+### FEATURES
+
+* **Docs:** balabla.
+* **Rule:** 支持泛型。
+
+### BUG FIX
+* **Docs:** balabla.
+
+### CHORE
+
+* **Readme:** 添加了主页介绍。
+
+
+## [1.0.4](https://github.com/HydroRoll-Team/HydroRollCore/compare/v1.0.3...v1.0.4) (2023-10-07)
 
 ### FEATURES
 
