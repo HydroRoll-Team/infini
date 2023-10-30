@@ -11,15 +11,17 @@ title: 概述
 === "使用`pdm`管理器"
 
     ```shell
-    pdm install MyRule # (1)! 
+    pdm install MyRule
     ```
 
-    1.  如果你使用`pdm`管理自己的规则包或开启自己的水系骰子，那么非常推荐使用这种方案来集成形如 `HydroRollCore-Rule-The_Pool`这般包名的规则。
+    如果你使用`pdm`管理自己的规则包或开启自己的水系骰子，那么非常推荐使用这种方案来集成形如 `HydroRollCore-Rule-The_Pool`这般包名的规则。
 
 === "使用`hrc`管理器"
 
-    Phasellus posuere in sem ut cursus (1)
+    ```shell
+    hrc install MyRule
+    ``` 
+    
+    一般来说推荐使用`hrc`管理器来安装和调试规则包。 (1)
 
-    1.  :woman_raising_hand: I'm an annotation as well!
-
-***
+    1.  这样会无视虚拟环境规则而直接找到当前使用的文件路径，而不需要像`pdm`那样只能用在`pdm`本身创建的虚拟环境内了。
