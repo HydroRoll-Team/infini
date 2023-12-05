@@ -9,8 +9,9 @@ from datetime import datetime
 
 from loguru import logger as _logger
 
-logger = _logger
+__all__ = ["logger", "error_or_exception"]
 
+logger = _logger
 current_path = os.path.dirname(os.path.abspath("__file__"))
 log_path = os.path.join(
     current_path, "logs", datetime.now().strftime("%Y-%m-%d") + ".log"
