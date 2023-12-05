@@ -16,6 +16,9 @@ class RuleLoadType(Enum):
 class Rule(metaclass=ABCMeta):
     """规则基类"""
 
+    name: str
+    priority: int = 0
+
     @abstractmethod
     def __init__(self):
         raise NotImplementedError
