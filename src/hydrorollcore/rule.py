@@ -14,16 +14,15 @@ class RuleLoadType(Enum):
 
 
 class Rule(metaclass=ABCMeta):
+    """规则基类"""
+
+    name: str
+    priority: int = 0
+
     @abstractmethod
     def __init__(self):
-        pass
-
-    @classmethod
-    def __subclasshook__(cls, other):
-        if cls is Rule:
-            return hasattr(other, "run") and callable(getattr(other, "run"))
-        return NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     async def run(self):
-        pass
+        raise NotImplementedError

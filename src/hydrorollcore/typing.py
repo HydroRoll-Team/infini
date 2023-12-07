@@ -1,5 +1,12 @@
 from pydantic import BaseModel
-from typing import TYPE_CHECKING, TypeVar, Callable, NoReturn, Awaitable
+from typing import (
+    TYPE_CHECKING as TYPE_CHECKING,
+    TypeVar as TypeVar,
+    Callable as Callable,
+    NoReturn as NoReturn,
+    Awaitable as Awaitable,
+)
+
 
 class Config(BaseModel):
     rule_dir: list = []
