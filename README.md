@@ -21,7 +21,7 @@
 
 1. 安装库
 
-> Important
+> [!IMPORTANT]  
 > 
 > 强烈推荐使用`pdm`管理你的`Bot`项目。
 
