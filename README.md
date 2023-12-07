@@ -55,7 +55,7 @@ class Myrule(Rule):
 3. 合理修改你的 `config.toml` 配置文件，完成注册!
 
 ### 🎍Sites
-https://grps.retrofor.space _(recommend)_  
+https://grps.hydroroll.team _(recommend)_  
 https://grps-v1.netlify.app  
 ~~https://hydroroll-team.github.io/HydroRollCore/~~
 
