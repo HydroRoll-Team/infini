@@ -17,11 +17,12 @@
 
 </p>
 
-## 🎁 Getting <img align="right" src="https://hydroroll.retrofor.space/HydroRollBlue.png" height="120">
+## 🎁 Getting <img align="right" src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/HydroRoll-Team/HydroRoll/main/site/src/assets/image/logo.png" height="120">
 
 1. 安装库
 
-> **warning**
+> Important
+> 
 > 强烈推荐使用`pdm`管理你的`Bot`项目。
 
 在命令行输入。
