@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from enum import Enum
+from .exceptions import HydroError
 
 __all__ = ["RuleLoadType", "Rule"]
 
@@ -17,6 +18,17 @@ class Result(metaclass=ABCMeta):
     """规则检定结果基类"""
 
     event: str
+    status: bool
+    exception: HydroError | None = None
+
+    def __init__(self, event: str, status: bool, exception: HydroError | None) -> None:
+        self.event = event
+        self.status = status
+        self.exception = exception
+
+    def ok(self):
+        """规则执行期间是否产生异常"""
+        return isinstance(self.exception, HydroError)
 
 
 class Dice(metaclass=ABCMeta):
@@ -32,12 +44,17 @@ class Dice(metaclass=ABCMeta):
     def __str__(self) -> str:
         return self.db.upper()
 
+    def __int__(self) -> int:
+        return self.outcome
+
     @abstractmethod
     def parse(self) -> "Dice":
+        """解析传入的掷骰字符串`roll_string`，返回一个`Dice`对象"""
         raise NotImplementedError
 
     @abstractmethod
     def roll(self) -> int:
+        """掷骰方法，返回掷骰结果"""
         raise NotImplementedError
 
 
