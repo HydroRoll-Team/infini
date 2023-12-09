@@ -19,11 +19,11 @@
 
 ## 🎁 Getting <img align="right" alt="hydro" src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/HydroRoll-Team/HydroRoll/main/site/src/assets/image/logo.png" height="120">
 
-1. 安装库
+> [!IMPORTANT]  
+>
+> 强烈推荐使用`pdm`管理你的`HydroBot`项目。
 
-    > [!IMPORTANT]  
-    >
-    > 强烈推荐使用`pdm`管理你的`Bot`项目。
+1. 安装库
 
     在终端中执行：
 
