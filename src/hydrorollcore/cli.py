@@ -22,11 +22,7 @@ class Cli:
         # if args.gui:
         #     messagebox.showinfo("提示", "这是一个弹窗！")
 
-        if not args.path:
-            path = Path(os.getcwd()).resolve()
-        else:
-            path = Path(args.path).resolve()
-
+        path = Path(args.path).resolve() if args.path else Path(os.getcwd()).resolve()
         if args.new and args.run:
             print("无法确定的指令要求: 你同时指定了new与run指令。")
             sys.exit(1)
