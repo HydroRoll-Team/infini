@@ -21,7 +21,7 @@ if not LOG_PATH.exists():
 logger.add(sink=LOG_PATH, level="INFO", rotation="10 MB")  # 每个日志文件最大为 10MB
 
 
-def error_or_exception(message: str, exception: Exception, verbose: bool):
+def error_or_exception(message: str, exception: Exception, verbose: bool = True):
     # 弃用的方法
     # logger.remove()
     # logger.add(
@@ -30,6 +30,7 @@ def error_or_exception(message: str, exception: Exception, verbose: bool):
     # )
 
     if verbose:
-        logger.exception(message)
+        logger.exception(exception)
+        logger.critical(message)
     else:
         logger.critical(f"{message} {exception!r}")
