@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 from enum import Enum
 from .exceptions import HydroError
 
-__all__ = ["RuleLoadType", "Rule"]
+__all__ = ["RuleLoadType", "Result", "Dice", "Rule"]
 
 
 class RuleLoadType(Enum):
@@ -69,5 +69,5 @@ class Rule(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def check(self) -> Result:
+    def check(self, dice: Dice) -> Result:
         raise NotImplementedError
