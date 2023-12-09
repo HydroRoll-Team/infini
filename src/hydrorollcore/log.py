@@ -3,28 +3,32 @@
 HydroRollCore 使用 [loguru](https://github.com/Delgan/loguru) 来记录日志信息。
 自定义 logger 请参考 [loguru](https://github.com/Delgan/loguru) 文档。
 """
-import os
-import sys
 from datetime import datetime
+from multilogging import multilogger
+from pathlib import Path
+from .settings import DEBUG
 
-from loguru import logger as _logger
 
 __all__ = ["logger", "error_or_exception"]
 
-logger = _logger
-current_path = os.path.dirname(os.path.abspath("__file__"))
-log_path = os.path.join(
-    current_path, "logs", datetime.now().strftime("%Y-%m-%d") + ".log"
+logger = multilogger(
+    name="HydroRoll", payload="Core", level="DEBUG" if DEBUG else "INFO"
 )
+current_path = Path(__file__).resolve().parent
+LOG_PATH = current_path / "logs" / (datetime.now().strftime("%Y-%m-%d") + ".log")
+if not LOG_PATH.exists():
+    LOG_PATH.mkdir(parents=True, exist_ok=True)
+logger.add(sink=LOG_PATH, level="INFO", rotation="10 MB")  # 每个日志文件最大为 10MB
 
 
 def error_or_exception(message: str, exception: Exception, verbose: bool):
-    logger.remove()
-    logger.add(
-        sys.stderr,
-        format="<magenta>{time:YYYY-MM-DD HH:mm:ss.SSS}</magenta> <level>[{level}]</level> > <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>",
-    )
-    logger.add(sink=log_path, level="INFO", rotation="10 MB")  # 每个日志文件最大为 10MB
+    # 弃用的方法
+    # logger.remove()
+    # logger.add(
+    #     sys.stderr,
+    #     format="<magenta>{time:YYYY-MM-DD HH:mm:ss.SSS}</magenta> <level>[{level}]</level> > <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>",
+    # )
+
     if verbose:
         logger.exception(message)
     else:
