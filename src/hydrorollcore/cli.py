@@ -23,11 +23,7 @@ class Cli:
             logger.critical("选项[--gui]尚未被支持！")
             sys.exit(1)
 
-        if not args.path:
-            path = Path(os.getcwd()).resolve()
-        else:
-            path = Path(args.path).resolve()
-
+        path = Path(args.path).resolve() if args.path else Path(os.getcwd()).resolve()
         if args.new and args.run:
             logger.error("无法确定的指令要求: 你同时指定了new与run指令。")
             sys.exit(1)
