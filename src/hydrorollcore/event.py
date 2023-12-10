@@ -1,5 +1,5 @@
 from .typing import Dict
-from .log import logger
+from .logging import logger
 
 import re
 

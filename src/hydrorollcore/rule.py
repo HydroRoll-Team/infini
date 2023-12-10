@@ -1,6 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from enum import Enum
 from .exceptions import HydroError
+from .typing import Dict
 
 __all__ = ["RuleLoadType", "Result", "Dice", "Rule"]
 
@@ -62,6 +63,7 @@ class Rule(metaclass=ABCMeta):
     """规则基类"""
 
     name: str
+    dices: Dict[str, str] = {}
     priority: int = 0
 
     @abstractmethod

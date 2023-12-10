@@ -1,6 +1,6 @@
 from pathlib import Path
 from .consts import templates
-from .log import logger
+from .logging import logger
 
 import argparse
 import os
