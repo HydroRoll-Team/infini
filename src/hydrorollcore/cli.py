@@ -5,6 +5,7 @@ from .log import logger
 import argparse
 import os
 import sys
+import importlib
 
 
 class Cli:
@@ -42,3 +43,7 @@ class Cli:
             (path / "dice.py").write_text(templates.DICE, encoding="utf-8")
 
             logger.success("HydroRoll 规则包模板已创建！")
+
+        if args.run:
+            sys.path.append(str(path))
+            importlib.import_module("event")
