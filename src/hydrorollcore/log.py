@@ -15,10 +15,14 @@ logger = multilogger(
     name="HydroRoll", payload="Core", level="DEBUG" if DEBUG else "INFO"
 )
 current_path = Path(__file__).resolve().parent
-LOG_PATH = current_path / "logs" / (datetime.now().strftime("%Y-%m-%d") + ".log")
+LOG_PATH = current_path / "logs"
 if not LOG_PATH.exists():
     LOG_PATH.mkdir(parents=True, exist_ok=True)
-logger.add(sink=LOG_PATH, level="INFO", rotation="10 MB")  # 每个日志文件最大为 10MB
+logger.add(
+    sink=LOG_PATH / (datetime.now().strftime("%Y-%m-%d") + ".log"),
+    level="INFO",
+    rotation="10 MB",
+)  # 每个日志文件最大为 10MB
 
 
 def error_or_exception(message: str, exception: Exception, verbose: bool = True):
