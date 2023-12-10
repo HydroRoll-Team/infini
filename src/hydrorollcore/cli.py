@@ -9,7 +9,7 @@ import importlib
 
 
 class Cli:
-    def parse_args(self, args: list = None):
+    def parse_args(self, argv: list[str] | None = None):
         parser = argparse.ArgumentParser(description="HydroRoll 命令行工具")
 
         parser.add_argument("--new", action="store_true", help="创建一个 HydroRoll 规则包模板")
@@ -17,7 +17,7 @@ class Cli:
         parser.add_argument("--gui", action="store_true", help="显示弹窗")
         parser.add_argument("--path", help="指定路径")
 
-        args = parser.parse_args(args if args else sys.argv[1:])
+        args = parser.parse_args(argv if argv else sys.argv[1:])
 
         if args.gui:
             logger.critical("选项[--gui]尚未被支持！")
