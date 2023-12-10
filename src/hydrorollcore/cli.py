@@ -37,8 +37,8 @@ class Cli:
                 sys.exit(1)
 
             path.mkdir(parents=True, exist_ok=True)
-            (path / "rule.py").write_text(templates.RULE)
-            (path / "event.py").write_text(templates.EVENT)
-            (path / "dice.py").write_text(templates.DICE)
+            (path / "rule.py").write_text(templates.RULE, encoding="utf-8")
+            (path / "event.py").write_text(templates.EVENT, encoding="utf-8")
+            (path / "dice.py").write_text(templates.DICE, encoding="utf-8")
 
             logger.success("HydroRoll 规则包模板已创建！")
