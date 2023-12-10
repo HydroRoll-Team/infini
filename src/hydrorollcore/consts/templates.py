@@ -1,5 +1,6 @@
 RULE = """from HydroRollCore import Rule, Result, Dice
 
+
 class MyRule(Rule):
     \"\"\"自设规则包\"\"\"
 
@@ -18,12 +19,17 @@ EVENT = """from HydroRollCore import Event
 
 __events__ = ["MyEvent"]
 
+
 class MyEvent(Event):
     name = "event1"
     output = "检定成功!"
 """
 
 DICE = """from HydroRollCore import Dice
+
+import random
+import re
+
 
 class BaseDice(Dice):
     \"\"\"多面骰\"\"\"
