@@ -21,7 +21,7 @@
 
 > [!IMPORTANT]  
 >
-> 强烈推荐使用`pdm`管理你的`HydroBot`项目。
+> 强烈推荐使用 `pdm` 等能创建虚拟环境的包管理工具管理你的 `HydroRollBot` 项目。
 
 1. 安装库
 
