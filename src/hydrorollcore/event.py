@@ -15,12 +15,10 @@ class Events:
         self._events[name.lower()] = output
 
     def process(self, name: str, **kwargs) -> str:
-        string = self._events.get(name.lower())
-        if not string:
-            logger.warning(f"事件[{name.lower()}]不存在，将返回空字符串！")
-            return ""
-        else:
+        if string := self._events.get(name.lower()):
             return self._format(string, **kwargs)
+        logger.warning(f"事件[{name.lower()}]不存在，将返回空字符串！")
+        return ""
 
     def _format(self, string: str, **kwargs):
         pattern = r"{(.*?)}"

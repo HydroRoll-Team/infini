@@ -11,7 +11,7 @@ class Manager:
     def __init__(self, _events: Events = None) -> None:
         self.events = _events if _events else events
 
-    def roll(roll_string: str):
+    def roll(self):
         ...
 
 
