@@ -8,7 +8,7 @@
         <img alt="pypi" src="https://img.shields.io/pypi/v/infini?labelColor=000000">
     </a>
     <a href="https://github.com/HydroRoll-Team/infini/blob/master/LICENSE">
-        <img alt="hydro" src="https://img.shields.io/pypi/l/infini.svg?labelColor=000000&color=">
+        <img alt="hydro" src="https://img.shields.io/pypi/l/infini?labelColor=000000&color=">
     </a>
 
 [![.github/workflows/python-publish.yml](https://github.com/HydroRoll-Team/infini/actions/workflows/python-publish.yml/badge.svg)](https://github.com/HydroRoll-Team/infini/actions/workflows/python-publish.yml)
