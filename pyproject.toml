@@ -1,5 +1,5 @@
 [project]
-name = "HydroRollCore"
+name = "infini"
 version = "1.0.3"
 description = "The Core of HydroRoll, The Loader of your rules packages."
 authors = [{ name = "简律纯", email = "i@jyunko.cn" }]
@@ -31,8 +31,8 @@ license = { text = "MIT" }
 
 
 [project.scripts]
-HydroRollCore = "HydroRollCore.cli:Cli.parse_args"
-HRC = "HydroRollCore.cli:Cli.parse_args"
+infini = "infini.cli:Cli.parse_args"
+HRC = "infini.cli:Cli.parse_args"
 
 [build-system]
 requires = ["pdm-backend"]

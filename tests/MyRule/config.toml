@@ -1,4 +1,4 @@
 [plugins]
-[HydroRollCore]
+[infini]
 rules = []
 rule_dir = ["rules"]

@@ -1,6 +1,6 @@
-site_name: HydroRollCore 核心文档
-repo_url: https://github.com/HydroRoll-Team/HydroRollCore
-repo_name: HydroRoll-Team/HydroRollCore
+site_name: infini 核心文档
+repo_url: https://github.com/HydroRoll-Team/infini
+repo_name: HydroRoll-Team/infini
 edit_uri: edit/master/docs/
 site_author: HsiangNianian
 site_description: >-
@@ -84,7 +84,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/HydroRoll-Team
     - icon: fontawesome/brands/python
-      link: https://pypi.org/project/HydroRollCore/
+      link: https://pypi.org/project/infini/
 
 copyright: >
   Copyright &copy; 2013 - PRESENT. <a href="https://github.com/HydroRoll-Team">HydroRoll-Team</a> –
@@ -123,7 +123,7 @@ markdown_extensions:
       normalize_issue_symbols: true
       repo_url_shorthand: true
       user: HydroRoll-Team
-      repo: HydroRollCore
+      repo: infini
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:
@@ -160,7 +160,7 @@ plugins:
       type: timeago
       custom_format: "%d. %B %Y"
   - git-committers:
-      repository: HydroRoll-Team/HydroRollCore
+      repository: HydroRoll-Team/infini
   - minify:
       minify_html: true
 nav:

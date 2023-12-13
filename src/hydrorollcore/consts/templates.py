@@ -1,4 +1,4 @@
-RULE = """from HydroRollCore import Rule, Result, Dice
+RULE = """from infini import Rule, Result, Dice
 
 
 class MyRule(Rule):
@@ -15,7 +15,7 @@ class MyRule(Rule):
         return Result("myevent.event1", True)
 """
 
-EVENT = """from HydroRollCore import Event
+EVENT = """from infini import Event
 
 __events__ = ["MyEvent"]
 
@@ -25,7 +25,7 @@ class MyEvent(Event):
     output = "检定成功!"
 """
 
-DICE = """from HydroRollCore import Dice
+DICE = """from infini import Dice
 
 import random
 import re

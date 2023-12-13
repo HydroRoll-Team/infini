@@ -16,7 +16,7 @@ title: 概述
     pdm install MyRule
     ```
 
-    如果你使用`pdm`管理自己的规则包或开启自己的水系骰子，那么非常推荐使用这种方案来集成形如 `HydroRollCore-Rule-The_Pool`这般包名的规则。
+    如果你使用`pdm`管理自己的规则包或开启自己的水系骰子，那么非常推荐使用这种方案来集成形如 `infini-Rule-The_Pool`这般包名的规则。
 
 === "使用`hrc`管理器"
 

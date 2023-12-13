@@ -1,4 +1,4 @@
-from HydroRollCore.rule import WikiModel
+from infini.rule import WikiModel
 
 
 class Wiki(WikiModel):

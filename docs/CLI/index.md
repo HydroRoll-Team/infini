@@ -5,7 +5,7 @@ title: CLI Reference
 ```python exec="1" idprefix=""
 import argparse
 import re
-from HydroRollCore import Cli
+from infini import Cli
 
 parser = Cli().parser
 
@@ -26,7 +26,7 @@ def render_parser(
 ) -> str:
     """Render the parser help documents as a string."""
     result = [f"{'#' * heading_level} {title}\n"]
-    if parser.description and title != "HydroRollCore":
+    if parser.description and title != "infini":
         result.append("> " + parser.description + "\n")
 
     for group in sorted(
@@ -62,5 +62,5 @@ def render_parser(
     return "\n".join(result)
 
 
-print(render_parser(parser, "HydroRollCore"))
+print(render_parser(parser, "infini"))
 ```

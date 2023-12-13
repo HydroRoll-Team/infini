@@ -1,4 +1,4 @@
-from HydroRollCore import Rule, Core
+from infini import Rule, Core
 
 core = Core()
 

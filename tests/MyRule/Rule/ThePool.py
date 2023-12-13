@@ -1,4 +1,4 @@
-from HydroRollCore import Rule
+from infini import Rule
 from .wiki import Wiki
 
 

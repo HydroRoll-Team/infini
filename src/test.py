@@ -1,4 +1,4 @@
-import HydroRollCore
+import infini
 
-client = HydroRollCore.Cli()
+client = infini.Cli()
 client.parse_args()
