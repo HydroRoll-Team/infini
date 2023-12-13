@@ -1,7 +1,7 @@
 [project]
 name = "infini"
-version = "1.0.3"
-description = "The Core of HydroRoll, The Loader of your rules packages."
+version = "1.0.4"
+description = "The `Core` of `HydroRoll`, the `Loader` of your rules packages."
 authors = [{ name = "简律纯", email = "i@jyunko.cn" }]
 dependencies = [
     "mkdocs>=1.5.3",
