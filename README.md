@@ -68,7 +68,17 @@
 
     `process`函数应当返回一个`Result`对象，它应当包含一个消息事件名（例如示例中的`event1`），该消息事件名应当在 `MyRule\event.py` 中被注册。消息事件的动态内容通过`{name}`的方式声明并通过`name="内容"`的方式实现。
 
-3. 合理修改你的 `config.toml` 配置文件，完成注册!
+3. 创建你的测试文件
+
+    在 `MyRule\tests.py` 中的 `test` 函数中给出测试函数，并返回一个 `list`，应当包含所有异常内容。
+
+4. 测试你的规则包
+
+    执行指令：
+
+    ```bash
+    python -m infini test MyRule
+    ```
 
 ### 🎍Sites
 
