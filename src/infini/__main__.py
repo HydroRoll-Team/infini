@@ -28,13 +28,13 @@ def main():
         path.mkdir(parents=True, exist_ok=True)
         (path / "rule.py").write_text(templates.RULE, encoding="utf-8")
         (path / "event.py").write_text(templates.EVENT, encoding="utf-8")
-        (path / "dice.py").write_text(templates.DICE, encoding="utf-8")
 
         logger.success("HydroRoll 规则包模板已创建！")
 
     if args.run:
         sys.path.append(str(path))
         importlib.import_module("event")
+
 
 if __name__ == "__main__":
     main()
