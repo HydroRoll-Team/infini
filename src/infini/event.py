@@ -1,9 +1,10 @@
+from abc import ABCMeta
 from .typing import Dict
 from .logging import logger
 
 import re
 
-__all__ = ["Event", "events"]
+__all__ = ["MessageEvent", "events"]
 
 
 class Events:
@@ -30,8 +31,8 @@ class Events:
         return string
 
 
-class Event:
-    """事件基类"""
+class MessageEvent(metaclass=ABCMeta):
+    """消息事件基类"""
 
     name: str
     output: str

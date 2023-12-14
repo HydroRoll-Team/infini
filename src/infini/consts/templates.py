@@ -1,7 +1,7 @@
-RULE = """from infini import Rule, Result, Dice
+RULE = """from infini import Handler, Result
 
 
-class MyRule(Rule):
+class HandlerRule(Handler):
     \"\"\"自设规则包\"\"\"
 
     name = "MyRule"
@@ -10,7 +10,7 @@ class MyRule(Rule):
     def __init__(self) -> None:
         \"\"\"初始化你的规则包\"\"\"
 
-    def check(self, dice: Dice) -> Result:
+    def check(self) -> Result:
         \"\"\"声明规则包检定方式\"\"\"
         return Result("myevent.event1", True)
 """
