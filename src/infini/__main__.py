@@ -16,12 +16,9 @@ def main():
         sys.exit(1)
 
     path = Path(args.path).resolve() if args.path else Path(os.getcwd()).resolve()
-    if args.new and args.test:
-        logger.error("无法确定的指令要求: 你同时指定了new与test指令。")
-        sys.exit(1)
 
-    if args.new:
-        if path.exists():
+    if args.operate == "new":
+        if path.exists() and not args.force:
             logger.error("指定的文件夹已经存在！")
             sys.exit(1)
 
@@ -32,20 +29,27 @@ def main():
 
         logger.success("HydroRoll 规则包模板已创建！")
 
-    if args.load:
+    if args.operate == "test":
+        logger.info(f"开始测试规则包: {path.name}...")
         sys.path.append(str(path))
-        importlib.import_module("event")
-        importlib.import_module("handler")
+        logger.info(f"初始化规则包中...")
+        try:
+            importlib.import_module("event")
+            importlib.import_module("handler")
+        except Exception as error:
+            if args.verbose:
+                logger.exception(error)
+            logger.critical(f"初始化规则包时出现异常： {error}")
+            return
+        try:
+            errors = importlib.import_module("tests").test()
+        except Exception as error:
+            if args.verbose:
+                logger.exception(error)
+            logger.critical(f"测试规则包时出现异常： {error}")
+            return
         sys.path.remove(str(path))
-
-    if args.test:
-        logger.info(f"开始测试规则包: {str(path)}...")
-        sys.path.append(str(path))
-        importlib.import_module("event")
-        importlib.import_module("handler")
-        tests = importlib.import_module("tests")
-        tests.test()
-        sys.path.remove(str(path))
+        logger.info(f"测试规则包 {path.name} 出现 {len(errors)} 个异常, 测试完成.")
 
 
 if __name__ == "__main__":
