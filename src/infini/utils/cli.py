@@ -1,8 +1,9 @@
 import argparse
 import sys
 
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="HydroRoll 命令行工具")
+    parser = argparse.ArgumentParser(prog="Infini CLI", description="Infini 命令行工具")
 
     parser.add_argument("--new", action="store_true", help="创建一个 HydroRoll 规则包模板")
     parser.add_argument("--run", action="store_true", help="运行 HydroRoll 规则包")
