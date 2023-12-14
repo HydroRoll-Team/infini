@@ -37,7 +37,9 @@ class Matcher:
 
     def run(self, event: MatcherEvent) -> str:
         result = self.match(event.name).process(**event.kwargs)
-        return self.events.process(result.event, **event.kwargs)
+        return self.events.process(
+            result.event, **result.kwargs if result.kwargs else event.kwargs
+        )
 
 
 matcher = Matcher()

@@ -10,18 +10,12 @@ class Result(metaclass=ABCMeta):
 
     event: str
     status: bool
-    exception: HydroError | None = None
+    kwargs: dict = {}
 
-    def __init__(
-        self, event: str, status: bool, exception: HydroError | None = None
-    ) -> None:
+    def __init__(self, event: str, status: bool, **kwargs) -> None:
         self.event = event
         self.status = status
-        self.exception = exception
-
-    def ok(self):
-        """规则执行期间是否产生异常"""
-        return isinstance(self.exception, HydroError)
+        self.kwargs = kwargs
 
 
 class Handler:
