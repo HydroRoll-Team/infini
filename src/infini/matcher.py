@@ -1,8 +1,6 @@
 from .event import Events, events
-from .handler import Handlers, Handler, Result, handlers
+from .handler import Handlers, Handler, handlers
 from .exceptions import UnknownMatcherEvent
-from .typing import Callable
-from .logging import logger
 
 
 class MatcherEvent:
@@ -38,8 +36,7 @@ class Matcher:
             raise UnknownMatcherEvent(f"未知的规则包: {name}")
 
     def run(self, event: MatcherEvent) -> str:
-        logger.debug(f"开始处理事件: {event.name}...")
-        result = self.match(event.name).process()
+        result = self.match(event.name).process(**event.kwargs)
         return self.events.process(result.event, **event.kwargs)
 
 

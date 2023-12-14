@@ -34,7 +34,7 @@ class Handler:
         handlers.regist(cls.name, cls())
 
     @abstractmethod
-    def process(self) -> Result:
+    def process(self, **kwargs) -> Result:
         raise NotImplementedError
 
 

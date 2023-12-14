@@ -1,16 +1,15 @@
 RULE = """from infini import Handler, Result
 
+__handlers__ = ["HandlerRule"]
+
 
 class HandlerRule(Handler):
-    \"\"\"自设规则包\"\"\"
+    \"\"\"自设业务函数\"\"\"
 
-    name = "MyRule"
-    priority: int = 0
+    name = "MyRule" # 规则包名
+    priority: int = 0 # 规则包权重
 
-    def __init__(self) -> None:
-        \"\"\"初始化你的规则包\"\"\"
-
-    def process(self) -> Result:
+    def process(self, **kwargs) -> Result:
         \"\"\"声明规则包检定方式\"\"\"
         return Result("event1", True)
 """
@@ -28,6 +27,6 @@ class MyEvent(MessageEvent):
 TEST = """from infini.matcher import matcher, MatcherEvent
 
 def test():
-    event = MatcherEvent("event1")
+    event = MatcherEvent("MyRule")
     print(matcher.run(event))
 """
