@@ -1,7 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from .exceptions import HydroError
-from .typing import Dict, Callable
-
+from .typing import Dict
 
 __all__ = ["Result", "Handler"]
 
@@ -25,14 +24,14 @@ class Result(metaclass=ABCMeta):
         return isinstance(self.exception, HydroError)
 
 
-class Handler(metaclass=ABCMeta):
+class Handler:
     """规则包业务基类"""
 
     name: str
     priority: int = 0
 
     def __init_subclass__(cls) -> None:
-        handlers.regist(cls.name, cls.process)
+        handlers.regist(cls.name, cls())
 
     @abstractmethod
     def process(self) -> Result:
@@ -42,12 +41,12 @@ class Handler(metaclass=ABCMeta):
 class Handlers:
     """规则包业务集合"""
 
-    _handlers: Dict[str, Callable] = {}
+    _handlers: Dict[str, Handler] = {}
 
-    def regist(self, name: str, handler: Callable) -> None:
+    def regist(self, name: str, handler: Handler) -> None:
         self._handlers[name.lower()] = handler
 
-    def match(self, name: str) -> Callable | None:
+    def match(self, name: str) -> Handler | None:
         return self._handlers.get(name.lower())
 
 
