@@ -13,7 +13,9 @@ class Result(metaclass=ABCMeta):
     status: bool
     exception: HydroError | None = None
 
-    def __init__(self, event: str, status: bool, exception: HydroError | None) -> None:
+    def __init__(
+        self, event: str, status: bool, exception: HydroError | None = None
+    ) -> None:
         self.event = event
         self.status = status
         self.exception = exception
