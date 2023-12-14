@@ -1,5 +1,5 @@
 from .event import Events, events
-from .handler import Handlers, Result
+from .handler import Handlers, Result, handlers
 from .exceptions import UnknownMatcherEvent
 from .typing import Callable
 
@@ -24,8 +24,9 @@ class Matcher:
     events: Events
     handlers: Handlers
 
-    def __init__(self, _events: Events | None = None) -> None:
+    def __init__(self, _events: Events | None = None, _handlers: Handlers | None = None) -> None:
         self.events = _events if _events else events
+        self.handlers = _handlers if _handlers else handlers
 
     def match(self, name: str) -> Callable:
         if handler := self.handlers.match(name):
