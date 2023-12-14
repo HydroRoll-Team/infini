@@ -1,6 +1,6 @@
 from abc import ABCMeta
 from .typing import Dict
-from .logging import logger
+from .exceptions import UnknownMessageEvent
 
 import re
 
@@ -18,8 +18,7 @@ class Events:
     def process(self, name: str, **kwargs) -> str:
         if string := self._events.get(name.lower()):
             return self._format(string, **kwargs)
-        logger.warning(f"事件[{name.lower()}]不存在，将返回空字符串！")
-        return ""
+        raise UnknownMessageEvent(f"事件[{name.lower()}]不存在！")
 
     def _format(self, string: str, **kwargs):
         pattern = r"{(.*?)}"
