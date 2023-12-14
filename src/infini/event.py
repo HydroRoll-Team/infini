@@ -40,4 +40,20 @@ class MessageEvent(metaclass=ABCMeta):
         events.regist(cls.name, cls.output)
 
 
+class MatcherEvent:
+    """Matcher 事件"""
+
+    name: str
+    string: str
+    kwargs: dict
+
+    def __init__(self, event_name: str, string: str | None = None, **kwargs):
+        self.name = event_name
+        self.string = string or ""
+        self.kwargs = kwargs
+
+    def __repr__(self) -> str:
+        return f"<MatcherEvent [{self.name}]>"
+
+
 events = Events()

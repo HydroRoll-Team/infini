@@ -1,20 +1,6 @@
-from .event import Events, events
+from .event import MatcherEvent, Events, events
 from .handler import Handlers, Handler, handlers
 from .exceptions import UnknownMatcherEvent
-
-
-class MatcherEvent:
-    """Matcher 事件"""
-
-    name: str
-    kwargs: dict
-
-    def __init__(self, name: str, **kwargs):
-        self.name = name
-        self.kwargs = kwargs
-
-    def __repr__(self) -> str:
-        return f"<MatcherEvent [{self.name}]>"
 
 
 class Matcher:
@@ -36,7 +22,7 @@ class Matcher:
             raise UnknownMatcherEvent(f"未知的规则包: {name}")
 
     def run(self, event: MatcherEvent) -> str:
-        result = self.match(event.name).process(**event.kwargs)
+        result = self.match(event.name).process(event)
         return self.events.process(
             result.event, **result.kwargs if result.kwargs else event.kwargs
         )

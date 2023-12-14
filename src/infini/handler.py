@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from .exceptions import HydroError
+from .event import MatcherEvent
 from .typing import Dict
 
 __all__ = ["Result", "Handler"]
@@ -28,7 +28,7 @@ class Handler:
         handlers.regist(cls.name, cls())
 
     @abstractmethod
-    def process(self, **kwargs) -> Result:
+    def process(self, event: MatcherEvent) -> Result:
         raise NotImplementedError
 
 

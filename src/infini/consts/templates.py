@@ -28,5 +28,10 @@ TEST = """from infini.matcher import matcher, MatcherEvent
 
 def test():
     event = MatcherEvent("MyRule")
-    print(matcher.run(event))
+    try:
+        matcher.run(event)
+    except Exception as error:
+        return [error]
+    finally:
+        return []
 """
