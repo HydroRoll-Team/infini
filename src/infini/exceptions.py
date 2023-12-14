@@ -12,3 +12,7 @@ class EventError(HydroError):
 
 class UnknownMatcherEvent(EventError):
     """未知的给入实现"""
+
+
+class UnknownMessageEvent(EventError):
+    """未知的给出实现"""
