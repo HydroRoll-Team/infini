@@ -3,7 +3,13 @@ name = "infini"
 version = "1.0.4"
 description = "The `Core` of `HydroRoll`, the `Loader` of your rules packages."
 authors = [{ name = "简律纯", email = "i@jyunko.cn" }]
-dependencies = [
+dependencies = ["reportlab[pycairo]>=4.0.5", "pydantic>=2.4.2", "loguru>=0.7.2"]
+requires-python = ">=3.8"
+readme = "README.md"
+license = { text = "MIT" }
+
+[tool.pdm.dev-dependencies]
+dev = [
     "mkdocs>=1.5.3",
     "mkdocs-material[imaging]>=9.4.4",
     "mkdocs-blog-plugin>=0.25",
@@ -20,15 +26,7 @@ dependencies = [
     "mkdocs-redirects>=1.2.1",
     "mike>=1.1.2",
     "mkdocstrings>=0.23.0",
-    "distribute>=0.7.3",
-    "reportlab[pycairo]>=4.0.5",
-    "pydantic>=2.4.2",
-    "loguru>=0.7.2",
 ]
-requires-python = ">=3.8"
-readme = "README.md"
-license = { text = "MIT" }
-
 
 [project.scripts]
 infini = "infini.cli:Cli.parse_args"
@@ -37,4 +35,3 @@ ifi = "infini.cli:Cli.parse_args"
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
-
