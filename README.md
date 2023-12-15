@@ -17,7 +17,7 @@
 
 </p>
 
-## 🎁 Getting <img align="right" alt="hydro" src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/HydroRoll-Team/HydroRoll/main/site/src/assets/image/logo.png" height="120">
+## 🎁 `Getting` <img align="right" alt="hydro" src="https://mirror.ghproxy.com/https://raw.githubusercontent.com/HydroRoll-Team/HydroRoll/main/site/src/assets/image/logo.png" height="120">
 
 > [!IMPORTANT]  
 >
@@ -80,12 +80,73 @@
     python -m infini test MyRule
     ```
 
-### 🎍Sites
+## 🌟 `contribute`
+
+### 贡献手册
+
+本段内容主要针对想要为[通用规则包标准(GRPS)]的`docs 文档` 或 `Python 实现` 作贡献的社区朋友，若您想要推广 `GRPS-1` 标准的其他语言实现，请提交相关 `PR`，届时修改下方的[资源列表]。
+
+在此之前，请先克隆本仓库。
+
+```shell
+git clone https://github.com/HydroRoll-Team/infini.git
+```
+
+接着您需要确保自己的硬件环境有 `Python` 解释器，您需要全局安装 `pdm` 依赖以实现局部开发 `infini` 文档或源码的目的。
+
+```shell
+pip3 install pdm
+```
+
+接着在 `infini` 仓库主分支的根目录下激活 `pdm` 虚拟环境。
+
+```shell
+cd infini
+pdm venv list
+pdm venv activate in-project
+```
+
+**一、 在本地部署文档**
+
+在 `infini` 仓库根目录下安装 `docs` 组的依赖。
+
+```shell
+pdm install -dG docs
+```
+
+依赖安装完毕后，可进行版本控制或直接进行文档贡献。
+
+> 版本控制 | `mike` 的其他指令具体可查看 [jimporter/mike](https://github.com/jimporter/mike)。
+
+```shell
+pdm run mike serve
+```
+
+这样便可以查看不同版本的文档了。
+
+> 文档贡献 | 这样贡献出来的文档永远是 `dev` 分支或 `latests` 分支的，这也是最为普遍的文档贡献方式，`mkdocs` 具体的配置教程可查看 [squidfunk/mkdocs]()。
+
+```shell
+pdm run mkdocs serve
+```
+
+接着就可以在本地 `8000` 端口查看文档了，同时由于 `mkdocs` 是热加载的，因此您可以直接在 `serve` 指令预览最新文档后，修改对应文档的内容，保存后仅需等待文档内容变化即可。
+
+> [!WARNING]  
+>
+> 注意，强烈建议学习 [mkdocs-materials](https://squidfunk.github.io/mkdocs-material/) 的文档语法后进行文档内容的贡献 `PR`，同时还请遵循水系核心的[文档规范]。
+
+## 🎍 `resouces`
 
 <https://grps.hydroroll.team> _(recommend)_  
 <https://grps-v1.netlify.app>  
 ~~<https://hydroroll-team.github.io/infini/>~~
 
-## 📄 License
+## 📄 `License`
 
 [MIT](https://github.com/HydroRoll-Team/infini/blob/master/LICENSE) © 2023-PRESENT [简律纯](https://github.com/HsiangNianian)
+
+
+[通用规则包标准(GRPS)]: https://grps.hydroroll.team/dev/standard/what-is-rule-package/
+[资源列表]: https://github.com/HydroRoll-Team/infini?tab=readme-ov-file#resouces/
+[文档规范]: https://grps.hydroroll.team/dev/contribute/
