@@ -26,6 +26,19 @@ replacers:
     replace: '**$1:** $2'
   - search: '🎉'
     replace: '**Core:**'
+  - search: '🐛'
+    replace: '**fix:**'
+  - search: '(Sourcery refactored)'
+    replace: ''
+  - search: '✨|🎨'
+    replace: '**feat:**'
+  - search: '⬆️'
+    replace: '**deps:**'
+  - search: '📝'
+    replace: '**docs:**'
+  - search: '(.*)\((.*)\):'
+    replace: '**$1($2):**'
+
 footer: |
   ***
 
