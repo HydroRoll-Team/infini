@@ -1,0 +1,17 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% extends "base.html" %}
+{% block extrahead %}
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/custom.00c04c01.min.css' | url }}">
+{% endblock %}
+{% block outdated %}
+  当前阅览的并不是稳定版,
+  <a href="{{ '../' ~ base_url }}">
+    <strong>单击此处跳转到稳定版文档.</strong>
+  </a>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ 'assets/javascripts/custom.9c11c319.min.js' | url }}"></script>
+{% endblock %}
