@@ -87,8 +87,7 @@ extra:
       link: https://pypi.org/project/infini/
 
 copyright: >
-  Copyright &copy; 2013 - PRESENT. <a href="https://github.com/HydroRoll-Team">HydroRoll-Team</a> –
-  <a href="#__consent">管理Cookies</a>
+  Copyright &copy; 2023 - PRESENT. <a href="#__consent">(管理Cookies)</a>
 
 markdown_extensions:
   - attr_list
