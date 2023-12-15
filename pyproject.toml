@@ -1,6 +1,6 @@
 [project]
 name = "infini"
-version = "1.0.4"
+version = "1.0.5"
 description = "Infini 核心标准输入输出模块"
 authors = [{ name = "简律纯", email = "i@jyunko.cn" }, { name = "苏向夜", email = "fu050409@163.com" }]
 dependencies = ["reportlab[pycairo]>=4.0.5", "pydantic>=2.4.2", "loguru>=0.7.2"]
