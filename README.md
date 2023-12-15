@@ -142,6 +142,18 @@ pdm run mkdocs serve
 
 水系核心主要由三部分构成：`Rule API`、`Rule Wiki`、`Rule Event-Handler`。
 
+1. `Rule API`
+
+该部分由网络库编写，为其他组件提供一个接入或把 `infini` 接入的可能。
+
+3. `Rule Wiki`
+
+该部分主要用于读取 `__doc__` 并格式化为 `mkdocs` 站点以及成品规则书 `pdf`。
+
+4. `Rule Event-Handler`
+
+该部分用于实际与 `HydroRoll` 插件通信。
+
 ## 🎍 `resources`
 
 <https://grps.hydroroll.team> _(recommend)_  
