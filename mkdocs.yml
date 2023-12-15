@@ -13,8 +13,8 @@ theme:
   icon:
     logo: material/book-sync
     repo: fontawesome/brands/git-alt
-    annotation: material/arrow-right-circle 
-  custom_dir: material/overrides
+    annotation: material/arrow-right-circle
+  custom_dir: docs/src/overrides
   palette:
     - scheme: default
       primary: indigo
@@ -64,7 +64,7 @@ extra:
     deprecated: 已被废弃
   version:
     provider: mike
-  homepage: https://grps.retrofor.space # hydroroll-team.github.io
+  homepage: https://grps.hydroroll.team # hydroroll-team.github.io
   consent:
     title: Cookie 偏好设置
     description: >-
@@ -87,8 +87,7 @@ extra:
       link: https://pypi.org/project/infini/
 
 copyright: >
-  Copyright &copy; 2013 - PRESENT. <a href="https://github.com/HydroRoll-Team">HydroRoll-Team</a> –
-  <a href="#__consent">管理Cookies</a>
+  Copyright &copy; 2023 - PRESENT. <a href="#__consent">(管理Cookies)</a>
 
 markdown_extensions:
   - attr_list
@@ -110,8 +109,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
