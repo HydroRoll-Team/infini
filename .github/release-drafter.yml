@@ -19,12 +19,12 @@ change-template: '* $TITLE (#$NUMBER)'
 replacers:
   - search: '/CVE-(\d{4})-(\d+)/g'
     replace: 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-$1-$2'
-  - search: '(.*):\s(.*)'
+  - search: '(.*)\:\s(.*)'
     replace: '**$1:** $2'
 footer: |
   ***
 
-  $TIME
+  $CONTRIBUTORS
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
   major:
