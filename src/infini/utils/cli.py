@@ -20,5 +20,4 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     test_parser.add_argument("path", help="目标位置")
     test_parser.add_argument("-v", "--verbose", action="store_true", help="异常追踪")
 
-    args = parser.parse_args(argv if argv else sys.argv[1:])
-    return args
+    return parser.parse_args(argv if argv else sys.argv[1:])

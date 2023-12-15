@@ -32,7 +32,7 @@ def main():
     if args.operate == "test":
         logger.info(f"开始测试规则包: {path.name}...")
         sys.path.append(str(path))
-        logger.info(f"初始化规则包中...")
+        logger.info("初始化规则包中...")
         try:
             importlib.import_module("event")
             importlib.import_module("handler")
