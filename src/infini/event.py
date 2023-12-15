@@ -1,9 +1,10 @@
+from abc import ABCMeta
 from .typing import Dict
-from .logging import logger
+from .exceptions import UnknownMessageEvent
 
 import re
 
-__all__ = ["Event", "events"]
+__all__ = ["MessageEvent", "events"]
 
 
 class Events:
@@ -17,8 +18,7 @@ class Events:
     def process(self, name: str, **kwargs) -> str:
         if string := self._events.get(name.lower()):
             return self._format(string, **kwargs)
-        logger.warning(f"事件[{name.lower()}]不存在，将返回空字符串！")
-        return ""
+        raise UnknownMessageEvent(f"事件[{name.lower()}]不存在！")
 
     def _format(self, string: str, **kwargs):
         pattern = r"{(.*?)}"
@@ -30,14 +30,30 @@ class Events:
         return string
 
 
-class Event:
-    """事件基类"""
+class MessageEvent(metaclass=ABCMeta):
+    """消息事件基类"""
 
     name: str
     output: str
 
     def __init_subclass__(cls) -> None:
         events.regist(cls.name, cls.output)
+
+
+class MatcherEvent:
+    """Matcher 事件"""
+
+    name: str
+    string: str
+    kwargs: dict
+
+    def __init__(self, event_name: str, string: str | None = None, **kwargs):
+        self.name = event_name
+        self.string = string or ""
+        self.kwargs = kwargs
+
+    def __repr__(self) -> str:
+        return f"<MatcherEvent [{self.name}]>"
 
 
 events = Events()

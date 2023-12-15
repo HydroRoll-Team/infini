@@ -1,6 +1,6 @@
-"""infini 日志。
+"""Infini 日志。
 
-infini 使用 [loguru](https://github.com/Delgan/loguru) 来记录日志信息。
+Infini 使用 [loguru](https://github.com/Delgan/loguru) 来记录日志信息。
 自定义 logger 请参考 [loguru](https://github.com/Delgan/loguru) 文档。
 """
 from datetime import datetime
@@ -12,7 +12,7 @@ from .settings import DEBUG
 __all__ = ["logger", "error_or_exception"]
 
 logger = multilogger(
-    name="HydroRoll", payload="Core", level="DEBUG" if DEBUG else "INFO"
+    name="Infini", payload="Core", level="DEBUG" if DEBUG else "INFO"
 )
 current_path = Path(__file__).resolve().parent
 LOG_PATH = current_path / "logs"
@@ -26,13 +26,6 @@ logger.add(
 
 
 def error_or_exception(message: str, exception: Exception, verbose: bool = True):
-    # 弃用的方法
-    # logger.remove()
-    # logger.add(
-    #     sys.stderr,
-    #     format="<magenta>{time:YYYY-MM-DD HH:mm:ss.SSS}</magenta> <level>[{level}]</level> > <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>",
-    # )
-
     if verbose:
         logger.exception(exception)
         logger.critical(message)

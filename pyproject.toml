@@ -1,10 +1,10 @@
 [project]
 name = "infini"
 version = "1.0.4"
-description = "The `Core` of `HydroRoll`, the `Loader` of your rules packages."
-authors = [{ name = "简律纯", email = "i@jyunko.cn" }]
+description = "Infini 核心标准输入输出模块"
+authors = [{ name = "简律纯", email = "i@jyunko.cn" }, { name = "苏向夜", email = "fu050409@163.com" }]
 dependencies = ["reportlab[pycairo]>=4.0.5", "pydantic>=2.4.2", "loguru>=0.7.2"]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 readme = "README.md"
 license = { text = "MIT" }
 

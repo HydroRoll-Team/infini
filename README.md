@@ -41,25 +41,16 @@
 
 2. 创建规则包实例
 
-    创建`cli.py`并写入以下内容：
-
-    ```python
-    import infini
-
-    client = infini.Cli()
-    client.parse_args()
-    ```
-
-    打开终端并执行：
+    确保你的`infini`正确安装后，打开终端并执行：
 
     ``` shell
-    python cli.py --new --path MyRule
+    python -m infini new MyRule
     ```
 
-    你可以在生成的 `MyRule\rule.py` 创建一个或者多个 `rule` 实例并继承 `Rule` 基类, 通过编写合适的相关方法与类注册规则包实现规则的自定义。
+    你可以在生成的 `MyRule\rule.py` 创建一个或者多个继承 `Handler` 基类的实例, 通过编写合适的相关方法与类注册规则包实现规则的自定义。
 
     ``` python
-    from infini import Rule, Result, Dice
+    from infini import Handler, Result
 
     class MyRule(Rule):
         """自设规则包"""
@@ -70,14 +61,24 @@
         def __init__(self) -> None:
             """初始化你的规则包"""
 
-        def check(self, dice: Dice) -> Result:
-            """声明规则包检定方式"""
+        def process(self, **kwargs) -> Result:
+            """声明规则包运行方式"""
             return Result("event1", True)
     ```
 
-    `check`函数应当返回一个`Result`对象，它应当包含一个消息事件名（例如示例中的`event1`），该消息事件名应当在 `MyRule\event.py` 中被注册。消息事件的动态内容通过`{name}`的方式声明并通过`name="内容"`的方式实现。
+    `process`函数应当返回一个`Result`对象，它应当包含一个消息事件名（例如示例中的`event1`），该消息事件名应当在 `MyRule\event.py` 中被注册。消息事件的动态内容通过`{name}`的方式声明并通过`name="内容"`的方式实现。
 
-3. 合理修改你的 `config.toml` 配置文件，完成注册!
+3. 创建你的测试文件
+
+    在 `MyRule\tests.py` 中的 `test` 函数中给出测试函数，并返回一个 `list`，应当包含所有异常内容。
+
+4. 测试你的规则包
+
+    执行指令：
+
+    ```bash
+    python -m infini test MyRule
+    ```
 
 ### 🎍Sites
 
