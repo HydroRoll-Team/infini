@@ -11,11 +11,10 @@ from .settings import DEBUG
 
 __all__ = ["logger", "error_or_exception"]
 
-logger = multilogger(
-    name="Infini", payload="Core", level="DEBUG" if DEBUG else "INFO"
-)
-current_path = Path(__file__).resolve().parent
-LOG_PATH = current_path / "logs"
+logger = multilogger(name="Infini", payload="Core", level="DEBUG" if DEBUG else "INFO")
+CURRENT_PATH = Path(__file__).resolve().parent
+DATA_PATH = Path.home() / ".infini"
+LOG_PATH = DATA_PATH / "logs"
 if not LOG_PATH.exists():
     LOG_PATH.mkdir(parents=True, exist_ok=True)
 logger.add(
