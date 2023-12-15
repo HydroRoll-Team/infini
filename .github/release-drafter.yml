@@ -15,7 +15,14 @@ categories:
     labels: 
       - 'chore'
       - 'dependencies'
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-template: '* $TITLE (#$NUMBER)'
+replacers:
+  - search: '/CVE-(\d{4})-(\d+)/g'
+    replace: 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-$1-$2'
+  - search: '(.*):\s(.*)'
+    replace: '**$1:** $2'
+footer: |
+  $CONTRIBUTORS
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
   major:
@@ -29,6 +36,4 @@ version-resolver:
       - 'patch'
   default: patch
 template: |
-  ## Changes
-
   $CHANGES
