@@ -31,8 +31,7 @@ jobs:
       - name: Build Release Docs
         run: |
           cp CHANGELOG.md docs/changelog.md
-          pip install -r requirements.txt
-          pip install pdm mike mkdocstrings
+          pip install -r docs/requirements.txt
           pdm install
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
