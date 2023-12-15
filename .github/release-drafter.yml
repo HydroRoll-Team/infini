@@ -14,6 +14,8 @@ categories:
   - title: 'Maintenance'
     labels: 
       - 'chore'
+  - title: 'Dependence'
+    labels:
       - 'dependencies'
 change-template: '* $TITLE (#$NUMBER)'
 replacers:
