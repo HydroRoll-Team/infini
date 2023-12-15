@@ -40,7 +40,7 @@ replacers:
     replace: '**$1($2):**'
 
 header: |
-  ## $RESOLVED_VERSION
+  ## [$RESOLVED_VERSION]()
 
 footer: |
   ***
