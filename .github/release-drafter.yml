@@ -24,6 +24,8 @@ replacers:
     replace: 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-$1-$2'
   - search: '(.*)\:\s(.*)'
     replace: '**$1:** $2'
+  - search: '🎉'
+    replace: '**Core:**'
 footer: |
   ***
 
