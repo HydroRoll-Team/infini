@@ -22,6 +22,8 @@ replacers:
   - search: '(.*):\s(.*)'
     replace: '**$1:** $2'
 footer: |
+  ***
+
   $CONTRIBUTORS
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
