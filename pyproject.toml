@@ -28,10 +28,6 @@ dev = [
     "mkdocstrings>=0.23.0",
 ]
 
-[project.scripts]
-infini = "infini.cli:Cli.parse_args"
-ifi = "infini.cli:Cli.parse_args"
-
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
