@@ -14,7 +14,7 @@ title: 图标、注释说明
 
 === ":material-alert-decagram:`最近添加`"
 
-    在上一个 `release` 版本作为[`实验功能`]()或作为[`扩展特性`]()但是核心本体并未支持的功能、特性，于 `latest` 版本被引入。
+    在上一个 `release` 版本作为[`实验功能`](https://grps.hydroroll.team/dev/help/emoji/#_1-%E5%AE%9E%E9%AA%8C%E5%8A%9F%E8%83%BD)或作为[`扩展特性`](https://grps.hydroroll.team/dev/help/emoji/#_1-%E6%89%A9%E5%B1%95%E7%89%B9%E6%80%A7)但是核心本体并未支持的功能、特性，于 `latest` 版本被引入。
 
 === ":material-test-tube:`实验功能`"
 
