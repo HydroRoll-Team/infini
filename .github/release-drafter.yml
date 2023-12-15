@@ -39,6 +39,9 @@ replacers:
   - search: '(.*)\((.*)\):'
     replace: '**$1($2):**'
 
+header: |
+  $RESOLVED_VERSION ($DATE)
+
 footer: |
   ***
 
