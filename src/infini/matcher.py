@@ -1,5 +1,6 @@
-from .event import MatcherEvent, Events, events
-from .handler import Handlers, Handler, handlers
+from .register import Events, Handlers
+from .event import MatcherEvent, events
+from .handler import Handler, handlers
 from .exceptions import UnknownMatcherEvent
 
 
