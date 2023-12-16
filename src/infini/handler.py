@@ -1,12 +1,12 @@
 from abc import ABCMeta, abstractmethod
+from .register import Handlers
 from .event import MatcherEvent
-from .typing import Dict
 
 __all__ = ["Result", "Handler"]
 
 
-class Result(metaclass=ABCMeta):
-    """规则包运行结果基类"""
+class Result:
+    """规则包运行结果"""
 
     event: str
     status: bool
@@ -18,30 +18,18 @@ class Result(metaclass=ABCMeta):
         self.kwargs = kwargs
 
 
-class Handler:
+class Handler(metaclass=ABCMeta):
     """规则包业务基类"""
 
     name: str
     priority: int = 0
 
-    def __init_subclass__(cls) -> None:
-        handlers.regist(cls.name, cls())
+    # def __init_subclass__(cls) -> None:
+    #     handlers.regist(cls.name, cls())
 
     @abstractmethod
     def process(self, event: MatcherEvent) -> Result:
         raise NotImplementedError
-
-
-class Handlers:
-    """规则包业务集合"""
-
-    _handlers: Dict[str, Handler] = {}
-
-    def regist(self, name: str, handler: Handler) -> None:
-        self._handlers[name.lower()] = handler
-
-    def match(self, name: str) -> Handler | None:
-        return self._handlers.get(name.lower())
 
 
 handlers = Handlers()
