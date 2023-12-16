@@ -1,38 +1,19 @@
-from .typing import Dict
-from .exceptions import UnknownMessageEvent
+from abc import ABCMeta
+from .register import Events
 
-import re
-
-__all__ = ["MessageEvent", "events"]
+__all__ = ["InfiniEvent", "MessageEvent", "WorkflowEvent", "MatcherEvent", "events"]
 
 
-class InfiniEvent:
+class InfiniEvent(metaclass=ABCMeta):
     """Inifni 事件基类"""
 
     name: str
 
+    def __repr__(self) -> str:
+        raise NotImplementedError
 
-class Events:
-    """事件集合"""
-
-    _events: Dict[str, str] = {}
-
-    def regist(self, name: str, output: str) -> None:
-        self._events[name.lower()] = output
-
-    def process(self, name: str, **kwargs) -> str:
-        if string := self._events.get(name.lower()):
-            return self._format(string, **kwargs)
-        raise UnknownMessageEvent(f"事件[{name.lower()}]不存在！")
-
-    def _format(self, string: str, **kwargs):
-        pattern = r"{(.*?)}"
-        values = re.findall(pattern, string)
-        for value in values:
-            kwarg = kwargs.get(value)
-            value = kwarg if kwarg else ""
-            string = re.sub(pattern, value, string)
-        return string
+    def get_event_name(self) -> str:
+        return self.name
 
 
 class MessageEvent(InfiniEvent):
@@ -54,6 +35,13 @@ class WorkflowEvent(InfiniEvent):
     def __repr__(self) -> str:
         return f"<WorkflowEvent [{self.name}]>"
 
+    def __eq__(self, __value: object) -> bool:
+        if __value is str:
+            return self.name == __value
+        if isinstance(__value, WorkflowEvent):
+            return self.name == __value.name and self.kwargs == __value.kwargs
+        return False
+
 
 class MatcherEvent(InfiniEvent):
     """Matcher 事件"""
@@ -63,13 +51,26 @@ class MatcherEvent(InfiniEvent):
     string: str
     kwargs: dict
 
-    def __init__(self, event_name: str, string: str | None = None, **kwargs):
+    def __init__(
+        self,
+        event_name: str,
+        prefix: str | None = None,
+        string: str | None = None,
+        **kwargs,
+    ):
         self.name = event_name
+        self.prefix = prefix or ""
         self.string = string or ""
         self.kwargs = kwargs
 
     def __repr__(self) -> str:
         return f"<MatcherEvent [{self.name}]>"
+
+    def get_prefix(self):
+        return self.prefix
+
+    def get_plain_text(self):
+        return self.string
 
 
 events = Events()
