@@ -1,5 +1,6 @@
 from abc import ABCMeta
 from .register import Events
+from .typing import Dict, Any
 
 __all__ = ["InfiniEvent", "MessageEvent", "WorkflowEvent", "MatcherEvent", "events"]
 
@@ -8,6 +9,7 @@ class InfiniEvent(metaclass=ABCMeta):
     """Inifni 事件基类"""
 
     name: str
+    kwargs: Dict[str, Any]
 
     def __repr__(self) -> str:
         raise NotImplementedError
@@ -21,6 +23,12 @@ class MessageEvent(InfiniEvent):
 
     name: str
     output: str
+    kwargs: Dict[str, Any]
+
+    def __init__(self, name: str, output: str, **kwargs) -> None:
+        self.name = name
+        self.output = output
+        self.kwargs = kwargs
 
     def __repr__(self) -> str:
         return f"<MessageEvent [{self.name}]>"
@@ -30,7 +38,11 @@ class WorkflowEvent(InfiniEvent):
     """Workflow 事件"""
 
     name: str
-    kwargs: dict
+    kwargs: Dict[str, Any]
+
+    def __init__(self, name: str, **kwargs) -> None:
+        self.name = name
+        self.kwargs = kwargs
 
     def __repr__(self) -> str:
         return f"<WorkflowEvent [{self.name}]>"
@@ -49,7 +61,7 @@ class MatcherEvent(InfiniEvent):
     name: str
     prefix: str
     string: str
-    kwargs: dict
+    kwargs: Dict[str, Any]
 
     def __init__(
         self,
