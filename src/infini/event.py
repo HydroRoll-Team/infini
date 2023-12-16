@@ -1,8 +1,12 @@
 from abc import ABCMeta
-from .register import Events
 from .typing import Dict, Any
 
-__all__ = ["InfiniEvent", "MessageEvent", "WorkflowEvent", "MatcherEvent", "events"]
+__all__ = [
+    "InfiniEvent",
+    "MessageEvent",
+    "WorkflowEvent",
+    "MatcherEvent",
+]
 
 
 class InfiniEvent(metaclass=ABCMeta):
@@ -83,6 +87,3 @@ class MatcherEvent(InfiniEvent):
 
     def get_plain_text(self):
         return self.string
-
-
-events = Events()

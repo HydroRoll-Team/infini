@@ -1,21 +1,20 @@
 from abc import ABCMeta, abstractmethod
-from .register import Handlers
-from .event import MatcherEvent
+from .event import MatcherEvent, InfiniEvent
 
-__all__ = ["Result", "Handler"]
+__all__ = ["Handler"]
 
 
-class Result:
-    """规则包运行结果"""
+# class Result:
+#     """规则包运行结果"""
 
-    event: str
-    status: bool
-    kwargs: dict = {}
+#     event: str
+#     status: bool
+#     kwargs: dict = {}
 
-    def __init__(self, event: str, status: bool, **kwargs) -> None:
-        self.event = event
-        self.status = status
-        self.kwargs = kwargs
+#     def __init__(self, event: str, status: bool, **kwargs) -> None:
+#         self.event = event
+#         self.status = status
+#         self.kwargs = kwargs
 
 
 class Handler(metaclass=ABCMeta):
@@ -28,8 +27,5 @@ class Handler(metaclass=ABCMeta):
     #     handlers.regist(cls.name, cls())
 
     @abstractmethod
-    def process(self, event: MatcherEvent) -> Result:
+    def process(self, event: MatcherEvent) -> InfiniEvent:
         raise NotImplementedError
-
-
-handlers = Handlers()

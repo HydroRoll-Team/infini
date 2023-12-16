@@ -2,7 +2,6 @@ from infini.exceptions import UnknownMessageEvent
 from infini.handler import Handler
 from infini.typing import Dict
 
-
 import re
 
 
@@ -47,3 +46,7 @@ class Handlers:
 
     def match(self, name: str) -> Handler | None:
         return self._handlers.get(name.lower())
+
+
+handlers = Handlers()
+events = Events()
