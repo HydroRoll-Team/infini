@@ -1,10 +1,15 @@
-from abc import ABCMeta
 from .typing import Dict
 from .exceptions import UnknownMessageEvent
 
 import re
 
 __all__ = ["MessageEvent", "events"]
+
+
+class InfiniEvent:
+    """Inifni 事件基类"""
+
+    name: str
 
 
 class Events:
@@ -30,20 +35,31 @@ class Events:
         return string
 
 
-class MessageEvent(metaclass=ABCMeta):
-    """消息事件基类"""
+class MessageEvent(InfiniEvent):
+    """Message 事件"""
 
     name: str
     output: str
 
-    def __init_subclass__(cls) -> None:
-        events.regist(cls.name, cls.output)
+    def __repr__(self) -> str:
+        return f"<MessageEvent [{self.name}]>"
 
 
-class MatcherEvent:
+class WorkflowEvent(InfiniEvent):
+    """Workflow 事件"""
+
+    name: str
+    kwargs: dict
+
+    def __repr__(self) -> str:
+        return f"<WorkflowEvent [{self.name}]>"
+
+
+class MatcherEvent(InfiniEvent):
     """Matcher 事件"""
 
     name: str
+    prefix: str
     string: str
     kwargs: dict
 
