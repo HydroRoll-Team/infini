@@ -42,8 +42,6 @@ def main():
 
         try:
             register.regist(path)
-            print(register.events._events)
-            print(register.handlers._handlers)
         except Exception as error:
             if args.verbose:
                 logger.exception(error)
