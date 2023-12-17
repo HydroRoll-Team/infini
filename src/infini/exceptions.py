@@ -22,9 +22,17 @@ class EventError(HydroError):
     """事件处理时异常"""
 
 
-class UnknownMatcherEvent(EventError):
+class UnknownEvent(EventError):
+    """未知事件"""
+
+
+class UnknownMatcherEvent(UnknownEvent):
     """未知的给入实现"""
 
 
-class UnknownMessageEvent(EventError):
+class UnknownMessageEvent(UnknownEvent):
     """未知的给出实现"""
+
+
+class UnsupportedError(EventError, RuntimeError):
+    """方法未被支持"""
