@@ -2,6 +2,7 @@ from pathlib import Path
 from .utils.cli import parse_args
 from .consts import templates
 from .logging import logger
+from .register import Loader
 
 import os
 import importlib
@@ -35,11 +36,10 @@ def main():
 
     if args.operate == "test":
         logger.info(f"开始测试规则包: {path.name}...")
-        sys.path.append(str(path))
+        loader = Loader(meta_path=path)
         logger.info("初始化规则包中...")
         try:
-            importlib.import_module("event")
-            importlib.import_module("handler")
+            loader.load()
         except Exception as error:
             if args.verbose:
                 logger.exception(error)
