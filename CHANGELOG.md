@@ -14,6 +14,7 @@ title: 变更日志
 
 ### BUG FIX
 
+* **templates:** 根据最新的 `Handler` 更新模板中的子类写法 [`477c9`](https://github.com/HydroRoll-Team/HydroRollCore/commit/477c9ccfe4451920838705ab4aba81b2b41d0c50)。
 * **Event:** 修订消息事件生成模式 [`dd278`](https://github.com/HydroRoll-Team/infini/commit/dd27866fc9763af6f5b03024296dd74148d91eb3)。
 * **Event:** 修复path不存在的问题 [`5d4c7`](https://github.com/HydroRoll-Team/infini/commit/5d4c76a003a0f93ca52abe7f3997757ba66a97de)。
 
