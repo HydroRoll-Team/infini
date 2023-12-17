@@ -1,8 +1,7 @@
 from infini import MessageEvent
 
-__events__ = ["MyEvent"]
-
 
 class MyEvent(MessageEvent):
-    name = "event1"
-    output = "检定成功!"
+    """自定义消息事件"""
+    name = "example_event"
+    output = "捕获到输入: {plain_text}"

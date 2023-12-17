@@ -1,10 +1,12 @@
 from infini.matcher import matcher, MatcherEvent
 
+
 def test():
-    event = MatcherEvent("MyRule")
+    event = MatcherEvent("rule.example_handler", string="测试")
     try:
-        matcher.run(event)
+        result = matcher.run(event)
+        assert result == "捕获到输入: 测试"
     except Exception as error:
-        return [error]
-    finally:
-        return []
+        return error
+    return []
+
