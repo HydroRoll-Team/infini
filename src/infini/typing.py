@@ -8,3 +8,8 @@ from typing import (
     NoReturn as NoReturn,
     Awaitable as Awaitable,
 )
+
+if TYPE_CHECKING:
+    from typing import Any
+
+StateT = TypeVar("StateT")

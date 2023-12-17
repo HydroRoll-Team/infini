@@ -7,6 +7,7 @@
 
 from abc import ABCMeta, abstractmethod
 from enum import Enum
+from typing import ClassVar, Optional
 from .event import MatcherEvent, InfiniEvent
 
 __all__ = ["Handler", "HandlerLoadType"]
@@ -25,7 +26,11 @@ class Handler:
     """规则包业务基类"""
 
     name: str
-    priority: int = 0
+    priority: ClassVar[int] = 0
+    block: ClassVar[bool] = False
+    
+    def __init_state__(self) -> Optional[StateT]:
+        """初始化规则包状态。"""
 
     def __init__(self) -> None:
         pass
