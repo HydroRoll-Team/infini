@@ -1,9 +1,9 @@
 from pathlib import Path
-from .exceptions import UnknownMessageEvent
+from .exceptions import UnsupportedError
 from .handler import Handler
-from .event import InfiniEvent
-from .typing import Dict
-from .exceptions import LoadError, EventLoadError, HandlerLoadError
+from .event import InfiniEvent, MessageEvent, WorkflowEvent
+from .typing import Dict, Type
+from .exceptions import LoadError, EventLoadError, HandlerLoadError, UnknownEvent
 
 import re
 import sys
@@ -12,7 +12,7 @@ import inspect
 
 
 class Loader:
-    """加载器"""
+    """Infini 事件加载器"""
 
     name: str
     meta_path: Path
@@ -44,44 +44,52 @@ class Loader:
                 and not cls[1].__module__.startswith("infini")
             ]
             for event in events:
-                self.events[event.__dict__["name"]] = event
+                self.events[f"{self.name}.{event.__dict__['name']}"] = event
         except Exception as error:
             raise EventLoadError(f"规则包[{self.name}]事件导入失败: {error}") from error
 
         try:
             handler_module = importlib.import_module(f"{self.name}.handler")
-            events = [
+            handlers = [
                 cls[1]
                 for cls in inspect.getmembers(handler_module, inspect.isclass)
-                if issubclass(cls[1], InfiniEvent)
+                if issubclass(cls[1], Handler)
                 and not cls[1].__module__.startswith("infini")
             ]
-            for event in events:
-                self.handlers[event.__dict__["name"]] = event
+            for handler in handlers:
+                self.handlers[f"{self.name}.{handler.__dict__['name']}"] = handler
         except Exception as error:
             raise HandlerLoadError(f"规则包[{self.name}]业务函数导入失败: {error}") from error
 
         sys.path.remove(str(self.meta_path))
 
 
-class Register:
-    """注册器"""
-
-    events: Dict[str, str]
-
-
 class Events:
     """事件集合"""
 
-    _events: Dict[str, str] = {}
+    _events: Dict[str, Type[InfiniEvent]]
 
-    def regist(self, name: str, output: str) -> None:
-        self._events[name.lower()] = output
+    def __init__(self) -> None:
+        self._events = {}
+
+    def regist(self, name: str, event: Type[InfiniEvent]) -> None:
+        self._events[name.lower()] = event
+
+    def update(self, _events: dict) -> None:
+        self._events.update(_events)
+
+    def _process(self, event: Type[InfiniEvent], **kwargs) -> str:
+        if issubclass(event, MessageEvent):
+            return self._format(event.__dict__["output"], **kwargs)
+        elif issubclass(event, WorkflowEvent):
+            raise UnsupportedError
+        else:
+            raise UnsupportedError
 
     def process(self, name: str, **kwargs) -> str:
-        if string := self._events.get(name.lower()):
-            return self._format(string, **kwargs)
-        raise UnknownMessageEvent(f"事件[{name.lower()}]不存在！")
+        if event := self._events.get(name.lower()):
+            return self._process(event, **kwargs)
+        raise UnknownEvent(f"事件[{name.lower()}]不存在！")
 
     def _format(self, string: str, **kwargs):
         pattern = r"{(.*?)}"
@@ -101,9 +109,28 @@ class Handlers:
     def regist(self, name: str, handler: Handler) -> None:
         self._handlers[name.lower()] = handler
 
+    def update(self, _events: dict) -> None:
+        self._handlers.update(_events)
+
     def match(self, name: str) -> Handler | None:
         return self._handlers.get(name.lower())
 
 
-handlers = Handlers()
-events = Events()
+class Register:
+    """注册器"""
+
+    events: Events
+    handlers: Handlers
+
+    def __init__(self) -> None:
+        self.events = Events()
+        self.handlers = Handlers()
+
+    def regist(self, meta_path: Path | str | None = None):
+        _loader = Loader(meta_path if meta_path else ".")
+        _loader.load()
+        self.events.update(_loader.events)
+        self.handlers.update(_loader.handlers)
+
+
+register = Register()
