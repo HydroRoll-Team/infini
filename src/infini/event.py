@@ -29,9 +29,8 @@ class MessageEvent(InfiniEvent):
     output: str
     kwargs: Dict[str, Any]
 
-    def __init__(self, name: str, output: str, **kwargs) -> None:
+    def __init__(self, name: str, **kwargs) -> None:
         self.name = name
-        self.output = output
         self.kwargs = kwargs
 
     def __repr__(self) -> str:
