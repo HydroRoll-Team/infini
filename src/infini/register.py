@@ -92,7 +92,7 @@ class Events:
     def __init__(self) -> None:
         self._events = {}
 
-    def regist(self, name: str, event: Type[InfiniEvent]) -> None:
+    def register(self, name: str, event: Type[InfiniEvent]) -> None:
         self._events[name.lower()] = event
 
     def update(self, _events: dict) -> None:
@@ -132,7 +132,7 @@ class Handlers:
 
     _handlers: Dict[str, Handler] = {}
 
-    def regist(self, name: str, handler: Handler) -> None:
+    def register(self, name: str, handler: Handler) -> None:
         self._handlers[name.lower()] = handler
 
     def update(self, _events: dict) -> None:
@@ -152,7 +152,7 @@ class Register:
         self.events = Events()
         self.handlers = Handlers()
 
-    def regist(self, meta_path: Path | str | None = None):
+    def register(self, meta_path: Path | str | None = None):
         _loader = Loader(meta_path or ".")
         _loader.load()
         self.events.update(_loader.events)
