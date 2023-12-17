@@ -2,7 +2,7 @@
 title: 变更日志
 ---
 
-## [1.0.5](https://github.com/HydroRoll-Team/infini/compare/v1.0.4...v1.0.5) (2023-12-18)
+## [1.0.5](https://github.com/HydroRoll-Team/infini/compare/v1.0.4...v1.0.5) <small>December 18,2023</small> { id="1.0.5" }
 
 ###  BREAKING CHANGES
 
@@ -22,7 +22,7 @@ title: 变更日志
 * **Exceptions:** 重定义三个异常基类 ([`68ab4a`](https://github.com/HydroRoll-Team/HydroRollCore/commit/68ab4a7d835e7ede363d3bc9fa2731a4a335f4a0))。
 
 
-## [1.0.4](https://github.com/HydroRoll-Team/infini/compare/v1.0.3...v1.0.4) (2023-10-07)
+## [1.0.4](https://github.com/HydroRoll-Team/infini/compare/v1.0.3...v1.0.4) <small>October 7,2023</small> { id="1.0.4" }
 
 ### FEATURES
 
@@ -30,12 +30,13 @@ title: 变更日志
 * **Deps:** 添加 `reportlab` 依赖，用于以后的 `pdf` 生成。
 
 
-## [1.0.3](https://github.com/HydroRoll-Team/infini/compare/v1.0.2...v1.0.3) (2023-10-07)
+## [1.0.3](https://github.com/HydroRoll-Team/infini/compare/v1.0.2...v1.0.3) <small>October 7,2023</small> { id="1.0.3" }
 
 ### NO CHARGES
 
 
-## [1.0.2](https://github.com/HydroRoll-Team/infini/compare/v1.0.1...v1.0.2) (2023-10-07)
+## [1.0.2](https://github.com/HydroRoll-Team/infini/compare/v1.0.1...v1.0.2) <small>October 7,2023</small> { id="1.0.2" }
+
 
 ### FEATURES
 
