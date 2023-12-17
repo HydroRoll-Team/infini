@@ -6,9 +6,19 @@
 """
 
 from abc import ABCMeta, abstractmethod
+from enum import Enum
 from .event import MatcherEvent, InfiniEvent
 
-__all__ = ["Handler"]
+__all__ = ["Handler", "HandlerLoadType"]
+
+
+class HandlerLoadType(Enum):
+    """规则包加载类型。"""
+
+    DIR = "dir"
+    NAME = "name"
+    FILE = "file"
+    CLASS = "class"
 
 
 class Handler:
