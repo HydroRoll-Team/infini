@@ -35,25 +35,30 @@ def main():
         logger.success("HydroRoll 规则包模板已创建！")
 
     if args.operate == "test":
+        exceptions = []
+
         logger.info(f"开始测试规则包: {path.name}...")
         loader = Loader(meta_path=path)
         logger.info("初始化规则包中...")
+
         try:
             loader.load()
         except Exception as error:
             if args.verbose:
                 logger.exception(error)
-            logger.critical(f"初始化规则包时出现异常： {error}")
-            return
+                logger.critical(f"初始化规则包时出现异常： {error}")
+            exceptions.append(error)
+
         try:
-            errors = importlib.import_module("tests").test()
+            errors = importlib.import_module(f"{path.name}.tests").test()
+            exceptions.extend(errors)
         except Exception as error:
             if args.verbose:
                 logger.exception(error)
-            logger.critical(f"测试规则包时出现异常： {error}")
-            return
-        sys.path.remove(str(path))
-        logger.info(f"测试规则包 {path.name} 出现 {len(errors)} 个异常, 测试完成.")
+                logger.critical(f"测试规则包时出现异常： {error}")
+            exceptions.append(error)
+
+        logger.info(f"测试规则包 {path.name} 出现 {len(exceptions)} 个异常, 测试完成.")
 
 
 if __name__ == "__main__":
