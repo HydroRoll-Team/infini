@@ -1,3 +1,8 @@
+"""Infini Matcher
+
+用于处理和匹配事件。
+"""
+
 from .register import Register, register
 from .event import MatcherEvent
 from .handler import Handler
@@ -10,14 +15,11 @@ class Matcher:
     register: Register
 
     def __init__(self, _register: Register | None = None) -> None:
-        self.register = _register if _register else register
+        self.register = _register or register
 
     def match(self, name: str) -> Handler:
         if handler := self.register.handlers.match(name):
-            if isinstance(handler, Handler):
-                return handler
-            else:
-                return handler()
+            return handler if isinstance(handler, Handler) else handler()
         else:
             raise UnknownMatcherEvent(f"未知的规则包: {name}")
 
@@ -25,7 +27,7 @@ class Matcher:
         callback_event = self.match(event.name).process(event)
         return self.register.events.process(
             callback_event.name,
-            **callback_event.kwargs if callback_event.kwargs else callback_event.kwargs,
+            **callback_event.kwargs or callback_event.kwargs,
         )
 
 

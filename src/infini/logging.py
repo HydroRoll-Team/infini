@@ -11,7 +11,8 @@ from .settings import DEBUG
 
 __all__ = ["logger", "error_or_exception"]
 
-logger = multilogger(name="Infini", payload="Core", level="DEBUG" if DEBUG else "INFO")
+logger = multilogger(name="Infini", payload="Core",
+                     level="DEBUG" if DEBUG else "INFO")
 CURRENT_PATH = Path(__file__).resolve().parent
 DATA_PATH = Path.home() / ".infini"
 LOG_PATH = DATA_PATH / "logs"
