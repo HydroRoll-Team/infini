@@ -2,8 +2,20 @@ class HydroError(Exception):
     """HydroRoll 异常基类"""
 
 
-class RuleLoadError(HydroError):
-    """规则导入错误"""
+class LoadError(HydroError):
+    """规则包导入错误"""
+
+
+class PackageNotFound(LoadError):
+    """规则包不存在"""
+
+
+class EventLoadError(LoadError, RuntimeError):
+    """事件声明导入失败"""
+
+
+class HandlerLoadError(LoadError, RuntimeError):
+    """业务函数导入失败"""
 
 
 class EventError(HydroError):
