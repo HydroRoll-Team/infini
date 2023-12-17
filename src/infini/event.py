@@ -1,4 +1,4 @@
-from abc import ABCMeta
+from abc import ABCMeta, abstractmethod
 from .typing import Dict, Any
 
 __all__ = [
@@ -15,6 +15,7 @@ class InfiniEvent(metaclass=ABCMeta):
     name: str
     kwargs: Dict[str, Any]
 
+    @abstractmethod
     def __repr__(self) -> str:
         raise NotImplementedError
 
