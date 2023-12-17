@@ -1,5 +1,5 @@
 """
-infini 终端命令解析模块
+Infini 终端命令解析模块
 """
 
 import argparse
