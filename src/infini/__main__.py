@@ -15,7 +15,11 @@ def main():
         logger.critical("选项[--gui]尚未被支持！")
         sys.exit(1)
 
-    path = Path(args.path).resolve() if args.path else Path(os.getcwd()).resolve()
+    path = (
+        Path(args.path).resolve()
+        if hasattr(args, "path")
+        else Path(os.getcwd()).resolve()
+    )
 
     if args.operate == "new":
         if path.exists() and not args.force:
