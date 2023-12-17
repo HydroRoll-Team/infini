@@ -1,6 +1,13 @@
+"""__main__
+
+这是 infini 的主要入口点。它处理命令行参数，并根据这些参数执行相应的操作。
+例如，它可以创建新的规则包，或者测试现有的规则包。
+如果你想了解更多关于如何使用 infini 的信息，你可以运行 `infini --help`。
+"""
+
 from pathlib import Path
 from .utils.cli import parse_args
-from .consts import templates
+from .const import templates
 from .logging import logger
 from .register import register
 
