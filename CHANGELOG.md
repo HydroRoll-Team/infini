@@ -2,21 +2,24 @@
 title: 变更日志
 ---
 
-## [1.0.5](https://github.com/HydroRoll-Team/infini/compare/v1.0.3...v1.0.4) (2023-10-08)
+## [1.0.5](https://github.com/HydroRoll-Team/infini/compare/v1.0.4...v1.0.5) (2023-12-18)
 
 ###  BREAKING CHANGES
 
+* **Handler:** 使用 `Handler` 代替 `Rule` [`573a6`](https://github.com/HydroRoll-Team/infini/compare/7b219aa12949...540a3ee9bb81)。
+
 ### FEATURES
 
-* **Docs:** balabla.
-* **Rule:** 支持泛型。
+* **Handler:** 实现泛型，实现 `self.stop()` `self.skip()` 方法  [`573a6`](https://github.com/HydroRoll-Team/infini/compare/7b219aa12949...540a3ee9bb81)。
 
 ### BUG FIX
-* **Docs:** balabla.
+
+* **Event:** 修订消息事件生成模式 [`dd278`](https://github.com/HydroRoll-Team/infini/commit/dd27866fc9763af6f5b03024296dd74148d91eb3)。
+* **Event:** 修复path不存在的问题 [`5d4c7`](https://github.com/HydroRoll-Team/infini/commit/5d4c76a003a0f93ca52abe7f3997757ba66a97de)。
 
 ### CHORE
 
-* **Readme:** 添加了主页介绍。
+* **Exceptions:** 重定义三个异常基类。
 
 
 ## [1.0.4](https://github.com/HydroRoll-Team/infini/compare/v1.0.3...v1.0.4) (2023-10-07)
