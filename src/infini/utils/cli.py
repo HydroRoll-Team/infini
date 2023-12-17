@@ -1,8 +1,13 @@
+"""
+infini 终端命令解析模块
+"""
+
 import argparse
 import sys
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    # sourcery skip: extract-duplicate-method
     parser = argparse.ArgumentParser(prog="Infini CLI", description="Infini 命令行工具")
 
     parser.add_argument("--gui", action="store_true", help="启用 GUI 模式")
@@ -20,4 +25,4 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     test_parser.add_argument("path", help="目标位置")
     test_parser.add_argument("-v", "--verbose", action="store_true", help="异常追踪")
 
-    return parser.parse_args(argv if argv else sys.argv[1:])
+    return parser.parse_args(argv or sys.argv[1:])
