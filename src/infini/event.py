@@ -10,7 +10,7 @@ __all__ = [
 
 
 class InfiniEvent(metaclass=ABCMeta):
-    """Inifni 事件基类"""
+    """Infini 事件基类"""
 
     name: str
     kwargs: Dict[str, Any]
