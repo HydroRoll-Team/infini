@@ -28,7 +28,7 @@ def main():
             sys.exit(1)
 
         path.mkdir(parents=True, exist_ok=True)
-        (path / "handler.py").write_text(templates.RULE, encoding="utf-8")
+        (path / "handler.py").write_text(templates.HANDLER, encoding="utf-8")
         (path / "event.py").write_text(templates.EVENT, encoding="utf-8")
         (path / "tests.py").write_text(templates.TEST, encoding="utf-8")
 
