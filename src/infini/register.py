@@ -1,9 +1,14 @@
+"""Infini 注册模块
+
+包含了 Infini 事件和处理器的注册和加载功能。
+"""
+
 from pathlib import Path
-from .exceptions import UnsupportedError
+from .exceptions import UnknownMatcherEvent, UnsupportedError
 from .handler import Handler
 from .event import InfiniEvent, MessageEvent, WorkflowEvent
 from .typing import Dict, Type
-from .exceptions import LoadError, EventLoadError, HandlerLoadError, UnknownEvent
+from .exceptions import LoadError, EventLoadError, HandlerLoadError, UnknownException
 
 import re
 import sys
@@ -12,7 +17,13 @@ import inspect
 
 
 class Loader:
-    """Infini 事件加载器"""
+    """Infini 事件加载器
+
+    Raises:
+        LoadError: 规则包导入错误
+        EventLoadError: 规则包事件导入错误
+        HandlerLoadError: 规则包业务函数导入错误
+    """
 
     name: str
     meta_path: Path
@@ -59,13 +70,22 @@ class Loader:
             for handler in handlers:
                 self.handlers[f"{self.name}.{handler.__dict__['name']}"] = handler
         except Exception as error:
-            raise HandlerLoadError(f"规则包[{self.name}]业务函数导入失败: {error}") from error
+            raise HandlerLoadError(
+                f"规则包[{self.name}]业务函数导入失败: {error}") from error
 
         sys.path.remove(str(self.meta_path))
 
 
 class Events:
-    """事件集合"""
+    """规则包事件集合
+
+    Raises:
+        UnsupportedError: 事件尚未被支持
+        UnknownMatcherEvent: 事件不存在
+
+    Returns:
+        _type_: _description_
+    """
 
     _events: Dict[str, Type[InfiniEvent]]
 
@@ -79,9 +99,11 @@ class Events:
         self._events.update(_events)
 
     def _process(self, event: Type[InfiniEvent], **kwargs) -> str:
+        # sourcery skip: merge-duplicate-blocks
         if issubclass(event, MessageEvent):
             return self._format(event.__dict__["output"], **kwargs)
         elif issubclass(event, WorkflowEvent):
+            # TODO: handle workflow events
             raise UnsupportedError
         else:
             raise UnsupportedError
@@ -89,20 +111,24 @@ class Events:
     def process(self, name: str, **kwargs) -> str:
         if event := self._events.get(name.lower()):
             return self._process(event, **kwargs)
-        raise UnknownEvent(f"事件[{name.lower()}]不存在！")
+        raise UnknownMatcherEvent(f"事件[{name.lower()}]不存在！")
 
     def _format(self, string: str, **kwargs):
         pattern = r"{(.*?)}"
         values = re.findall(pattern, string)
         for value in values:
             kwarg = kwargs.get(value)
-            value = kwarg if kwarg else ""
+            value = kwarg or ""
             string = re.sub(pattern, value, string)
         return string
 
 
 class Handlers:
-    """规则包业务集合"""
+    """规则包业务集合
+
+    Returns:
+        _type_: _description_
+    """
 
     _handlers: Dict[str, Handler] = {}
 
@@ -127,7 +153,7 @@ class Register:
         self.handlers = Handlers()
 
     def regist(self, meta_path: Path | str | None = None):
-        _loader = Loader(meta_path if meta_path else ".")
+        _loader = Loader(meta_path or ".")
         _loader.load()
         self.events.update(_loader.events)
         self.handlers.update(_loader.handlers)
