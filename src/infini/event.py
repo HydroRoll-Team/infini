@@ -34,8 +34,11 @@ class MessageEvent(InfiniEvent):
         self.name = name
         self.kwargs = kwargs
 
-    def __repr__(self) -> str:
+    def __str__(self) -> str:
         return f"<MessageEvent [{self.name}]>"
+
+    def __repr__(self) -> str:
+        return self.__str__()
 
 
 class WorkflowEvent(InfiniEvent):
