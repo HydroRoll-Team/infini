@@ -1,3 +1,9 @@
+"""Infini 事件模块
+
+此模块定义了 Infini 的事件类，包括 InfiniEvent, MessageEvent, WorkflowEvent 和 MatcherEvent。
+这些事件类用于在 Infini 框架中处理各种事件。
+"""
+
 from abc import ABCMeta, abstractmethod
 from .typing import Dict, Any
 
