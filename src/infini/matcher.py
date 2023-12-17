@@ -14,10 +14,7 @@ class Matcher:
 
     def match(self, name: str) -> Handler:
         if handler := self.register.handlers.match(name):
-            if isinstance(handler, Handler):
-                return handler
-            else:
-                return handler()
+            return handler if isinstance(handler, Handler) else handler()
         else:
             raise UnknownMatcherEvent(f"未知的规则包: {name}")
 

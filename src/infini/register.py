@@ -81,8 +81,6 @@ class Events:
     def _process(self, event: Type[InfiniEvent], **kwargs) -> str:
         if issubclass(event, MessageEvent):
             return self._format(event.__dict__["output"], **kwargs)
-        elif issubclass(event, WorkflowEvent):
-            raise UnsupportedError
         else:
             raise UnsupportedError
 
