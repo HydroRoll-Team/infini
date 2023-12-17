@@ -1,16 +1,73 @@
-from infini.exceptions import UnknownMessageEvent
-from infini.handler import Handler
-from infini.typing import Dict
+from pathlib import Path
+from .exceptions import UnknownMessageEvent
+from .handler import Handler
+from .event import InfiniEvent
+from .typing import Dict
+from .exceptions import LoadError, EventLoadError, HandlerLoadError
 
 import re
+import sys
+import importlib
+import inspect
 
 
 class Loader:
-    ...
+    """加载器"""
+
+    name: str
+    meta_path: Path
+    events: dict
+    handlers: dict
+
+    def __init__(self, meta_path: Path | str) -> None:
+        if isinstance(meta_path, str):
+            self.meta_path = Path(meta_path).resolve()
+        else:
+            self.meta_path = meta_path.resolve()
+        self.name = self.meta_path.name
+        self.events = {}
+        self.handlers = {}
+
+    def load(self) -> None:
+        sys.path.append(str(self.meta_path))
+        try:
+            importlib.import_module(f"{self.name}")
+        except Exception as error:
+            raise LoadError(f"规则包[{self.name}]导入失败: {error}") from error
+
+        try:
+            event_module = importlib.import_module(f"{self.name}.event")
+            events = [
+                cls[1]
+                for cls in inspect.getmembers(event_module, inspect.isclass)
+                if issubclass(cls[1], InfiniEvent)
+                and not cls[1].__module__.startswith("infini")
+            ]
+            for event in events:
+                self.events[event.__dict__["name"]] = event
+        except Exception as error:
+            raise EventLoadError(f"规则包[{self.name}]事件导入失败: {error}") from error
+
+        try:
+            handler_module = importlib.import_module(f"{self.name}.handler")
+            events = [
+                cls[1]
+                for cls in inspect.getmembers(handler_module, inspect.isclass)
+                if issubclass(cls[1], InfiniEvent)
+                and not cls[1].__module__.startswith("infini")
+            ]
+            for event in events:
+                self.handlers[event.__dict__["name"]] = event
+        except Exception as error:
+            raise HandlerLoadError(f"规则包[{self.name}]业务函数导入失败: {error}") from error
+
+        sys.path.remove(str(self.meta_path))
 
 
 class Register:
-    ...
+    """注册器"""
+
+    events: Dict[str, str]
 
 
 class Events:
