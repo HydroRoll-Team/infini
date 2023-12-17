@@ -1,37 +1,40 @@
-RULE = """from infini import Handler, Result
+HANDLER = """from infini import Handler, MessageEvent
+from infini.matcher import MatcherEvent
+from .event import MyEvent
 
-__handlers__ = ["HandlerRule"]
 
-
-class HandlerRule(Handler):
+class MyHandler(Handler):
     \"\"\"自设业务函数\"\"\"
 
-    name = "MyRule" # 规则包名
-    priority: int = 0 # 规则包权重
+    name = "example_handler"  # 业务函数事件名
+    priority: int = 0  # 业务函数权重
 
-    def process(self, **kwargs) -> Result:
+    def process(self, event: MatcherEvent) -> MessageEvent:
         \"\"\"声明规则包检定方式\"\"\"
-        return Result("event1", True)
+        plain_text = event.get_plain_text()
+        return MyEvent("rule.example_event", plain_text=plain_text)
+
 """
 
 EVENT = """from infini import MessageEvent
 
-__events__ = ["MyEvent"]
-
 
 class MyEvent(MessageEvent):
-    name = "event1"
-    output = "检定成功!"
+    \"\"\"自定义消息事件\"\"\"
+    name = "example_event"
+    output = "捕获到输入: {plain_text}"
 """
 
 TEST = """from infini.matcher import matcher, MatcherEvent
 
+
 def test():
-    event = MatcherEvent("MyRule")
+    event = MatcherEvent("rule.example_handler", string="测试")
     try:
-        matcher.run(event)
+        result = matcher.run(event)
+        assert result == "捕获到输入: 测试"
     except Exception as error:
-        return [error]
-    finally:
-        return []
+        return error
+    return []
+
 """
