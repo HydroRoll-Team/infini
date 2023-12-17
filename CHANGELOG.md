@@ -62,11 +62,11 @@ title: 变更日志
 * CLI: 添加命令行参数解析。
 
 
-### [0.1.0-rc1](https://github.com/HydroRoll-Team/infini/compare/v0.1.0...v0.1.0-rc1) (2023-10-07)
+### [0.1.0-rc1](https://github.com/HydroRoll-Team/infini/compare/v0.1.0...v0.1.0-rc1) <small>October 7,2023</small> { id="0.1.0-rc1" }
 
-### CHORE
+**CHORE**
 
-* **README:** 更新主页介绍的安装指南。
+* README: 更新主页介绍的安装指南。
 
 
 ### [0.1.0](https://github.com/HydroRoll-Team/infini/commits/v0.0.1..v0.1.0)<small>October 7,2023</small> { id="0.1.0" }
