@@ -17,9 +17,11 @@ class StopException(EventException):
     """停止当前事件传播。"""
 
 
-class HydroError(Exception):
-    """HydroRoll 异常基类"""
+class InfiniException(Exception):
+    """Infini 异常基类"""
 
+class RulePackageException(InfiniException):
+    """由规则包抛出的异常基类, 所有规则包抛出的异常都应该继承此类。"""
 
 class LoadError(HydroError):
     """规则包导入错误"""
