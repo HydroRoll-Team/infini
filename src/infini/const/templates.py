@@ -7,6 +7,7 @@ from .event import MyEvent
 class MyHandler(Handler):
     \"\"\"自设业务函数\"\"\"
 
+    name: str = "example_handler"
     priority: int = 0  # 业务函数权重
 
     def process(self, event: MatcherEvent) -> InfiniEvent:
@@ -36,5 +37,4 @@ def test():
     except Exception as error:
         return error
     return []
-
 """

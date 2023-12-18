@@ -5,18 +5,6 @@
 """
 
 
-class EventException(BaseException):
-    """事件处理过程中由规则包抛出的异常, 用于控制事件的传播, 会被 Infini 自动捕获并处理。"""
-
-
-class SkipException(EventException):
-    """跳过当前规则包继续当前事件传播。"""
-
-
-class StopException(EventException):
-    """停止当前事件传播。"""
-
-
 class InfiniException(Exception):
     """Infini 异常基类"""
 
@@ -30,7 +18,7 @@ class LoadError(InfiniException):
 
 
 class PackageNotFound(LoadError):
-    """规则包不存在时错误, """
+    """规则包不存在时错误"""
 
 
 class EventLoadError(LoadError, RuntimeError):
@@ -41,15 +29,15 @@ class HandlerLoadError(LoadError, RuntimeError):
     """业务函数导入失败"""
 
 
-class UnknownException(BaseException):
-    """未知异常基类"""
+class EventException(InfiniException):
+    """事件异常基类"""
 
 
-class UnknownMatcherEvent(UnknownException):
+class UnknownMatcherEvent(EventException):
     """未知的给入实现"""
 
 
-class UnknownMessageEvent(UnknownException):
+class UnknownMessageEvent(EventException):
     """未知的给出实现"""
 
 
