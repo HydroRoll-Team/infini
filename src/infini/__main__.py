@@ -39,7 +39,7 @@ def main():
         (path / "event.py").write_text(templates.EVENT, encoding="utf-8")
         (path / "tests.py").write_text(templates.TEST, encoding="utf-8")
 
-        logger.success("HydroRoll 规则包模板已创建！")
+        logger.success("Infini 规则包模板已创建！")
 
     if args.operate == "test":
         exceptions = []
@@ -48,7 +48,7 @@ def main():
         logger.info("初始化规则包中...")
 
         try:
-            register.regist(path)
+            register.register(path)
         except Exception as error:
             if args.verbose:
                 logger.exception(error)
