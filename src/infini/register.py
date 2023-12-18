@@ -8,7 +8,7 @@ from .exceptions import UnknownMatcherEvent, UnsupportedError
 from .handler import Handler
 from .event import InfiniEvent, MessageEvent, WorkflowEvent
 from .typing import Dict, Type
-from .exceptions import LoadError, EventLoadError, HandlerLoadError, UnknownException
+from .exceptions import LoadError, EventLoadError, HandlerLoadError
 
 import re
 import sys
@@ -70,8 +70,7 @@ class Loader:
             for handler in handlers:
                 self.handlers[f"{self.name}.{handler.__dict__['name']}"] = handler
         except Exception as error:
-            raise HandlerLoadError(
-                f"规则包[{self.name}]业务函数导入失败: {error}") from error
+            raise HandlerLoadError(f"规则包[{self.name}]业务函数导入失败: {error}") from error
 
         sys.path.remove(str(self.meta_path))
 
@@ -152,8 +151,10 @@ class Register:
         self.events = Events()
         self.handlers = Handlers()
 
-    def register(self, meta_path: Path | str | None = None):
-        _loader = Loader(meta_path or ".")
+    def register(
+        self, meta_path: Path | str | None = None, loader: Type[Loader] | None = None
+    ):
+        _loader = Loader(meta_path or ".") if not loader else loader(meta_path or ".")
         _loader.load()
         self.events.update(_loader.events)
         self.handlers.update(_loader.handlers)
