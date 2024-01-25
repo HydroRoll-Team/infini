@@ -4,8 +4,8 @@
 [metadata]
 groups = ["default", "docs"]
 strategy = ["cross_platform"]
-lock_version = "4.4"
-content_hash = "sha256:fddd8c2346f4b72340fa1d98f5412276cbca6fa9d0158230b417d5a54524804c"
+lock_version = "4.4.1"
+content_hash = "sha256:c680d27fc524015094eacac65dfd83248611848fd38ceece3bc1ea698a39d11f"
 
 [[package]]
 name = "annotated-types"

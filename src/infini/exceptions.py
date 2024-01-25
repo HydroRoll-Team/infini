@@ -1,7 +1,7 @@
 """Infini 异常处理模块
 
 此模块定义了 Infini 项目中所有的自定义异常类。
-规则包作者后续实现的每个异常类都应该继承自 RulePackageException。
+规则包作者后续实现的每个异常类都应该继承自 InfiniException。
 """
 
 

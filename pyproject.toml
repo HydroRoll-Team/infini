@@ -1,33 +1,24 @@
 [project]
 name = "infini"
-version = "1.0.5"
-description = "Infini 核心标准输入输出模块"
-authors = [{ name = "简律纯", email = "i@jyunko.cn" }, { name = "苏向夜", email = "fu050409@163.com" }]
-dependencies = ["pydantic", "multilogging"]
-requires-python = ">=3.9"
+version = "2.0.0-alpha.1"
+description = "Infini 核心标准文本输入输出模块"
+authors = [
+    { name = "简律纯", email = "i@jyunko.cn" },
+    { name = "苏向夜", email = "fu050409@163.com" },
+]
+dependencies = [
+    "pydantic",
+    "multilogging",
+    "rich>=13.7.0",
+]
+requires-python = ">=3.10"
 readme = "README.md"
 license = { text = "MIT" }
-
-[tool.pdm.dev-dependencies]
-docs = [
-    "mkdocs>=1.5.3",
-    "mkdocs-material[imaging]>=9.5.2",
-    "mkdocs-blog-plugin>=0.25",
-    "mkdocs-git-revision-date-localized-plugin>=1.2.1",
-    "mkdocs-git-authors-plugin>=0.7.2",
-    "mkdocs-material-extensions>=1.3.1",
-    "neoteroi-mkdocs>=1.0.4",
-    "pillow>=9.5.0",
-    "cairosvg>=2.7.1",
-    "mkdocs-git-committers-plugin-2>=2.2.2",
-    "lxml>=4.9.3",
-    "mkdocs-minify-plugin>=0.7.2",
-    "mkdocs-rss-plugin>=1.9.0",
-    "mkdocs-redirects>=1.2.1",
-    "mike>=2.0.0",
-    "mkdocstrings>=0.24.0",
-]
 
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
