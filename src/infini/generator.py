@@ -8,6 +8,10 @@ class Generator:
     events: Dict[str, str]
     global_variables: Dict[str, str | Callable]
 
+    def __init__(self) -> None:
+        self.events = {}
+        self.global_variables = {}
+
     def output(self, output: Output) -> str:
         assert output.type != "workflow", "Workflow 事件无法产出文本"
         variables = self.global_variables.copy()
