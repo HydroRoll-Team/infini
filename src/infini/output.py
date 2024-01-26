@@ -7,13 +7,22 @@ class Output:
     status: int
     block: bool
 
+    def __init__(
+        self,
+        type: Literal["null", "text", "workflow"],
+        name: str,
+        *,
+        status: int = 0,
+        block: bool = False,
+    ) -> None:
+        self.type = type
+        self.name = name
+        self.status = status
+        self.block = block
+
     @classmethod
     def empty(cls) -> "Output":
-        output = cls()
-        output.type = "null"
-        output.status = 0
-        output.block = True
-        return output
+        return cls("null", "null", status=0, block=True)
 
     def is_empty(self) -> bool:
         return self.type == "null"

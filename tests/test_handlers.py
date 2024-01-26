@@ -8,21 +8,15 @@ def test_handler():
     input = Input(".add 1 2")
 
     def add(input: Input) -> Output:
-        a, b = map(int, input.get_plain_text().lstrip(".add").split())
-        output = Output()
-        output.block = False
-        output.status = 0
-        output.type = "text"
-        output.name = str(a + b)
-        return output
+        return Output(
+            "text",
+            str(sum(list(map(int, input.get_plain_text().lstrip(".add").split())))),
+            status=0,
+            block=False,
+        )
 
     def cmd(_: Input) -> Output:
-        output = Output()
-        output.block = False
-        output.status = 0
-        output.type = "text"
-        output.name = "cmd"
-        return output
+        return Output("text", "cmd", status=0, block=False)
 
     handler = Handler()
     handler.handlers = [
@@ -48,21 +42,15 @@ def test_handler_block():
     input = Input(".add 1 2")
 
     def add(input: Input) -> Output:
-        a, b = map(int, input.get_plain_text().lstrip(".add").split())
-        output = Output()
-        output.block = False
-        output.status = 0
-        output.type = "text"
-        output.name = str(a + b)
-        return output
+        return Output(
+            "text",
+            str(sum(list(map(int, input.get_plain_text().lstrip(".add").split())))),
+            status=0,
+            block=False,
+        )
 
     def cmd(_: Input) -> Output:
-        output = Output()
-        output.block = True
-        output.status = 0
-        output.type = "text"
-        output.name = "cmd"
-        return output
+        return Output("text", "cmd", status=0, block=True)
 
     handler = Handler()
     handler.handlers = [

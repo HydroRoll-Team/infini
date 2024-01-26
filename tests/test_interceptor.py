@@ -9,12 +9,7 @@ def test_interceptor():
     valid_input = Input("这个叫苏向夜.")
 
     def intercept(_: Input) -> Input | Output:
-        output = Output()
-        output.block = True  # TODO 拦截器阻塞标识
-        output.name = "block.jianlvchun"
-        output.status = 0
-        output.type = "text"
-        return output
+        return Output("text", "block.jianlvchun", block=True)  # TODO 拦截器阻塞标识
 
     interceptor = Interceptor()
     interceptor.interceptors = [
