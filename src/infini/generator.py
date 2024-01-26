@@ -10,8 +10,9 @@ class Generator:
 
     def output(self, output: Output) -> str:
         assert output.type != "workflow", "Workflow 事件无法产出文本"
-        template = self.match(output)
-        return template.render(output.variables)
+        variables = self.global_variables.copy()
+        variables.update(output.variables)
+        return self.match(output).render(variables)
 
     def match(self, output: Output) -> Template:
         if context := self.events.get(output.name):
