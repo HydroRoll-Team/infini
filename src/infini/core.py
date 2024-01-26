@@ -29,7 +29,7 @@ class Core:
             yield output
 
     def generate(self, output: Output) -> str:
-        return output.name  # TODO 生成器实现
+        return self.generator.output(output)
 
     def intercept(self, output: str) -> str:
         return (
