@@ -5,7 +5,7 @@ class Input(Generic[T]):
     plain_data: T
     variables: Dict[str, Any]
 
-    def __init__(self, plain_data: Any, variables: Dict[str, Any] | None = None) -> None:
+    def __init__(self, plain_data: T, variables: Dict[str, Any] | None = None) -> None:
         self.plain_data = plain_data
         self.variables = variables or {}
 
