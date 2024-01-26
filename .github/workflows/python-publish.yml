@@ -1,74 +1,27 @@
+name: Release
+
 on:
   push:
     tags:
-      - "*"
+      - "v*"
   workflow_dispatch:
 
 jobs:
-  release-pypi:
-    name: release-pypi
+  build:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-      contents: write
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v5
+      - uses: pdm-project/setup-pdm@v3
+        name: Setup PDM
         with:
-          python-version: "3.11"
+          python-version: 3.9
+          cache: true
 
-      - name: Check prerelease
-        id: check_version
-        run: |
-          if [[ "${{ github.ref }}" =~ ^refs/tags/[0-9.]+$ ]]; then
-            echo "PRERELEASE=false" >> $GITHUB_OUTPUT
-          else
-            echo "PRERELEASE=true" >> $GITHUB_OUTPUT
-          fi
+      - name: Install dependencies
+        run: pdm install
 
-      - name: Build Release Docs
-        run: |
-          cp CHANGELOG.md docs/changelog.md
-          pip install -r docs/requirements.txt
-          pdm install
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git fetch origin gh-pages:gh-pages
-          tag="${{ github.ref_name }}"
-          DOC_VERSION=${tag%.*}
-          pdm run mike deploy --update-aliases "$DOC_VERSION" latest
-          git push origin gh-pages
-
-      - run: |
-          pdm install
-          pdm publish
+      - run: pdm publish
         shell: bash
-        env:
-          PDM_PUBLISH_PASSWORD: ${{ secrets.PDM_PUBLISH_PASSWORD }}
-          PDM_PUBLISH_USERNAME: ${{ secrets.PDM_PUBLISH_USERNAME }}
-
-      # - name: Get Changelog
-      #   id: get-changelog
-      #   run: |
-      #     awk '/-{3,}/{flag=1;next}/Release/{if (flag==1)exit}flag' CHANGELOG.md > .changelog.md
-
-      # - name: Create Release
-      #   uses: actions/create-release@main
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: ${{ github.ref }}
-      #     release_name: v${{ github.ref }}
-      #     body_path: .changelog.md
-      #     draft: false
-      #     prerelease: ${{ steps.check_version.outputs.PRERELEASE }}
-
-      # - name: Trigger Bucket Update
-      #   uses: benc-uk/workflow-dispatch@v1
-      #   with:
-      #     workflow: Excavator
-      #     repo: frostming/scoop-frostming
-      #     token: ${{ secrets.G_T }}
-      #     ref: master

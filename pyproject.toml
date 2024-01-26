@@ -3,6 +3,10 @@ name = "infini"
 version = "2.0.0-alpha.1"
 description = "Infini 核心标准文本输入输出模块"
 authors = [
+<<<<<<< HEAD
+=======
+    { name = "简律纯", email = "leader@hydroroll.team" },
+>>>>>>> 8dd7d3fe24acdbb7f52aa245f5f44991f3a44f46
     { name = "苏向夜", email = "fu050409@163.com" },
     { name = "简律纯", email = "i@jyunko.cn" },
 ]

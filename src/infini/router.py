@@ -1,6 +1,3 @@
-from infini.typing import overload
-
-
 class Router:
     sign: str
 
@@ -19,3 +16,8 @@ class StartswithRouter(Router):
 class ContainsRouter(Router):
     def match(self, input: str) -> bool:
         return self.sign in input.strip()
+
+
+class Endswith(Router):
+    def match(self, input: str) -> bool:
+        return input.strip().endswith(self.sign)
