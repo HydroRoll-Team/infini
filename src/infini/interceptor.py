@@ -17,7 +17,8 @@ class Interceptor:
         return input
 
     def output(self, output_text: str) -> str | Output:
-        queue = self.match(output_text)
+        queue = self.match(output_text)  # TODO 需要测试输出拦截情况
+        input = Input(output_text)
         while not queue.is_empty():
             if isinstance(intercepted := queue.pop()(input), Output):
                 return intercepted
