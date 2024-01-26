@@ -1,4 +1,4 @@
-from infini.typing import Literal
+from infini.typing import Literal, Dict, Any
 
 
 class Output:
@@ -7,6 +7,8 @@ class Output:
     status: int
     block: bool
 
+    variables: Dict[str, Any]
+
     def __init__(
         self,
         type: Literal["null", "text", "workflow"],
@@ -14,11 +16,13 @@ class Output:
         *,
         status: int = 0,
         block: bool = False,
+        variables: Dict[str, Any] = {},
     ) -> None:
         self.type = type
         self.name = name
         self.status = status
         self.block = block
+        self.variables = variables
 
     @classmethod
     def empty(cls) -> "Output":

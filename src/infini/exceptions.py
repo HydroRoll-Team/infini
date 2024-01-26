@@ -4,3 +4,7 @@ class InfiniException(Exception):
 
 class KeyError(InfiniException):
     """键值错误"""
+
+
+class UnknownEvent(InfiniException):
+    """文本事件不存在"""
