@@ -3,12 +3,10 @@ name = "infini"
 version = "2.0.0-alpha.1"
 description = "Infini 核心标准文本输入输出模块"
 authors = [
-    { name = "简律纯", email = "i@jyunko.cn" },
     { name = "苏向夜", email = "fu050409@163.com" },
+    { name = "简律纯", email = "i@jyunko.cn" },
 ]
 dependencies = [
-    "pydantic",
-    "multilogging",
     "rich>=13.7.0",
 ]
 requires-python = ">=3.10"
@@ -19,6 +17,10 @@ license = { text = "MIT" }
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
-
 [tool.pdm]
 distribution = true
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.4.4",
+]

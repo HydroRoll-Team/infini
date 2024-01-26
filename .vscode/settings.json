@@ -1,5 +1,6 @@
 {
     "restructuredtext.preview.docutils.disabled": true,
     "python.analysis.typeCheckingMode": "basic",
-    "iis.configDir": ""
+    "iis.configDir": "",
+    "python.analysis.autoImportCompletions": true
 }
