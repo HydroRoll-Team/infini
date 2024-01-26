@@ -22,6 +22,7 @@ build-backend = "pdm.backend"
 distribution = true
 
 [tool.pdm.dev-dependencies]
-test = [
+dev = [
     "pytest>=7.4.4",
+    "ipdm>=0.1.2",
 ]
