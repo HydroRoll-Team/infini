@@ -13,7 +13,7 @@ def test_core():
     valid_input = Input("这个叫苏向夜.")
     command_and_valid_input = Input(".echo 苏向夜打爆了简某人的狗头")
 
-    def intercept(_: Input) -> Input | Output:
+    def intercept_jianlvchun(_: Input) -> Input | Output:
         return Output("text", "block.jianlvchun", block=True)  # TODO 拦截器阻塞标识
 
     interceptor = Interceptor()
@@ -21,20 +21,18 @@ def test_core():
         {
             "priority": 1,
             "router": ContainsRouter("简律纯"),
-            "handler": intercept,
+            "handler": intercept_jianlvchun,
         }
     ]
 
     def add(input: Input) -> Output:
+        result = str(sum(list(map(int, input.get_plain_text().lstrip(".add").split()))))
         return Output(
-            "text",
-            str(sum(list(map(int, input.get_plain_text().lstrip(".add").split())))),
-            status=0,
-            block=False,
+            "text", "test.add", status=0, block=False, variables={"result": result}
         )
 
     def cmd(_: Input) -> Output:
-        return Output("text", "cmd", status=0, block=False)
+        return Output("text", "test.cmd", status=0, block=False)
 
     handler = Handler()
     handler.handlers = [
@@ -50,11 +48,18 @@ def test_core():
         },
     ]
 
+    generator = Generator()
+    generator.events = {
+        "test.cmd": "cmd",
+        "test.add": "{{ result }}",
+        "block.jianlvchun": "检测到违禁词",
+    }
+
     core = Core()
     core.handler = handler
     core.interceptor = interceptor
     core.pre_interceptor = interceptor
-    core.generator = Generator()
+    core.generator = generator
 
     outputs = set()
     for output in core.input(command_input):
@@ -67,7 +72,7 @@ def test_core():
     assert count == 0
 
     for output in core.input(intercepted_input):
-        assert output == "block.jianlvchun"
+        assert output == "检测到违禁词"
 
     outputs = set()
     for output in core.input(command_and_valid_input):
