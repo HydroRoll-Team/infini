@@ -33,7 +33,7 @@ def test_loader():
 
     loader = Loader()
     loader.load_from_register(register)
-    core = loader.output()
+    core = loader.into_core()
 
     for output in core.input(blocked_god_input):
         assert output == "不可直呼苏向夜的ID"
@@ -42,5 +42,6 @@ def test_loader():
         assert output == "不许撅少年狐"
 
 
-if __name__ == "__main__":
-    test_loader()
+def test_with_loader():
+    with Loader() as loader:
+        loader.into_core()
