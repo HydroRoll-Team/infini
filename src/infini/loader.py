@@ -66,10 +66,7 @@ class InfiniLoader(importlib.abc.Loader):
         return None
 
     def exec_module(self, module):
-        with open(self.filename) as f:
-            data = f.read()
-
-        exec(data, vars(module))
+        exec(Path(self.filename).read_text("utf-8"), vars(module))
 
 
 def install():
