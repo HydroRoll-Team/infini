@@ -5,6 +5,7 @@ from infini.handler import Handler
 from infini.interceptor import Interceptor
 from infini.register import Register
 from infini.typing import List, Dict, Sequence, ModuleType, RouterType, Callable
+from infini.logging import logger
 from pathlib import Path
 
 import inspect
@@ -123,8 +124,9 @@ class Loader:
         registers = self._find_register_variables(module)
         self.load_from_registers(registers)
         if not registers:
-            # TODO 警告内容
-            ...
+            logger.warning(
+                f"Infini 装载器未能在规则包 [bold green]{module.__name__}[/bold green] 中找到注册器."
+            )
 
         return module
 
