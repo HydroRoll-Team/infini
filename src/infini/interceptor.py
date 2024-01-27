@@ -1,32 +1,66 @@
 from infini.input import Input
 from infini.output import Output
-from infini.typing import List, RouterType, Callable
+from infini.typing import List, Any, RouterType, Callable, Generator
 from infini.queue import EventQueue
 
 
 class Interceptor:
     interceptors: List[RouterType]
 
-    def input(self, input: Input) -> Input | Output:
+    def input(self, input: Input) -> Generator[Output | Input, Any, None]:
         queue = self.match(input.get_plain_text())
         while not queue.is_empty():
-            if isinstance(intercepted := queue.pop()(input), Output):
-                return intercepted  # TODO 允许拦截器产出文本
+            if isinstance(stream := queue.pop()(input), Generator):
+                for outcome in stream:
+                    if isinstance(outcome, Input):
+                        input = outcome
+                        break
+                    yield outcome
+                    if outcome.block:
+                        return
             else:
-                input = intercepted
-        return input
+                if stream is None:
+                    yield Output.empty()
+                    return
+                if isinstance(stream, Output):
+                    yield stream
+                    if stream.block:
+                        return
+                    continue
+                input = stream
+        yield input
 
-    def output(self, output_text: str) -> str | Output:
-        queue = self.match(output_text)  # TODO 需要测试输出拦截情况
+    def output(
+        self, output_text: str
+    ) -> Generator[Output | str, Any, None]:
         input = Input(output_text)
+        queue = self.match(input.get_plain_text())
         while not queue.is_empty():
-            if isinstance(intercepted := queue.pop()(input), Output):
-                return intercepted
+            if isinstance(stream := queue.pop()(input), Generator):
+                for outcome in stream:
+                    if isinstance(outcome, Input):
+                        input = outcome
+                        break
+                    yield outcome
+                    if outcome.block:
+                        return
             else:
-                input = intercepted
-        return output_text
+                if stream is None:
+                    yield Output.empty()
+                    return
+                if isinstance(stream, Output):
+                    yield stream
+                    if stream.block:
+                        return
+                    continue
+                input = stream
+        yield input.get_plain_text()
 
-    def match(self, text: str) -> EventQueue[Callable[[Input], Input | Output]]:
+    def match(
+        self, text: str
+    ) -> EventQueue[
+        Callable[[Input], Input | Output | Generator[Input | Output, Any, None]]
+    ]:
         queue = EventQueue()
 
         for interceptor in self.interceptors:

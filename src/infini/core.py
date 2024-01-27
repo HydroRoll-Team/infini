@@ -1,26 +1,40 @@
 from infini.input import Input
 from infini.interceptor import Interceptor
-from infini.generator import Generator
+from infini.generator import TextGenerator
 from infini.handler import Handler
 from infini.output import Output
+from infini.typing import Any, Generator
 
 
 class Core:
     pre_interceptor: Interceptor
     handler: Handler
-    generator: Generator
+    generator: TextGenerator
     interceptor: Interceptor
 
-    def input(self, input: Input):
-        if isinstance(pre_intercepted_stream := self.pre_intercept(input), Output):
-            yield self.generate(pre_intercepted_stream)
-            return
-        for handled_stream in self.handle(pre_intercepted_stream):
+    def input(self, input: Input) -> Generator[str, Any, None]:
+        for pre_intercepted_stream in self.pre_intercept(input):
+            if isinstance(pre_intercepted_stream, Output):
+                yield self.generate(pre_intercepted_stream)
+                if pre_intercepted_stream.block or pre_intercepted_stream.is_empty():
+                    return
+            else:
+                input = pre_intercepted_stream
+
+        for handled_stream in self.handle(input):
             if handled_stream.is_empty():
                 return
-            yield self.intercept(self.generate(handled_stream))
+            outcome = self.generate(handled_stream)
+            for stream in self.intercept(outcome):
+                if isinstance(stream, Output):
+                    yield self.generate(stream)
+                    continue
+                outcome = stream
+            if handled_stream.block:
+                return
+            yield outcome
 
-    def pre_intercept(self, input: Input) -> Input | Output:
+    def pre_intercept(self, input: Input) -> Generator[Output | Input, Any, None]:
         return self.pre_interceptor.input(input)
 
     def handle(self, input: Input):
@@ -31,9 +45,5 @@ class Core:
     def generate(self, output: Output) -> str:
         return self.generator.output(output)
 
-    def intercept(self, output: str) -> str:
-        return (
-            self.generate(callback)
-            if isinstance(callback := self.interceptor.output(output), Output)
-            else callback
-        )
+    def intercept(self, output_text: str) -> Generator[Output | str, Any, None]:
+        return self.interceptor.output(output_text)
