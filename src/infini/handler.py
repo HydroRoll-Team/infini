@@ -12,7 +12,7 @@ class Handler:
             yield Output.empty()
             return
         while not queue.is_empty():
-            if isinstance(stream := queue.pop()(input), Generator):  # TODO 新增测试
+            if isinstance(stream := queue.pop()(input), Generator):
                 for output in stream:
                     yield output
                     if output.block:

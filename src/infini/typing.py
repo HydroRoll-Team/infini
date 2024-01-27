@@ -7,6 +7,7 @@ from typing import (
     Literal as Literal,
     Sequence as Sequence,
     Generator as Generator,
+    overload as overload,
     TypeVar,
     TypedDict,
     Union,
