@@ -1,5 +1,6 @@
 # Infini Generator 2
 
+<!-- start index -->
 Infini 文本输入输出流 2
 
 ## 版本
@@ -9,3 +10,4 @@ Infini 文本输入输出流 2
 ## 版权
 
 水系 × [浊莲](https://github.com/noctisynth)依照 MIT 协议开源 Infini。
+<!-- end index -->
