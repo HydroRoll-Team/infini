@@ -1,6 +1,6 @@
 from importlib.util import spec_from_file_location
 from infini.core import Core
-from infini.generator import Generator
+from infini.generator import TextGenerator
 from infini.handler import Handler
 from infini.interceptor import Interceptor
 from infini.register import Register
@@ -147,7 +147,7 @@ class Loader:
     def inject_core(self, core: Core):
         pre_interceptor = Interceptor()
         handler = Handler()
-        generator = Generator()
+        generator = TextGenerator()
         interceptor = Interceptor()
 
         self.inject_pre_interceptor(pre_interceptor)
@@ -192,12 +192,12 @@ class Loader:
         self.inject_handler(handler)
         return handler
 
-    def inject_generator(self, generator: Generator):
+    def inject_generator(self, generator: TextGenerator):
         generator.events = self.events
         generator.global_variables = self.global_variables
 
-    def into_generator(self) -> Generator:
-        generator = Generator()
+    def into_generator(self) -> TextGenerator:
+        generator = TextGenerator()
         self.inject_generator(generator)
         return generator
 

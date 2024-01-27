@@ -4,7 +4,7 @@ from infini.exceptions import UnknownEvent
 from jinja2 import Template
 
 
-class Generator:
+class TextGenerator:  # TODO 兼容多类型事件
     events: Dict[str, str]
     global_variables: Dict[str, str | Callable]
 
