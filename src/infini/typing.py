@@ -5,12 +5,13 @@ from typing import (
     Generic as Generic,
     Callable as Callable,
     Literal as Literal,
+    Sequence as Sequence,
     overload as overload,
     TypeVar,
     TypedDict,
     Union,
 )
-from types import ModuleType as ModuleType
+from types import ModuleType as ModuleType, GeneratorType as GeneratorType
 from . import router, input, output
 
 T = TypeVar("T")
