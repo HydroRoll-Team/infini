@@ -1,9 +1,9 @@
-from infini.generator import Generator
+from infini.generator import TextGenerator
 from infini.output import Output
 
 
 def test_generator():
-    generator = Generator()
+    generator = TextGenerator()
     generator.events = {
         "test.event1": "Event1 文本",
     }
@@ -12,7 +12,7 @@ def test_generator():
 
 
 def test_generator_with_var():
-    generator = Generator()
+    generator = TextGenerator()
     generator.events = {
         "test.event1": "Event1 文本: {{ var }}",
     }
@@ -27,7 +27,7 @@ def test_generator_with_function():
     def add(a, b):
         return a + b
 
-    generator = Generator()
+    generator = TextGenerator()
     generator.events = {
         "test.event": "{{ func(1, 2) }}",
     }

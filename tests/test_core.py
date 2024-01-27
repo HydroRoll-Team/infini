@@ -1,5 +1,5 @@
 from infini.core import Core
-from infini.generator import Generator
+from infini.generator import TextGenerator
 from infini.handler import Handler
 from infini.input import Input
 from infini.interceptor import Interceptor
@@ -48,7 +48,7 @@ def test_core():
         },
     ]
 
-    generator = Generator()
+    generator = TextGenerator()
     generator.events = {
         "test.cmd": "cmd",
         "test.add": "{{ result }}",

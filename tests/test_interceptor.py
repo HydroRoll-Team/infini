@@ -9,7 +9,7 @@ def test_interceptor():
     valid_input = Input("这个叫苏向夜.")
 
     def intercept(_: Input) -> Input | Output:
-        return Output("text", "block.jianlvchun", block=True)  # TODO 拦截器阻塞标识
+        return Output("text", "block.jianlvchun", block=True)
 
     interceptor = Interceptor()
     interceptor.interceptors = [
@@ -19,10 +19,18 @@ def test_interceptor():
             "handler": intercept,
         }
     ]
-    output = interceptor.input(input)
-    assert isinstance(output, Output)
-    assert output.name == "block.jianlvchun"
+    for output in interceptor.input(input):
+        assert isinstance(output, Output)
+        assert output.name == "block.jianlvchun"
 
-    valid_output = interceptor.input(valid_input)
-    assert isinstance(valid_output, Input)
-    assert valid_output.get_plain_text() == "这个叫苏向夜."
+    for valid_output in interceptor.input(valid_input):
+        assert isinstance(valid_output, Input)
+        assert valid_output.get_plain_text() == "这个叫苏向夜."
+
+    for output in interceptor.output("简律纯"):
+        assert isinstance(output, Output)
+        assert output.name == "block.jianlvchun"
+
+    for output in interceptor.output("这个叫苏向夜."):
+        assert isinstance(output, str)
+        assert output == "这个叫苏向夜."

@@ -1,5 +1,5 @@
 from infini.core import Core
-from infini.generator import Generator
+from infini.generator import TextGenerator
 from infini.handler import Handler
 from infini.input import Input
 from infini.interceptor import Interceptor
@@ -38,7 +38,7 @@ def test_register():
     pre_interceptor.interceptors = register.pre_interceptors
     handler = Handler()
     handler.handlers = register.handlers
-    generator = Generator()
+    generator = TextGenerator()
     generator.events = register.events
     generator.global_variables = register.global_variables
     interceptor = Interceptor()
