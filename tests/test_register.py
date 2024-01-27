@@ -18,7 +18,7 @@ def test_register():
         return Output("text", "block.sxy", block=True)
 
     @register.handler("撅少年狐")
-    def test_handelr(_: Input):
+    def test_handler(_: Input):
         return Output("text", "block.snh", block=True)
 
     register.regist_textevent("block.sxy", "不可直呼{{ sxy_id }}的ID")
