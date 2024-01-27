@@ -18,7 +18,7 @@ class InfiniMetaFinder(importlib.abc.MetaPathFinder):
         default_entries = [
             Path.cwd() / "src",
             Path.home() / ".ipm" / "src",
-        ]
+        ] + [Path(path).resolve() for path in sys.path]
 
         entries: List[Path] = (
             [Path(catch_path).resolve() for catch_path in path] + default_entries
@@ -97,6 +97,15 @@ class Loader:
         self.interceptors = []
         self.prepare()
 
+    def __enter__(self) -> "Loader":
+        self.prepare()
+        return self
+
+    def __exit__(self, exc_type, exc_value, _) -> None:
+        self.close()
+        if exc_type is not None:
+            raise exc_type(exc_value)
+
     def _find_register_variables(self, module: ModuleType) -> List[Register]:
         module_variables = inspect.getmembers(module)
         register_variables = [
@@ -112,13 +121,16 @@ class Loader:
 
         module = importlib.import_module(name)
         registers = self._find_register_variables(module)
-        for register in registers:
-            self.load_from_register(register)
+        self.load_from_registers(registers)
         if not registers:
             # TODO 警告内容
             ...
 
         return module
+
+    def load_from_registers(self, registers: Sequence[Register]):
+        for register in registers:
+            self.load_from_register(register)
 
     def load_from_register(self, register: Register):
         self.pre_interceptors.extend(register.pre_interceptors)
@@ -130,23 +142,67 @@ class Loader:
     def close(self):
         uninstall()
 
-    def inject(self, core: Core):
+    def inject_core(self, core: Core):
         pre_interceptor = Interceptor()
-        pre_interceptor.interceptors = self.pre_interceptors
         handler = Handler()
-        handler.handlers = self.handlers
         generator = Generator()
-        generator.events = self.events
-        generator.global_variables = self.global_variables
         interceptor = Interceptor()
-        interceptor.interceptors = self.interceptors
 
+        self.inject_pre_interceptor(pre_interceptor)
+        self.inject_handler(handler)
+        self.inject_generator(generator)
+        self.inject_interceptor(interceptor)
         core.pre_interceptor = pre_interceptor
         core.handler = handler
         core.generator = generator
         core.interceptor = interceptor
 
-    def output(self) -> Core:
+    def into_core(self) -> Core:
         core = Core()
-        self.inject(core)
+        self.inject_core(core)
         return core
+
+    def inject_register(self, register: Register):
+        register.pre_interceptors = self.pre_interceptors
+        register.handlers = self.handlers
+        register.events = self.events
+        register.global_variables = self.global_variables
+        register.interceptors = self.interceptors
+
+    def into_register(self) -> Register:
+        register = Register()
+        self.inject_register(register)
+        return register
+
+    def inject_interceptor(self, interceptor: Interceptor):
+        interceptor.interceptors = self.interceptors
+
+    def into_interceptor(self) -> Interceptor:
+        interceptor = Interceptor()
+        self.inject_interceptor(interceptor)
+        return interceptor
+
+    def inject_handler(self, handler: Handler):
+        handler.handlers = self.handlers
+
+    def into_handlers(self) -> Handler:
+        handler = Handler()
+        self.inject_handler(handler)
+        return handler
+
+    def inject_generator(self, generator: Generator):
+        generator.events = self.events
+        generator.global_variables = self.global_variables
+
+    def into_generator(self) -> Generator:
+        generator = Generator()
+        self.inject_generator(generator)
+        return generator
+
+    def inject_pre_interceptor(self, pre_interceptor: Interceptor):
+        pre_interceptor.interceptors = self.pre_interceptors
+
+    def into_pre_interceptor(self) -> Interceptor:
+        pre_interceptor = Interceptor()
+        self.inject_pre_interceptor(pre_interceptor)
+        return pre_interceptor
