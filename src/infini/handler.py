@@ -14,6 +14,10 @@ class Handler:
             return
         while not queue.is_empty():
             output = queue.pop()(input)
+            # TODO 允许 Handler 函数为迭代器
+            # if isinstance(output, GeneratorType):
+            #     for o in output:
+            #         yield o
             yield output
             if output.block:
                 return
