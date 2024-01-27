@@ -4,7 +4,7 @@ from infini.handler import Handler
 from infini.input import Input
 from infini.interceptor import Interceptor
 from infini.output import Output
-from infini.router import ContainsRouter, StartswithRouter
+from infini.router import Contains, Startswith
 
 
 def test_core():
@@ -20,7 +20,7 @@ def test_core():
     interceptor.interceptors = [
         {
             "priority": 1,
-            "router": ContainsRouter("简律纯"),
+            "router": Contains("简律纯"),
             "handler": intercept_jianlvchun,
         }
     ]
@@ -38,12 +38,12 @@ def test_core():
     handler.handlers = [
         {
             "priority": 2,
-            "router": StartswithRouter(".add"),
+            "router": Startswith(".add"),
             "handler": add,
         },
         {
             "priority": 1,
-            "router": StartswithRouter("."),
+            "router": Startswith("."),
             "handler": cmd,
         },
     ]

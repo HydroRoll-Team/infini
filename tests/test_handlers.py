@@ -1,7 +1,7 @@
 from infini.handler import Handler
 from infini.input import Input
 from infini.output import Output
-from infini.router import StartswithRouter
+from infini.router import Startswith
 
 
 def test_handler():
@@ -22,12 +22,12 @@ def test_handler():
     handler.handlers = [
         {
             "priority": 2,
-            "router": StartswithRouter(".add"),
+            "router": Startswith(".add"),
             "handler": add,
         },
         {
             "priority": 1,
-            "router": StartswithRouter("."),
+            "router": Startswith("."),
             "handler": cmd,
         },
     ]
@@ -56,12 +56,12 @@ def test_handler_block():
     handler.handlers = [
         {
             "priority": 2,
-            "router": StartswithRouter(".add"),
+            "router": Startswith(".add"),
             "handler": add,
         },
         {
             "priority": 1,
-            "router": StartswithRouter("."),
+            "router": Startswith("."),
             "handler": cmd,
         },
     ]
@@ -88,7 +88,7 @@ def test_handler_interator():
     handler.handlers = [
         {
             "priority": 1,
-            "router": StartswithRouter(".add"),
+            "router": Startswith(".add"),
             "handler": add,
         },
     ]

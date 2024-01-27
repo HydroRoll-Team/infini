@@ -1,6 +1,6 @@
 from infini.input import Input
 from infini.output import Output
-from infini.router import ContainsRouter, Router
+from infini.router import Contains, Router
 from infini.typing import List, Dict, Any, Callable, RouterType
 from functools import wraps
 
@@ -28,7 +28,7 @@ class Register:
             self.pre_interceptors.append(
                 {
                     "priority": priority,
-                    "router": ContainsRouter(router)
+                    "router": Contains(router)
                     if isinstance(router, str)
                     else router,
                     "handler": wrapper,
@@ -47,7 +47,7 @@ class Register:
             self.handlers.append(
                 {
                     "priority": priority,
-                    "router": ContainsRouter(router)
+                    "router": Contains(router)
                     if isinstance(router, str)
                     else router,
                     "handler": wrapper,
@@ -83,7 +83,7 @@ class Register:
             self.interceptors.append(
                 {
                     "priority": priority,
-                    "router": ContainsRouter(router)
+                    "router": Contains(router)
                     if isinstance(router, str)
                     else router,
                     "handler": wrapper,

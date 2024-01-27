@@ -1,7 +1,7 @@
 from infini.input import Input
 from infini.interceptor import Interceptor
 from infini.output import Output
-from infini.router import ContainsRouter
+from infini.router import Contains
 
 
 def test_interceptor():
@@ -15,7 +15,7 @@ def test_interceptor():
     interceptor.interceptors = [
         {
             "priority": 1,
-            "router": ContainsRouter("简律纯"),
+            "router": Contains("简律纯"),
             "handler": intercept,
         }
     ]
