@@ -70,3 +70,30 @@ def test_handler_block():
     for output in handler.input(input):
         names.append(output.name)
     assert names == ["cmd"]
+
+
+def test_handler_interator():
+    input = Input(".add 1 2")
+
+    def add(input: Input):
+        yield Output(
+            "text",
+            str(sum(list(map(int, input.get_plain_text().lstrip(".add").split())))),
+            status=0,
+            block=False,
+        )
+        yield Output("text", "ok", status=0, block=False)
+
+    handler = Handler()
+    handler.handlers = [
+        {
+            "priority": 1,
+            "router": StartswithRouter(".add"),
+            "handler": add,
+        },
+    ]
+
+    names = []
+    for output in handler.input(input):
+        names.append(output.name)
+    assert names == ["3", "ok"]
