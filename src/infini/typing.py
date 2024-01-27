@@ -6,7 +6,7 @@ from typing import (
     Callable as Callable,
     Literal as Literal,
     Sequence as Sequence,
-    overload as overload,
+    Generator as Generator,
     TypeVar,
     TypedDict,
     Union,
@@ -15,9 +15,11 @@ from types import ModuleType as ModuleType, GeneratorType as GeneratorType
 from . import router, input, output
 
 T = TypeVar("T")
+Stream = Union["input.Input", "output.Output"]
+OutputGenerator = Generator["output.Output", Any, None]
 
 
 class RouterType(TypedDict):
     priority: int
     router: router.Router
-    handler: Callable[["input.Input"], Union["input.Input", "output.Output"]]
+    handler: Callable[["input.Input"], Union[Stream, OutputGenerator]]

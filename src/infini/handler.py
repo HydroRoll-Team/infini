@@ -1,6 +1,6 @@
 from infini.input import Input
 from infini.output import Output
-from infini.typing import List, RouterType, Callable
+from infini.typing import List, Any, RouterType, Callable, Generator
 from infini.queue import EventQueue
 
 
@@ -8,21 +8,23 @@ class Handler:
     handlers: List[RouterType]
 
     def input(self, input: Input):
-        queue = self.match(input.get_plain_text())
-        if queue.is_empty():
+        if (queue := self.match(input.get_plain_text())).is_empty():
             yield Output.empty()
             return
         while not queue.is_empty():
-            output = queue.pop()(input)
-            # TODO 允许 Handler 函数为迭代器
-            # if isinstance(output, GeneratorType):
-            #     for o in output:
-            #         yield o
-            yield output
-            if output.block:
-                return
+            if isinstance(stream := queue.pop()(input), Generator):  # TODO 新增测试
+                for output in stream:
+                    yield output
+                    if output.block:
+                        return
+            else:
+                yield stream
+                if stream.block:
+                    return
 
-    def match(self, text: str) -> EventQueue[Callable[[Input], Output]]:
+    def match(
+        self, text: str
+    ) -> EventQueue[Callable[[Input], Output | Generator[Output, Any, None]]]:
         queue = EventQueue()
 
         for handler in self.handlers:

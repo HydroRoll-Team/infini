@@ -17,7 +17,7 @@ class Core:
             return
         for handled_stream in self.handle(pre_intercepted_stream):
             if handled_stream.is_empty():
-                return  # TODO 处理未找到 Handler
+                return
             yield self.intercept(self.generate(handled_stream))
 
     def pre_intercept(self, input: Input) -> Input | Output:
