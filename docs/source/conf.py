@@ -27,7 +27,7 @@ AUTHORS = ",".join([f"{aut['name']}" for aut in AUTHOR_TABLE])
 project = PROJECT_NAME  # "Infini"
 release = PROJECT_VERSION  # "latest"
 copyright = (
-    "2023-PRESENT, HydroRoll-Team x [浊莲](https://github.com/noctisynth)."
+    "2023-PRESENT, HydroRoll-Team & 浊莲."
 )
 author = AUTHORS  # "Hsiang Nianian"
 
