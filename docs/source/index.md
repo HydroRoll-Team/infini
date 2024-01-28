@@ -26,7 +26,7 @@ pages/grps-1/index
 :caption: API 接口
 :hidden:
 
-源码文档 <pages/api/index>
+阅读源码 <pages/api/index>
 ```
 
 ```{toctree}
