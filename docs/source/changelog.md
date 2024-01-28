@@ -1,5 +1,3 @@
-# 变更日志
-
 <!--
 
 Version codenames style:
