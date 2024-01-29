@@ -1,5 +1,3 @@
-# 变更日志
-
 <!--
 
 Version codenames style:
@@ -10,3 +8,6 @@ https://patternbasedwriting.com/elementary_writing_success/list-4800-adjectives/
 https://en.wikipedia.org/wiki/Lists_of_colors
 
 -->
+
+```{include} ../../CHANGELOG.md
+```

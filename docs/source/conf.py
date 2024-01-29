@@ -19,17 +19,19 @@ with open(PYPROJECT, "r", encoding="utf8") as f:
 PROJECT_VERSION = DATA["project"]["version"]
 PROJECT_NAME = DATA["project"]["name"]
 AUTHOR_TABLE = DATA["project"]["authors"]
-AUTHORS = ",".join([f"{aut['name']}<{aut['email']}>" for aut in AUTHOR_TABLE])
+AUTHORS = ",".join([f"{aut['name']}" for aut in AUTHOR_TABLE])
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = PROJECT_NAME  # "IamAI"
+project = PROJECT_NAME  # "Infini"
 release = PROJECT_VERSION  # "latest"
-copyright = "2023-PRESENT, HydroRoll-Team."
-author = "Hsiang Nianian"  # AUTHORS
+copyright = (
+    "2023-PRESENT, HydroRoll-Team & 浊莲."
+)
+author = AUTHORS  # "Hsiang Nianian"
 
-# html_title = "Who am I? I am AI."
+html_title = "INFINI GENERATOR II"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -65,7 +67,9 @@ gettext_uuid = True  # optional.
 
 html_theme = "furo"
 html_static_path = ["../_static"]
-html_logo = "https://cdn.jsdelivr.net/gh/HydroRoll-Team/infini@master/docs/_static/logo.png"
+html_logo = (
+    "https://cdn.jsdelivr.net/gh/HydroRoll-Team/infini@master/docs/_static/logo.png"
+)
 html_favicon = html_logo
 
 html_css_files = [
@@ -74,7 +78,7 @@ html_css_files = [
 ]
 
 html_theme_options = {
-    "announcement": "<em><a href='#'>documentation</a> is still under construction now, welcome any <a href='contributing.html'>contribution</a>!</em>",
+    # "announcement": "<em><a href='#'>documentation</a> is still under construction now, welcome any <a href='contributing.html'>contribution</a>!</em>",
     "source_repository": "https://github.com/HydroRoll-Team/infini/",
     "source_branch": "master",
     "source_directory": "docs/source/",
