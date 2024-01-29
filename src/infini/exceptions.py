@@ -8,3 +8,7 @@ class KeyError(InfiniException):
 
 class UnknownEvent(InfiniException):
     """文本事件不存在"""
+
+
+class ValueError(InfiniException, ValueError):
+    """错误的数据"""

@@ -4,6 +4,7 @@ from infini.generator import TextGenerator
 from infini.handler import Handler
 from infini.output import Output
 from infini.typing import Any, Generator
+from infini.exceptions import ValueError
 
 
 class Core:
@@ -22,6 +23,8 @@ class Core:
                 input = pre_intercepted_stream
 
         for handled_stream in self.handle(input):
+            if not isinstance(handled_stream, Output):
+                raise ValueError("Handler functions should return or yield a `Output` object.")
             if handled_stream.is_empty():
                 return
             outcome = self.generate(handled_stream)
