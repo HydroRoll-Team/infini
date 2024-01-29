@@ -132,11 +132,28 @@ class Loader:
             self.load_from_register(register)
 
     def load_from_register(self, register: Register):
-        self.pre_interceptors.extend(register.pre_interceptors)
-        self.handlers.extend(register.handlers)
+        self.pre_interceptors = self._update_list(
+            self.pre_interceptors, register.interceptors
+        )
+        self.handlers = self._update_list(self.handlers, register.handlers)
         self.events.update(register.events)
         self.global_variables.update(register.global_variables)
-        self.interceptors.extend(register.interceptors)
+        self.interceptors = self._update_list(self.interceptors, register.interceptors)
+
+    def _update_list(self, old_list: List[RouterType], new_list: List[RouterType]):
+        list = old_list.copy()
+        for value in new_list:
+            exists = False
+            for old_value in old_list:
+                if old_value["router"] == value["router"]:
+                    if value["priority"] > old_value["priority"]:
+                        list.remove(old_value)
+                    else:
+                        exists = True
+                    break
+            if not exists:
+                list.append(value)
+        return list
 
     def close(self):
         uninstall()
