@@ -30,9 +30,9 @@ class Core:
                     yield self.generate(stream)
                     continue
                 outcome = stream
+            yield outcome
             if handled_stream.block:
                 return
-            yield outcome
 
     def pre_intercept(self, input: Input) -> Generator[Output | Input, Any, None]:
         return self.pre_interceptor.input(input)
