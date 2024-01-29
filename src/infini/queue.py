@@ -33,7 +33,7 @@ class EventQueue(Generic[T]):
                 del self.entry_finder[item]
                 self.order_queue.remove(item)
                 return item
-        raise KeyError("事件队列为空.")
+        raise KeyError("Event queue is empty.")
 
     def remove(self, item) -> None:
         entry = self.entry_finder.pop(item)
