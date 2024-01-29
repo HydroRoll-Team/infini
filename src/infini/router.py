@@ -38,3 +38,17 @@ class Endswith(Router):
     def match(self, input: str) -> bool:
         input = input.strip()
         return any([input.endswith(sign) for sign in self.signs])
+
+
+class Command(Router):
+    type: Literal["command"] = "command"
+    prefix: tuple = (".", "/")
+
+    def match(self, input: str) -> bool:
+        input = input.strip()
+        if input:
+            if input.startswith(self.prefix):
+                input = input[1:]
+                return any([input.startswith(sign) for sign in self.signs])
+
+        return False
