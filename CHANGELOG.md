@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.0.4] - 2024-01-30
+### New Features
+- [`09a6fbd`](https://github.com/HydroRoll-Team/infini/commit/09a6fbd72a9948bb539da4a5b1dd0ed7e5885e0a) - **internal**: auto register sub-packages into father package without new register variable *(commit by [@fu050409](https://github.com/fu050409))*
+- [`659da68`](https://github.com/HydroRoll-Team/infini/commit/659da6810699233b1a537c985bf4b67ce3b5ee26) - **core**: add empty Output checking and block checking *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Bug Fixes
+- [`0668c8f`](https://github.com/HydroRoll-Team/infini/commit/0668c8fe973eef236d1a7c0e9b747795bfd3b098) - **loader**: fix loader won't load pre-interceptors *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Chores
+- [`82bbfc6`](https://github.com/HydroRoll-Team/infini/commit/82bbfc63ab85e9253b70955cc37d34c3d3d20332) - **infini**: bump infini into v2.0.4 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.0.3a1] - 2024-01-29
 ### BREAKING CHANGES
 - due to [`34ce1fb`](https://github.com/HydroRoll-Team/infini/commit/34ce1fbbe23470d702929e5951177ce0cec96bc7) - update license *(commit by [@HsiangNianian](https://github.com/HsiangNianian))*:
@@ -41,3 +53,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [v2.0.2a3]: https://github.com/HydroRoll-Team/infini/compare/v2.0.2-alpha.2...v2.0.2a3
 [v2.0.3a1]: https://github.com/HydroRoll-Team/infini/compare/v2.0.2...v2.0.3a1
+[v2.0.4]: https://github.com/HydroRoll-Team/infini/compare/v2.0.3...v2.0.4
