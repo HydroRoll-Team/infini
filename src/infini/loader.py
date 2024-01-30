@@ -133,7 +133,7 @@ class Loader:
 
     def load_from_register(self, register: Register):
         self.pre_interceptors = self._update_list(
-            self.pre_interceptors, register.interceptors
+            self.pre_interceptors, register.pre_interceptors
         )
         self.handlers = self._update_list(self.handlers, register.handlers)
         self.events.update(register.events)
