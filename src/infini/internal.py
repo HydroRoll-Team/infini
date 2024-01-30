@@ -8,8 +8,8 @@ import inspect
 
 
 def require(name: str, paths: List | None = None) -> Register:
-    caller_frame = inspect.stack()[1]
-    caller_file = caller_frame[0].f_globals["__file__"]
+    caller_frame = inspect.stack()[1][0]
+    caller_file = caller_frame.f_globals["__file__"]
 
     default_paths = [Path(caller_file).resolve().parent]
     paths = [
@@ -21,4 +21,7 @@ def require(name: str, paths: List | None = None) -> Register:
     with Loader() as loader:
         loader.load(name)
         sys.path = sys.path[len(paths) - 1 :]
-        return loader.into_register()
+        register = loader.into_register()
+
+    caller_frame.f_globals[f"{name}_register"] = register
+    return register
