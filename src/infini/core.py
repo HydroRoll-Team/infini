@@ -13,24 +13,38 @@ class Core:
     generator: TextGenerator
     interceptor: Interceptor
 
-    def input(self, input: Input) -> Generator[str, Any, None]:
+    def input(
+        self, input: Input
+    ) -> Generator[str | Output, Any, None]:  # TODO 支持Workflow
         for pre_intercepted_stream in self.pre_intercept(input):
             if isinstance(pre_intercepted_stream, Output):
+                if not isinstance(pre_intercepted_stream, Output):
+                    raise ValueError(
+                        "Interceptor functions should return or yield a `Output` object."
+                    )
+                if pre_intercepted_stream.is_empty():
+                    return
                 yield self.generate(pre_intercepted_stream)
-                if pre_intercepted_stream.block or pre_intercepted_stream.is_empty():
+                if pre_intercepted_stream.block:
                     return
             else:
                 input = pre_intercepted_stream
 
         for handled_stream in self.handle(input):
             if not isinstance(handled_stream, Output):
-                raise ValueError("Handler functions should return or yield a `Output` object.")
+                raise ValueError(
+                    "Handler functions should return or yield a `Output` object."
+                )
             if handled_stream.is_empty():
                 return
             outcome = self.generate(handled_stream)
             for stream in self.intercept(outcome):
                 if isinstance(stream, Output):
+                    if stream.is_empty():
+                        return
                     yield self.generate(stream)
+                    if stream.block:
+                        return
                     continue
                 outcome = stream
             yield outcome
@@ -40,7 +54,7 @@ class Core:
     def pre_intercept(self, input: Input) -> Generator[Output | Input, Any, None]:
         return self.pre_interceptor.input(input)
 
-    def handle(self, input: Input):
+    def handle(self, input: Input) -> Generator[Output, Any, None]:
         iterator = self.handler.input(input)
         for output in iterator:
             yield output
