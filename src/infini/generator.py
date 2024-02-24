@@ -1,12 +1,12 @@
 from infini.output import Output
-from infini.typing import Dict, Callable
+from infini.typing import Dict, Callable, Union
 from infini.exceptions import UnknownEvent
 from jinja2 import Template
 
 
 class TextGenerator:  # TODO 兼容多类型事件
     events: Dict[str, str]
-    global_variables: Dict[str, str | Callable]
+    global_variables: Dict[str, Union[str, Callable]]
 
     def __init__(self) -> None:
         self.events = {}

@@ -1,7 +1,7 @@
 from infini.input import Input
 from infini.output import Output
 from infini.router import Contains, Router
-from infini.typing import List, Dict, Any, Callable, RouterType
+from infini.typing import List, Dict, Any, Callable, RouterType, Optional, Union
 from functools import wraps
 
 
@@ -9,7 +9,7 @@ class Register:
     pre_interceptors: List[RouterType]
     handlers: List[RouterType]
     events: Dict[str, str]
-    global_variables: Dict[str, str | Callable]
+    global_variables: Dict[str, Union[str, Callable]]
     interceptors: List[RouterType]
 
     def __init__(self) -> None:
@@ -19,18 +19,16 @@ class Register:
         self.global_variables = {}
         self.interceptors = []
 
-    def pre_interceptor(self, router: Router | str, priority: int = 0):
+    def pre_interceptor(self, router: Union[Router, str], priority: int = 0):
         def decorator(func):
             @wraps(func)
-            def wrapper(input: Input) -> Input | Output:
+            def wrapper(input: Input) -> Union[Input, Output]:
                 return func(input)
 
             self.pre_interceptors.append(
                 {
                     "priority": priority,
-                    "router": Contains(router)
-                    if isinstance(router, str)
-                    else router,
+                    "router": Contains(router) if isinstance(router, str) else router,
                     "handler": wrapper,
                 }
             )
@@ -38,7 +36,7 @@ class Register:
 
         return decorator
 
-    def handler(self, router: Router | str, priority: int = 0):
+    def handler(self, router: Union[Router, str], priority: int = 0):
         def decorator(func):
             @wraps(func)
             def wrapper(input: Input) -> Output:
@@ -47,9 +45,7 @@ class Register:
             self.handlers.append(
                 {
                     "priority": priority,
-                    "router": Contains(router)
-                    if isinstance(router, str)
-                    else router,
+                    "router": Contains(router) if isinstance(router, str) else router,
                     "handler": wrapper,
                 }
             )
@@ -63,7 +59,7 @@ class Register:
     def regist_variable(self, name: str, data: Any):
         self.global_variables[name] = data
 
-    def dynamic_variable(self, name: str | None = None):
+    def dynamic_variable(self, name: Optional[str] = None):
         def decorator(func):
             @wraps(func)
             def wrapper(*args, **kwargs) -> str:
@@ -74,18 +70,16 @@ class Register:
 
         return decorator
 
-    def interceptor(self, router: Router | str, priority: int = 0):
+    def interceptor(self, router: Union[Router, str], priority: int = 0):
         def decorator(func):
             @wraps(func)
-            def wrapper(input: Input) -> Input | Output:
+            def wrapper(input: Input) -> Union[Input, Output]:
                 return func(input)
 
             self.interceptors.append(
                 {
                     "priority": priority,
-                    "router": Contains(router)
-                    if isinstance(router, str)
-                    else router,
+                    "router": Contains(router) if isinstance(router, str) else router,
                     "handler": wrapper,
                 }
             )

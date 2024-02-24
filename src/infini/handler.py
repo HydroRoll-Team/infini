@@ -1,6 +1,6 @@
 from infini.input import Input
 from infini.output import Output
-from infini.typing import List, Any, RouterType, Callable, Generator
+from infini.typing import List, Any, RouterType, Callable, Generator, Union
 from infini.queue import EventQueue
 
 
@@ -24,7 +24,7 @@ class Handler:
 
     def match(
         self, text: str
-    ) -> EventQueue[Callable[[Input], Output | Generator[Output, Any, None]]]:
+    ) -> EventQueue[Callable[[Input], Union[Output, Generator[Output, Any, None]]]]:
         queue = EventQueue()
 
         for handler in self.handlers:

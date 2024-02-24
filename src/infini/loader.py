@@ -4,7 +4,16 @@ from infini.generator import TextGenerator
 from infini.handler import Handler
 from infini.interceptor import Interceptor
 from infini.register import Register
-from infini.typing import List, Dict, Sequence, ModuleType, RouterType, Callable
+from infini.typing import (
+    List,
+    Dict,
+    Sequence,
+    ModuleType,
+    RouterType,
+    Callable,
+    Union,
+    Optional,
+)
 from infini.logging import logger
 from pathlib import Path
 
@@ -15,7 +24,7 @@ import importlib.abc
 
 
 class InfiniMetaFinder(importlib.abc.MetaPathFinder):
-    def find_spec(self, fullname: str, path: Sequence[str] | None, target=None):
+    def find_spec(self, fullname: str, path: Optional[Sequence[str]], target=None):
         default_entries = [
             Path.cwd() / "src",
             Path.home() / ".ipm" / "src",
@@ -47,12 +56,14 @@ class InfiniMetaFinder(importlib.abc.MetaPathFinder):
                 fullname,
                 filename,
                 loader=InfiniLoader(str(filename)),
-                submodule_search_locations=[
-                    str(submodule_location)
-                    for submodule_location in submodule_locations
-                ]
-                if submodule_locations
-                else None,
+                submodule_search_locations=(
+                    [
+                        str(submodule_location)
+                        for submodule_location in submodule_locations
+                    ]
+                    if submodule_locations
+                    else None
+                ),
             )
 
         return None
@@ -84,7 +95,7 @@ class Loader:
     pre_interceptors: List[RouterType]
     handlers: List[RouterType]
     events: Dict[str, str]
-    global_variables: Dict[str, str | Callable]
+    global_variables: Dict[str, Union[str, Callable]]
     interceptors: List[RouterType]
 
     def __init__(self) -> None:

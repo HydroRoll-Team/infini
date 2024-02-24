@@ -1,13 +1,13 @@
 from infini.input import Input
 from infini.output import Output
-from infini.typing import List, Any, RouterType, Callable, Generator
+from infini.typing import List, Any, RouterType, Callable, Generator, Union
 from infini.queue import EventQueue
 
 
 class Interceptor:
     interceptors: List[RouterType]
 
-    def input(self, input: Input) -> Generator[Output | Input, Any, None]:
+    def input(self, input: Input) -> Generator[Union[Output, Input], Any, None]:
         queue = self.match(input.get_plain_text())
         while not queue.is_empty():
             if isinstance(stream := queue.pop()(input), Generator):
@@ -30,9 +30,7 @@ class Interceptor:
                 input = stream
         yield input
 
-    def output(
-        self, output_text: str
-    ) -> Generator[Output | str, Any, None]:
+    def output(self, output_text: str) -> Generator[Union[Output, str], Any, None]:
         input = Input(output_text)
         queue = self.match(input.get_plain_text())
         while not queue.is_empty():
@@ -59,7 +57,9 @@ class Interceptor:
     def match(
         self, text: str
     ) -> EventQueue[
-        Callable[[Input], Input | Output | Generator[Input | Output, Any, None]]
+        Callable[
+            [Input], Union[Input, Output, Generator[Union[Input, Output], Any, None]]
+        ]
     ]:
         queue = EventQueue()
 

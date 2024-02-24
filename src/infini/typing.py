@@ -2,6 +2,7 @@ from typing import (
     Dict as Dict,
     List as List,
     Any as Any,
+    Optional as Optional,
     Generic as Generic,
     Callable as Callable,
     Literal as Literal,
@@ -16,7 +17,7 @@ from types import ModuleType as ModuleType, GeneratorType as GeneratorType
 from . import router, input, output
 
 T = TypeVar("T")
-Stream = Union["input.Input", "output.Output"]
+Stream = Union["input.Input[Any]", "output.Output"]
 OutputGenerator = Generator["output.Output", Any, None]
 
 
