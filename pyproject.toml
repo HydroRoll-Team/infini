@@ -1,6 +1,6 @@
 [project]
 name = "infini"
-version = "2.0.4"
+version = "2.0.5"
 description = "Infini 核心标准文本输入输出模块"
 authors = [
     { name = "苏向夜", email = "fu050409@163.com" },
@@ -10,7 +10,7 @@ dependencies = [
     "rich>=13.7.0",
     "jinja2>=3.1.3",
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.8"
 readme = "README.md"
 license = { text = "MIT" }
 
