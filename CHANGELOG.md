@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.0.5] - 2024-02-24
+### New Features
+- [`916917a`](https://github.com/HydroRoll-Team/infini/commit/916917a9bf4927eea8abd0e85ad12e3203121bdc) - **input**: add output method for input *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Bug Fixes
+- [`38b0f36`](https://github.com/HydroRoll-Team/infini/commit/38b0f36088db93d077c41bda2faf560de056f6e6) - **infini**: support python>=3.8 *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Chores
+- [`6a81b1b`](https://github.com/HydroRoll-Team/infini/commit/6a81b1b619546d362d1c655560b4fcbaac8ce8b3) - **docs**: remove docs site logo *(commit by [@HsiangNianian](https://github.com/HsiangNianian))*
+- [`f8a5b2e`](https://github.com/HydroRoll-Team/infini/commit/f8a5b2e39986705f7044c875fba2972b88ac5c7f) - **deps**: bump release-drafter/release-drafter from 5 to 6 *(commit by [@dependabot[bot]](https://github.com/apps/dependabot))*
+- [`3eea2bd`](https://github.com/HydroRoll-Team/infini/commit/3eea2bd5d12dc3ee9dba3f568b754504a88cbd02) - **deps**: bump ncipollo/release-action from 1.13.0 to 1.14.0 *(commit by [@dependabot[bot]](https://github.com/apps/dependabot))*
+- [`7d9ae76`](https://github.com/HydroRoll-Team/infini/commit/7d9ae7613aa7f0713be61a5734cf8ac94b966b1a) - **version**: bump infini to v2.0.5 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.0.4] - 2024-01-30
 ### New Features
 - [`09a6fbd`](https://github.com/HydroRoll-Team/infini/commit/09a6fbd72a9948bb539da4a5b1dd0ed7e5885e0a) - **internal**: auto register sub-packages into father package without new register variable *(commit by [@fu050409](https://github.com/fu050409))*
@@ -54,3 +68,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.0.2a3]: https://github.com/HydroRoll-Team/infini/compare/v2.0.2-alpha.2...v2.0.2a3
 [v2.0.3a1]: https://github.com/HydroRoll-Team/infini/compare/v2.0.2...v2.0.3a1
 [v2.0.4]: https://github.com/HydroRoll-Team/infini/compare/v2.0.3...v2.0.4
+[v2.0.5]: https://github.com/HydroRoll-Team/infini/compare/v2.0.4...v2.0.5
