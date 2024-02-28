@@ -2,6 +2,7 @@ from importlib.util import spec_from_file_location
 from infini.core import Core
 from infini.generator import TextGenerator
 from infini.handler import Handler
+from infini.injector import Injector
 from infini.interceptor import Interceptor
 from infini.register import Register
 from infini.typing import (
@@ -174,15 +175,18 @@ class Loader:
         handler = Handler()
         generator = TextGenerator()
         interceptor = Interceptor()
+        injector = Injector()
 
         self.inject_pre_interceptor(pre_interceptor)
         self.inject_handler(handler)
         self.inject_generator(generator)
         self.inject_interceptor(interceptor)
+        self.inject_injector(injector)
         core.pre_interceptor = pre_interceptor
         core.handler = handler
         core.generator = generator
         core.interceptor = interceptor
+        core.injector = injector
 
     def into_core(self) -> Core:
         core = Core()
@@ -233,3 +237,11 @@ class Loader:
         pre_interceptor = Interceptor()
         self.inject_pre_interceptor(pre_interceptor)
         return pre_interceptor
+
+    def inject_injector(self, injector: Injector):
+        injector.parameters = self.global_variables
+
+    def into_injector(self) -> Injector:
+        injector = Injector()
+        self.inject_injector(injector)
+        return injector

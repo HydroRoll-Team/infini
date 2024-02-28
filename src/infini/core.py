@@ -2,6 +2,7 @@ from infini.input import Input
 from infini.interceptor import Interceptor
 from infini.generator import TextGenerator
 from infini.handler import Handler
+from infini.injector import Injector
 from infini.output import Output
 from infini.typing import Any, Generator, Union
 from infini.exceptions import ValueError
@@ -12,6 +13,7 @@ class Core:
     handler: Handler
     generator: TextGenerator
     interceptor: Interceptor
+    injector: Injector
 
     def input(
         self, input: Input
@@ -60,7 +62,7 @@ class Core:
             yield output
 
     def generate(self, output: Output) -> str:
-        return self.generator.output(output)
+        return self.generator.output(output, self.injector)
 
     def intercept(self, output_text: str) -> Generator[Union[str, Output], Any, None]:
         return self.interceptor.output(output_text)

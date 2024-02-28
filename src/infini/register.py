@@ -22,8 +22,8 @@ class Register:
     def pre_interceptor(self, router: Union[Router, str], priority: int = 0):
         def decorator(func):
             @wraps(func)
-            def wrapper(input: Input) -> Union[Input, Output]:
-                return func(input)
+            def wrapper(*args, **kwargs) -> Union[Input, Output]:
+                return func(*args, **kwargs)
 
             self.pre_interceptors.append(
                 {
@@ -39,8 +39,8 @@ class Register:
     def handler(self, router: Union[Router, str], priority: int = 0):
         def decorator(func):
             @wraps(func)
-            def wrapper(input: Input) -> Output:
-                return func(input)
+            def wrapper(*args, **kwargs) -> Output:
+                return func(*args, **kwargs)
 
             self.handlers.append(
                 {
@@ -73,8 +73,8 @@ class Register:
     def interceptor(self, router: Union[Router, str], priority: int = 0):
         def decorator(func):
             @wraps(func)
-            def wrapper(input: Input) -> Union[Input, Output]:
-                return func(input)
+            def wrapper(*args, **kwargs) -> Union[Input, Output]:
+                return func(*args, **kwargs)
 
             self.interceptors.append(
                 {
