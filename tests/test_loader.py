@@ -19,7 +19,7 @@ def test_loader():
         return Output("text", "block.snh", block=True)
 
     register.regist_textevent("block.sxy", "不可直呼{{ sxy_id }}的ID")
-    register.regist_textevent("block.snh", "不许撅{{ get_snh_id() }}")
+    register.regist_textevent("block.snh", "不许撅{{ get_snh_id }}")
 
     register.regist_variable("sxy_id", "苏向夜")
 

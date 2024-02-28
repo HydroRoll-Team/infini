@@ -1,6 +1,7 @@
 from infini.core import Core
 from infini.generator import TextGenerator
 from infini.handler import Handler
+from infini.injector import Injector
 from infini.input import Input
 from infini.interceptor import Interceptor
 from infini.output import Output
@@ -60,6 +61,7 @@ def test_core():
     core.interceptor = interceptor
     core.pre_interceptor = interceptor
     core.generator = generator
+    core.injector = Injector()
 
     outputs = set()
     for output in core.input(command_input):

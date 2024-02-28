@@ -1,6 +1,7 @@
 from infini.core import Core
 from infini.generator import TextGenerator
 from infini.handler import Handler
+from infini.injector import Injector
 from infini.input import Input
 from infini.interceptor import Interceptor
 from infini.output import Output
@@ -22,7 +23,7 @@ def test_register():
         return Output("text", "block.snh", block=True)
 
     register.regist_textevent("block.sxy", "不可直呼{{ sxy_id }}的ID")
-    register.regist_textevent("block.snh", "不许撅{{ get_snh_id() }}")
+    register.regist_textevent("block.snh", "不许撅{{ get_snh_id }}")
 
     register.regist_variable("sxy_id", "苏向夜")
 
@@ -49,6 +50,7 @@ def test_register():
     core.handler = handler
     core.generator = generator
     core.interceptor = interceptor
+    core.injector = Injector()
 
     for output in core.input(blocked_god_input):
         assert output == "不可直呼苏向夜的ID"
