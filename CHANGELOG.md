@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.0.6] - 2024-02-28
+### New Features
+- [`b30be75`](https://github.com/HydroRoll-Team/infini/commit/b30be75b29d8320da812ecf7accd96af03424ad4) - **injector**: add injector feature *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Tests
+- [`318a306`](https://github.com/HydroRoll-Team/infini/commit/318a30667b03a3dce5deedaadd7a71785edd4088) - **injector**: fix tests after injector added *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Chores
+- [`c626429`](https://github.com/HydroRoll-Team/infini/commit/c626429f078508b9096db889876a64d91f9d3566) - **project**: update project description *(commit by [@HsiangNianian](https://github.com/HsiangNianian))*
+- [`555b4f9`](https://github.com/HydroRoll-Team/infini/commit/555b4f92164f1f8e02446641b7735cf2de35764f) - **readme**: update profile description *(commit by [@HsiangNianian](https://github.com/HsiangNianian))*
+- [`7b4f263`](https://github.com/HydroRoll-Team/infini/commit/7b4f2631a05d09e494af866156e85ef4e27bd5cb) - **version**: bump version to v2.0.6 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.0.5] - 2024-02-24
 ### New Features
 - [`916917a`](https://github.com/HydroRoll-Team/infini/commit/916917a9bf4927eea8abd0e85ad12e3203121bdc) - **input**: add output method for input *(commit by [@fu050409](https://github.com/fu050409))*
@@ -69,3 +82,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.0.3a1]: https://github.com/HydroRoll-Team/infini/compare/v2.0.2...v2.0.3a1
 [v2.0.4]: https://github.com/HydroRoll-Team/infini/compare/v2.0.3...v2.0.4
 [v2.0.5]: https://github.com/HydroRoll-Team/infini/compare/v2.0.4...v2.0.5
+[v2.0.6]: https://github.com/HydroRoll-Team/infini/compare/v2.0.5...v2.0.6
