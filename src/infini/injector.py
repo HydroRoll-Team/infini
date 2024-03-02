@@ -20,16 +20,12 @@ class Injector:
             if param_name in parameters:
                 if not isinstance(parameters[param_name], param.annotation):
                     raise ValueError(
-                        f"Parameter with name '{param_name}' has a mismatch type."
+                        f"Parameter with name '{param_name}' has a mismatch type, "
+                        f"expected '{param.annotation!r}' but got '{type(parameters[param_name])!r}'."
                     )
                 inject_params[param_name] = parameters[param_name]
             else:
-                for parameter in parameters:
-                    if isinstance(parameter, param.annotation):
-                        inject_params[param_name] = parameter
-                        break
-                else:
-                    inject_params[param_name] = default
+                inject_params[param_name] = default
         bound_args = signature.bind(**inject_params)
         bound_args.apply_defaults()
         return lambda: func(*bound_args.args, **bound_args.kwargs)

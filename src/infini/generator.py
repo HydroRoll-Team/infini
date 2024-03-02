@@ -19,7 +19,7 @@ class TextGenerator:  # TODO 兼容多类型事件
         variables.update(output.variables)
         for name, variable in variables.items():
             if callable(variable):
-                variables[name] = injector.output(variable, output.variables)
+                variables[name] = injector.output(variable, variables)
         return self.match(output).render(variables)
 
     def match(self, output: Output) -> Template:
