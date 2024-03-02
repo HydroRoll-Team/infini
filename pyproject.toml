@@ -1,6 +1,6 @@
 [project]
 name = "infini"
-version = "2.0.6"
+version = "2.0.7"
 description = "Infini 轻量输入输出流框架"
 authors = [
     { name = "苏向夜", email = "fu050409@163.com" },
