@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["cross_platform"]
 lock_version = "4.4.1"
-content_hash = "sha256:13b75979f385877e16356a4d92efc4f73c2a3c7b28d8d45e22d287439613ffea"
+content_hash = "sha256:7e6e33bd0b22b96f1e3955794a0d1d6f9a67ee102c40212a0425973339d1557c"
 
 [[package]]
 name = "certifi"
@@ -127,8 +127,8 @@ files = [
 
 [[package]]
 name = "ipdm"
-version = "0.1.3"
-requires_python = ">=3.10"
+version = "0.1.4"
+requires_python = ">=3.8"
 summary = "Infini 包管理器"
 dependencies = [
     "requests>=2.31.0",
@@ -137,8 +137,8 @@ dependencies = [
     "typer>=0.9.0",
 ]
 files = [
-    {file = "ipdm-0.1.3-py3-none-any.whl", hash = "sha256:5fee9d2c5b52d45c69ddbc38d5bb9a08c595c90eb130aa747892c0b0fb149203"},
-    {file = "ipdm-0.1.3.tar.gz", hash = "sha256:fb62a02a17a068d82598283a12f985f6927445fffed2067066a6589d74a1be13"},
+    {file = "ipdm-0.1.4-py3-none-any.whl", hash = "sha256:69fcb1a936ba64f551669f9a86890f4d620a9cd25f66456ca18712d6849146f6"},
+    {file = "ipdm-0.1.4.tar.gz", hash = "sha256:fc87cb9c9357df4fe159b9797ac6c3022bc643ee3d64d957dfda6d898d4308e7"},
 ]
 
 [[package]]
@@ -248,7 +248,7 @@ files = [
 
 [[package]]
 name = "pytest"
-version = "8.0.1"
+version = "8.0.2"
 requires_python = ">=3.8"
 summary = "pytest: simple powerful testing with Python"
 dependencies = [
@@ -260,8 +260,8 @@ dependencies = [
     "tomli>=1.0.0; python_version < \"3.11\"",
 ]
 files = [
-    {file = "pytest-8.0.1-py3-none-any.whl", hash = "sha256:3e4f16fe1c0a9dc9d9389161c127c3edc5d810c38d6793042fb81d9f48a59fca"},
-    {file = "pytest-8.0.1.tar.gz", hash = "sha256:267f6563751877d772019b13aacbe4e860d73fe8f651f28112e9ac37de7513ae"},
+    {file = "pytest-8.0.2-py3-none-any.whl", hash = "sha256:edfaaef32ce5172d5466b5127b42e0d6d35ebbe4453f0e3505d96afd93f6b096"},
+    {file = "pytest-8.0.2.tar.gz", hash = "sha256:d4051d623a2e0b7e51960ba963193b09ce6daeb9759a451844a21e4ddedfc1bd"},
 ]
 
 [[package]]
@@ -282,16 +282,17 @@ files = [
 
 [[package]]
 name = "rich"
-version = "13.7.0"
+version = "13.7.1"
 requires_python = ">=3.7.0"
 summary = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 dependencies = [
     "markdown-it-py>=2.2.0",
     "pygments<3.0.0,>=2.13.0",
+    "typing-extensions<5.0,>=4.0.0; python_version < \"3.9\"",
 ]
 files = [
-    {file = "rich-13.7.0-py3-none-any.whl", hash = "sha256:6da14c108c4866ee9520bbffa71f6fe3962e193b7da68720583850cd4548e235"},
-    {file = "rich-13.7.0.tar.gz", hash = "sha256:5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"},
+    {file = "rich-13.7.1-py3-none-any.whl", hash = "sha256:4edbae314f59eb482f54e9e30bf00d33350aaa94f4bfcd4e9e3110e64d0d7222"},
+    {file = "rich-13.7.1.tar.gz", hash = "sha256:9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"},
 ]
 
 [[package]]

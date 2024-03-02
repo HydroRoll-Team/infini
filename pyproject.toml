@@ -30,5 +30,5 @@ distribution = true
 [tool.pdm.dev-dependencies]
 dev = [
     "pytest>=7.4.4",
-    "ipdm>=0.1.2",
+    "ipdm>=0.1.4",
 ]
