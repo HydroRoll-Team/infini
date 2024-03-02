@@ -24,3 +24,23 @@ def test_generator_with_var():
         )
         == "Event1 文本: 变量测试"
     )
+
+
+def test_generator_injector():
+    def name(nickname: str = "苏向夜"):
+        return nickname
+
+    injector = Injector()
+    injector.parameters = {"a": 12, "b": 20, "c": 0}
+
+    generator = TextGenerator()
+    generator.events = {
+        "test.event1": "[{{ card_name }}]Event1 文本: {{ var }}",
+    }
+    generator.global_variables = {"card_name": name}
+    assert (
+        generator.output(
+            Output("text", "test.event1", variables={"var": "变量测试"}), injector
+        )
+        == "[苏向夜]Event1 文本: 变量测试"
+    )
