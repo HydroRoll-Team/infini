@@ -2,7 +2,7 @@
 hide-toc: true
 ---
 
-# Infini Generator 2
+# Infini 2
 
 ```{include} ../../README.md
 :start-after: <!-- start index -->

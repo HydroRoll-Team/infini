@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2023 HydroRoll-Team & 浊莲
+Copyright (c) 2023 HydroRoll-Team & Noctisynth, org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
