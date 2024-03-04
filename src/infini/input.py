@@ -32,10 +32,9 @@ class Input(Generic[T]):
         type: Literal["text", "workflow"],
         name: str,
         *,
-        status: int = 0,
         block: bool = False,
         variables: Dict[str, Any] = {},
     ):
         vars = self.variables.copy()
         vars.update(variables)
-        return Output(type, name, status=status, block=block, variables=vars)
+        return Output(type, name, block=block, variables=vars)
