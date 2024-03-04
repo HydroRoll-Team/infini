@@ -22,13 +22,6 @@ hide-toc: true
 ```
 
 ```{toctree}
-:caption: 通用规则包标准
-:hidden:
-
-pages/grps/index
-```
-
-```{toctree}
 :caption: API 接口
 :hidden:
 
