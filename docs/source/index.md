@@ -12,6 +12,12 @@ hide-toc: true
 ```{toctree}
 :hidden:
 
+简述 <index>
+```
+
+```{toctree}
+:hidden:
+
 快速开始 <quick-start>
 ```
 
@@ -19,7 +25,7 @@ hide-toc: true
 :caption: 通用规则包标准
 :hidden:
 
-pages/grps-1/index
+pages/grps/index
 ```
 
 ```{toctree}

@@ -24,14 +24,14 @@ AUTHORS = ",".join([f"{aut['name']}" for aut in AUTHOR_TABLE])
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = PROJECT_NAME  # "Infini"
-release = PROJECT_VERSION  # "latest"
+project = PROJECT_NAME
+release = PROJECT_VERSION
 copyright = (
-    "2023-PRESENT, HydroRoll-Team & 浊莲."
+    "2023-PRESENT, HydroRoll-Team & Noctisynth, org."
 )
-author = AUTHORS  # "Hsiang Nianian"
+author = AUTHORS
 
-html_title = "INFINI GENERATOR II"
+html_title = "Infini II"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -78,7 +78,6 @@ html_css_files = [
 ]
 
 html_theme_options = {
-    # "announcement": "<em><a href='#'>documentation</a> is still under construction now, welcome any <a href='contributing.html'>contribution</a>!</em>",
     "source_repository": "https://github.com/HydroRoll-Team/infini/",
     "source_branch": "master",
     "source_directory": "docs/source/",
