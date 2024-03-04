@@ -6,11 +6,15 @@
 
 ### Python 环境
 
-.. important:: 我们强烈建议使用最新版 Python 分发。
+```{important} 注意
+我们强烈建议使用最新版 Python 分发。
+```
 
 请先确保你正确安装并配置了 Python 环境，如果你的计算机上还没有一个 Python 安装，请先前往[Python 官网](https://www.python.org/downloads/)下载和安装 Python。
 
-.. tip:: 如果你的网络环境较差，你可以使用[淘宝镜像网站](https://registry.npmmirror.com/binary.html?path=python/)下载 Python，安装时请注意选择将 Python 加入环境变量。
+```{tip} 提示
+如果你的网络环境较差，你可以使用[淘宝镜像网站](https://registry.npmmirror.com/binary.html?path=python/)下载 Python，安装时请注意选择将 Python 加入环境变量。
+```
 
 安装完成后，你可以打开系统终端执行`python -V`以及`pip -V`来确保 Python 被正确安装。
 
