@@ -40,7 +40,7 @@ class Core:
             if handled_stream.is_empty():
                 return
             outcome = self.generate(handled_stream)
-            for stream in self.intercept(outcome):
+            for stream in self.intercept(handled_stream, outcome):
                 if isinstance(stream, Output):
                     if stream.is_empty():
                         return
@@ -64,5 +64,7 @@ class Core:
     def generate(self, output: Output) -> str:
         return self.generator.output(output, self.injector)
 
-    def intercept(self, output_text: str) -> Generator[Union[str, Output], Any, None]:
-        return self.interceptor.output(output_text)
+    def intercept(
+        self, output: Output, output_text: str
+    ) -> Generator[Union[str, Output], Any, None]:
+        return self.interceptor.output(output, output_text)

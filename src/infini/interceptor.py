@@ -1,3 +1,4 @@
+from infini.injector import Injector
 from infini.input import Input
 from infini.output import Output
 from infini.typing import List, Any, RouterType, Callable, Generator, Union
@@ -9,8 +10,17 @@ class Interceptor:
 
     def input(self, input: Input) -> Generator[Union[Output, Input], Any, None]:
         queue = self.match(input.get_plain_text())
+        injector = Injector()
+        parameters = {
+            "input": input,
+            "plain_text": input.get_plain_text(),
+            "user_id": input.get_user_id(),
+        }
         while not queue.is_empty():
-            if isinstance(stream := queue.pop()(input), Generator):
+            if isinstance(
+                stream := injector.output(queue.pop(), parameters=parameters),
+                Generator,
+            ):
                 for outcome in stream:
                     if isinstance(outcome, Input):
                         input = outcome
@@ -30,11 +40,22 @@ class Interceptor:
                 input = stream
         yield input
 
-    def output(self, output_text: str) -> Generator[Union[Output, str], Any, None]:
-        input = Input(output_text)
-        queue = self.match(input.get_plain_text())
+    def output(
+        self, output: Output, output_text: str
+    ) -> Generator[Union[Output, str], Any, None]:
+        input = Input(output_text, variables=output.variables)
+        queue = self.match(output_text)
+        injector = Injector()
+        parameters = {
+            "input": input,
+            "output": output,
+            "plain_text": output_text,
+            "user_id": input.get_user_id(),
+        }
         while not queue.is_empty():
-            if isinstance(stream := queue.pop()(input), Generator):
+            if isinstance(
+                stream := injector.output(queue.pop(), parameters=parameters), Generator
+            ):
                 for outcome in stream:
                     if isinstance(outcome, Input):
                         input = outcome
@@ -57,9 +78,7 @@ class Interceptor:
     def match(
         self, text: str
     ) -> EventQueue[
-        Callable[
-            [Input], Union[Input, Output, Generator[Union[Input, Output], Any, None]]
-        ]
+        Callable[..., Union[Input, Output, Generator[Union[Input, Output], Any, None]]]
     ]:
         queue = EventQueue()
 

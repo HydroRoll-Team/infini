@@ -24,4 +24,4 @@ OutputGenerator = Generator["output.Output", Any, None]
 class RouterType(TypedDict):
     priority: int
     router: router.Router
-    handler: Callable[["input.Input"], Union[Stream, OutputGenerator]]
+    handler: Callable[..., Union[Stream, OutputGenerator]]
