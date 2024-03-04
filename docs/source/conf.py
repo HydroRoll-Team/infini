@@ -50,7 +50,7 @@ templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 extlinks = {
     "issue": ("https://github.com/HydroRoll-Team/infini/%s", "issue %s"),
-    "doc": ("https://grps.hydroroll.team/zh_CN/latest/%s", "pages/%s"),
+    "doc": ("https://infini.hydroroll.team/zh-cn/latest/%s", "pages/%s"),
 }
 source_suffix = {
     ".rst": "restructuredtext",
