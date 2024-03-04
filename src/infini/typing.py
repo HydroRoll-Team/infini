@@ -1,7 +1,9 @@
 from typing import (
+    TYPE_CHECKING,
     Dict as Dict,
     List as List,
     Any as Any,
+    Type as Type,
     Optional as Optional,
     Generic as Generic,
     Callable as Callable,
@@ -14,14 +16,18 @@ from typing import (
     Union,
 )
 from types import ModuleType as ModuleType, GeneratorType as GeneratorType
-from . import router, input, output
+
+if TYPE_CHECKING:
+    from infini.router import Router
+    from infini.input import Input
+    from infini.output import Output
 
 T = TypeVar("T")
-Stream = Union["input.Input[Any]", "output.Output"]
-OutputGenerator = Generator["output.Output", Any, None]
+Stream = Union["Input[Any]", "Output"]
+OutputGenerator = Generator["Output", Any, None]
 
 
 class RouterType(TypedDict):
     priority: int
-    router: router.Router
+    router: "Router"
     handler: Callable[..., Union[Stream, OutputGenerator]]

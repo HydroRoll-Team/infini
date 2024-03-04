@@ -1,6 +1,6 @@
 from importlib.util import spec_from_file_location
 from infini.core import Core
-from infini.generator import TextGenerator
+from infini.generator import BaseGenerator, Generator, TextGenerator
 from infini.handler import Handler
 from infini.injector import Injector
 from infini.interceptor import Interceptor
@@ -81,15 +81,17 @@ class InfiniLoader(importlib.abc.Loader):
         exec(Path(self.filename).read_text("utf-8"), vars(module))
 
 
-def install():
-    sys.meta_path.insert(0, InfiniMetaFinder())
+def _install():
+    if not sys.meta_path:
+        raise OSError("Var 'sys.meta_path' is empty, since Python is stop.")
+    if not isinstance(sys.meta_path[0], InfiniMetaFinder):
+        sys.meta_path.insert(0, InfiniMetaFinder())
 
 
-def uninstall():
+def _uninstall():
     for meta_path in sys.meta_path:
         if isinstance(meta_path, InfiniMetaFinder):
             sys.meta_path.remove(meta_path)
-            break
 
 
 class Loader:
@@ -98,6 +100,7 @@ class Loader:
     events: Dict[str, str]
     global_variables: Dict[str, Union[str, Callable]]
     interceptors: List[RouterType]
+    generators: Dict[str, BaseGenerator]
 
     def __init__(self) -> None:
         self.pre_interceptors = []
@@ -105,6 +108,7 @@ class Loader:
         self.events = {}
         self.global_variables = {}
         self.interceptors = []
+        self.generators = {}
         self.prepare()
 
     def __enter__(self) -> "Loader":
@@ -124,7 +128,7 @@ class Loader:
         return register_variables
 
     def prepare(self) -> None:
-        install()
+        _install()
 
     def load(self, name: str) -> ModuleType:
         self.prepare()
@@ -168,7 +172,7 @@ class Loader:
         return list
 
     def close(self):
-        uninstall()
+        _uninstall()
 
     def inject_core(self, core: Core):
         pre_interceptor = Interceptor()
@@ -176,6 +180,7 @@ class Loader:
         generator = TextGenerator()
         interceptor = Interceptor()
         injector = Injector()
+        generator = Generator()
 
         self.inject_pre_interceptor(pre_interceptor)
         self.inject_handler(handler)
@@ -221,12 +226,13 @@ class Loader:
         self.inject_handler(handler)
         return handler
 
-    def inject_generator(self, generator: TextGenerator):
+    def inject_generator(self, generator: Generator):
         generator.events = self.events
         generator.global_variables = self.global_variables
+        generator.generators.update(self.generators)
 
-    def into_generator(self) -> TextGenerator:
-        generator = TextGenerator()
+    def into_generator(self) -> Generator:
+        generator = Generator()
         self.inject_generator(generator)
         return generator
 

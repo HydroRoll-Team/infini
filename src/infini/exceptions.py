@@ -10,5 +10,9 @@ class UnknownEvent(InfiniException):
     """文本事件不存在"""
 
 
+class UnknownEventType(InfiniException, TypeError):
+    """文本事件不存在"""
+
+
 class ValueError(InfiniException, ValueError):
     """错误的数据"""

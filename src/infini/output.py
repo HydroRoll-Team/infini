@@ -1,8 +1,8 @@
-from infini.typing import Literal, Dict, Any
+from infini.typing import Union, Literal, Dict, Any
 
 
 class Output:
-    type: Literal["null", "text", "workflow"]
+    type: Union[Literal["null", "text", "workflow"], str]
     name: str
     status: int
     block: bool
@@ -11,7 +11,7 @@ class Output:
 
     def __init__(
         self,
-        type: Literal["null", "text", "workflow"],
+        type: Union[Literal["null", "text", "workflow"], str],
         name: str,
         *,
         status: int = 0,

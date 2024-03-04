@@ -1,23 +1,23 @@
 from infini.input import Input
 from infini.interceptor import Interceptor
-from infini.generator import TextGenerator
+from infini.generator import Generator
 from infini.handler import Handler
 from infini.injector import Injector
 from infini.output import Output
-from infini.typing import Any, Generator, Union
+from infini.typing import Any, Generator as GeneratorT, Union
 from infini.exceptions import ValueError
 
 
 class Core:
     pre_interceptor: Interceptor
     handler: Handler
-    generator: TextGenerator
+    generator: Generator
     interceptor: Interceptor
     injector: Injector
 
     def input(
         self, input: Input
-    ) -> Generator[Union[str, Output], Any, None]:  # TODO 支持Workflow
+    ) -> GeneratorT[Union[str, Output], Any, None]:
         for pre_intercepted_stream in self.pre_intercept(input):
             if isinstance(pre_intercepted_stream, Output):
                 if not isinstance(pre_intercepted_stream, Output):
@@ -53,10 +53,12 @@ class Core:
             if handled_stream.block:
                 return
 
-    def pre_intercept(self, input: Input) -> Generator[Union[Input, Output], Any, None]:
+    def pre_intercept(
+        self, input: Input
+    ) -> GeneratorT[Union[Input, Output], Any, None]:
         return self.pre_interceptor.input(input)
 
-    def handle(self, input: Input) -> Generator[Output, Any, None]:
+    def handle(self, input: Input) -> GeneratorT[Output, Any, None]:
         iterator = self.handler.input(input)
         for output in iterator:
             yield output
@@ -66,5 +68,5 @@ class Core:
 
     def intercept(
         self, output: Output, output_text: str
-    ) -> Generator[Union[str, Output], Any, None]:
+    ) -> GeneratorT[Union[str, Output], Any, None]:
         return self.interceptor.output(output, output_text)
