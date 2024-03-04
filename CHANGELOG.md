@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.0.7] - 2024-03-02
+### Bug Fixes
+- [`b18c32d`](https://github.com/HydroRoll-Team/infini/commit/b18c32da9df9673cc1acee78c251151f7e7411ec) - **injector**: fix injector variables *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Tests
+- [`c681a3d`](https://github.com/HydroRoll-Team/infini/commit/c681a3d355089a91ec83a692664fb4cf6ef43f26) - **injector**: update injector tests *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Chores
+- [`06f55d1`](https://github.com/HydroRoll-Team/infini/commit/06f55d1ff4c61acf1473360712560b88e1b3c32c) - **deps**: update dependencies *(commit by [@fu050409](https://github.com/fu050409))*
+- [`6365838`](https://github.com/HydroRoll-Team/infini/commit/6365838b877ea98e1845de8a832b93d3d56cfe6f) - **version**: bump infini to v0.2.7 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.0.6] - 2024-02-28
 ### New Features
 - [`b30be75`](https://github.com/HydroRoll-Team/infini/commit/b30be75b29d8320da812ecf7accd96af03424ad4) - **injector**: add injector feature *(commit by [@fu050409](https://github.com/fu050409))*
@@ -83,3 +95,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.0.4]: https://github.com/HydroRoll-Team/infini/compare/v2.0.3...v2.0.4
 [v2.0.5]: https://github.com/HydroRoll-Team/infini/compare/v2.0.4...v2.0.5
 [v2.0.6]: https://github.com/HydroRoll-Team/infini/compare/v2.0.5...v2.0.6
+[v2.0.7]: https://github.com/HydroRoll-Team/infini/compare/v2.0.6...v2.0.7
