@@ -1,5 +1,5 @@
 from infini.core import Core
-from infini.generator import TextGenerator
+from infini.generator import Generator
 from infini.handler import Handler
 from infini.injector import Injector
 from infini.input import Input
@@ -28,12 +28,10 @@ def test_core():
 
     def add(input: Input) -> Output:
         result = str(sum(list(map(int, input.get_plain_text().lstrip(".add").split()))))
-        return Output(
-            "text", "test.add", status=0, block=False, variables={"result": result}
-        )
+        return Output("text", "test.add", block=False, variables={"result": result})
 
     def cmd(_: Input) -> Output:
-        return Output("text", "test.cmd", status=0, block=False)
+        return Output("text", "test.cmd", block=False)
 
     handler = Handler()
     handler.handlers = [
@@ -49,12 +47,13 @@ def test_core():
         },
     ]
 
-    generator = TextGenerator()
+    generator = Generator()
     generator.events = {
         "test.cmd": "cmd",
         "test.add": "{{ result }}",
         "block.jianlvchun": "检测到违禁词",
     }
+    generator.global_variables = {}
 
     core = Core()
     core.handler = handler

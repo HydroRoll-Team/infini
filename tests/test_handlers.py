@@ -11,12 +11,11 @@ def test_handler():
         return Output(
             "text",
             str(sum(list(map(int, input.get_plain_text().lstrip(".add").split())))),
-            status=0,
             block=False,
         )
 
     def cmd(_: Input) -> Output:
-        return Output("text", "cmd", status=0, block=False)
+        return Output("text", "cmd", block=False)
 
     handler = Handler()
     handler.handlers = [
@@ -45,12 +44,11 @@ def test_handler_block():
         return Output(
             "text",
             str(sum(list(map(int, input.get_plain_text().lstrip(".add").split())))),
-            status=0,
             block=False,
         )
 
     def cmd(_: Input) -> Output:
-        return Output("text", "cmd", status=0, block=True)
+        return Output("text", "cmd", block=True)
 
     handler = Handler()
     handler.handlers = [
@@ -79,10 +77,9 @@ def test_handler_interator():
         yield Output(
             "text",
             str(sum(list(map(int, input.get_plain_text().lstrip(".add").split())))),
-            status=0,
             block=False,
         )
-        yield Output("text", "ok", status=0, block=False)
+        yield Output("text", "ok", block=False)
 
     handler = Handler()
     handler.handlers = [
