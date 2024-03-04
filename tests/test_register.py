@@ -1,5 +1,5 @@
 from infini.core import Core
-from infini.generator import TextGenerator
+from infini.generator import Generator
 from infini.handler import Handler
 from infini.injector import Injector
 from infini.input import Input
@@ -22,10 +22,10 @@ def test_register():
     def test_handler(_: Input):
         return Output("text", "block.snh", block=True)
 
-    register.regist_textevent("block.sxy", "不可直呼{{ sxy_id }}的ID")
-    register.regist_textevent("block.snh", "不许撅{{ get_snh_id }}")
+    register.register_textevent("block.sxy", "不可直呼{{ sxy_id }}的ID")
+    register.register_textevent("block.snh", "不许撅{{ get_snh_id }}")
 
-    register.regist_variable("sxy_id", "苏向夜")
+    register.register_variable("sxy_id", "苏向夜")
 
     @register.dynamic_variable()
     def get_snh_id():
@@ -39,7 +39,7 @@ def test_register():
     pre_interceptor.interceptors = register.pre_interceptors
     handler = Handler()
     handler.handlers = register.handlers
-    generator = TextGenerator()
+    generator = Generator()
     generator.events = register.events
     generator.global_variables = register.global_variables
     interceptor = Interceptor()

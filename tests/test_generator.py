@@ -1,4 +1,4 @@
-from infini.generator import TextGenerator
+from infini.generator import Generator, TextGenerator
 from infini.injector import Injector
 from infini.output import Output
 
@@ -41,6 +41,29 @@ def test_generator_injector():
     assert (
         generator.output(
             Output("text", "test.event1", variables={"var": "变量测试"}), injector
+        )
+        == "[苏向夜]Event1 文本: 变量测试"
+    )
+
+
+def test_register_generator():
+    def name(nickname: str = "苏向夜"):
+        return nickname
+
+    custom = TextGenerator()
+    custom.type = "custom_text"
+
+    generator = Generator()
+    generator.events = {
+        "test.event1": "[{{ card_name }}]Event1 文本: {{ var }}",
+    }
+    generator.generators.update({"custom_text": custom})
+
+    generator.global_variables = {"card_name": name}
+    assert (
+        generator.output(
+            Output("custom_text", "test.event1", variables={"var": "变量测试"}),
+            Injector(),
         )
         == "[苏向夜]Event1 文本: 变量测试"
     )

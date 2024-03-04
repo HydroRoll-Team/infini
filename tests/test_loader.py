@@ -18,10 +18,10 @@ def test_loader():
     def test_handler(_: Input):
         return Output("text", "block.snh", block=True)
 
-    register.regist_textevent("block.sxy", "不可直呼{{ sxy_id }}的ID")
-    register.regist_textevent("block.snh", "不许撅{{ get_snh_id }}")
+    register.register_textevent("block.sxy", "不可直呼{{ sxy_id }}的ID")
+    register.register_textevent("block.snh", "不许撅{{ get_snh_id }}")
 
-    register.regist_variable("sxy_id", "苏向夜")
+    register.register_variable("sxy_id", "苏向夜")
 
     @register.dynamic_variable()
     def get_snh_id():
