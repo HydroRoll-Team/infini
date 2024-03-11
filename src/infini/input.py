@@ -13,16 +13,19 @@ class Input(Generic[T]):
         self.plain_data = plain_data
         self.variables = variables or {}
 
-    def get_user_id(self) -> Optional[str]:
-        return self.variables.get("user_id")
+    def get_user_id(self) -> str:
+        return self.variables.get("user_id", "0")
 
     def get_session_id(self) -> str:
-        if session_id := self.variables.get("session_id"):
-            return session_id
+        return (
+            self.variables.get("group_id")
+            or self.variables.get("session_id")
+            or self.variables.get("user_id")
+            or "0"
+        )
 
-        user_id = self.variables.get("user_id", "unknown")
-        group_id = self.variables.get("group_id", "unknown")
-        return f"session_{group_id}_{user_id}"
+    def is_tome(self) -> bool:
+        return bool(self.variables.get("is_tome"))
 
     def get_plain_text(self) -> str:
         return str(self.plain_data)
