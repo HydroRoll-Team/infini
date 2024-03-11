@@ -10,7 +10,7 @@ from .dicer import Dicer
 import re
 
 register = Register()
-register.regist_textevent(
+register.register_textevent(
     "ndice.roll",
     "[{{ username }}]掷骰: "
     "{% if descs|length == 1 %}"
@@ -23,16 +23,16 @@ register.regist_textevent(
     "{% endfor %}"
     "{% endif %}",
 )
-register.regist_textevent(
+register.register_textevent(
     "ndice.error.bad_roll_string", "[{{ username }}]掷骰时出现异常, 疑似掷骰表达式错误."
 )
-register.regist_textevent("ndice.error.too_much_round", "[{{ username }}]给入的掷骰轮数超出预期.")
-register.regist_textevent(
+register.register_textevent("ndice.error.too_much_round", "[{{ username }}]给入的掷骰轮数超出预期.")
+register.register_textevent(
     "ndice.error.unknown",
     "未知错误: {{ error }}, 可能是掷骰语法异常.\nBUG提交: https://gitee.com/unvisitor/issues",
 )
-register.regist_textevent("ndice.error.bad_round", "多轮检定的轮数应当是整型数.")
-register.regist_textevent("ndice.error.too_much_round", "多轮检定的轮数超出预期.")
+register.register_textevent("ndice.error.bad_round", "多轮检定的轮数应当是整型数.")
+register.register_textevent("ndice.error.too_much_round", "多轮检定的轮数超出预期.")
 
 
 def translate_punctuation(string: str) -> str:

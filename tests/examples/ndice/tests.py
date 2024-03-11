@@ -13,5 +13,5 @@ loader.load("ndice")
 loader.close()
 
 core = loader.into_core()
-for output in core.input(Input(".r20#d6")):
+for output in core.input(Input(".r3d6", {'nickname':'简律纯'})):
     print(output)
