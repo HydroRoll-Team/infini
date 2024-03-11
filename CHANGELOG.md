@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.1.2] - 2024-03-11
+### New Features
+- [`a60476e`](https://github.com/HydroRoll-Team/infini/commit/a60476eb14a5add6e8724993164602f74a7492f1) - **router**: support variable inject for router *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Chores
+- [`67cf02b`](https://github.com/HydroRoll-Team/infini/commit/67cf02ba9bf39116126ef8360cedff5410a20694) - **tests**: regist -> register *(commit by [@HsiangNianian](https://github.com/HsiangNianian))*
+- [`56be89d`](https://github.com/HydroRoll-Team/infini/commit/56be89d50feadbb63eef72ccb068ceac867e871f) - **version**: bump version to v2.1.2 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.1.1] - 2024-03-04
 ### New Features
 - [`4f3c342`](https://github.com/HydroRoll-Team/infini/commit/4f3c34290bcd172a35a86b172e27ca52910aa4b6) - **quick-start**: fix tip block *(commit by [@fu050409](https://github.com/fu050409))*
@@ -124,3 +133,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.0.7]: https://github.com/HydroRoll-Team/infini/compare/v2.0.6...v2.0.7
 [v2.1.0]: https://github.com/HydroRoll-Team/infini/compare/v2.0.7...v2.1.0
 [v2.1.1]: https://github.com/HydroRoll-Team/infini/compare/v2.1.0...v2.1.1
+[v2.1.2]: https://github.com/HydroRoll-Team/infini/compare/v2.1.1...v2.1.2
