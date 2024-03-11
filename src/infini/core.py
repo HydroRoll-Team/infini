@@ -15,9 +15,7 @@ class Core:
     interceptor: Interceptor
     injector: Injector
 
-    def input(
-        self, input: Input
-    ) -> GeneratorT[Union[str, Output], Any, None]:
+    def input(self, input: Input) -> GeneratorT[Union[str, Output], Any, None]:
         for pre_intercepted_stream in self.pre_intercept(input):
             if isinstance(pre_intercepted_stream, Output):
                 if not isinstance(pre_intercepted_stream, Output):
@@ -26,7 +24,15 @@ class Core:
                     )
                 if pre_intercepted_stream.is_empty():
                     return
-                yield self.generate(pre_intercepted_stream)
+                if pre_intercepted_stream.type == "workflow":
+                    yield pre_intercepted_stream
+                    if pre_intercepted_stream.block:
+                        while pre_intercepted_stream.status != 0:
+                            pass
+                    continue
+                else:
+                    yield self.generate(pre_intercepted_stream)  # TODO 拦截拦截器文本
+
                 if pre_intercepted_stream.block:
                     return
             else:
@@ -39,14 +45,27 @@ class Core:
                 )
             if handled_stream.is_empty():
                 return
-            outcome = self.generate(handled_stream)
+            if handled_stream.type == "workflow":
+                yield handled_stream
+                if handled_stream.block:
+                    while handled_stream.status != 0:
+                        pass
+                continue
+            else:
+                outcome = self.generate(handled_stream)
             for stream in self.intercept(handled_stream, outcome):
                 if isinstance(stream, Output):
                     if stream.is_empty():
                         return
-                    yield self.generate(stream)
-                    if stream.block:
-                        return
+                    if stream.type == "workflow":
+                        yield stream
+                        if stream.block:
+                            while stream.status != 0:
+                                pass
+                    else:
+                        yield self.generate(stream)
+                        if stream.block:
+                            return
                     continue
                 outcome = stream
             yield outcome

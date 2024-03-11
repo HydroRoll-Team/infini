@@ -11,7 +11,7 @@ class UnknownEvent(InfiniException):
 
 
 class UnknownEventType(InfiniException, TypeError):
-    """文本事件不存在"""
+    """事件类型不存在"""
 
 
 class ValueError(InfiniException, ValueError):

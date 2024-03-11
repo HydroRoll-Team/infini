@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.1.1] - 2024-03-04
+### New Features
+- [`4f3c342`](https://github.com/HydroRoll-Team/infini/commit/4f3c34290bcd172a35a86b172e27ca52910aa4b6) - **quick-start**: fix tip block *(commit by [@fu050409](https://github.com/fu050409))*
+- [`edf6101`](https://github.com/HydroRoll-Team/infini/commit/edf6101277450d9b849f329cdfe27ad204c84392) - **workflow**: supports blocked workflow *(commit by [@fu050409](https://github.com/fu050409))*
+- [`a937d5d`](https://github.com/HydroRoll-Team/infini/commit/a937d5d3ed0e2bec8e813cd6dfd4c408d902a92b) - **loader**: supports hot module reload *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Tests
+- [`f195a1e`](https://github.com/HydroRoll-Team/infini/commit/f195a1e7396b7eaa23ef6f14ffebb700cf741c75) - **workflow**: add tests for workflow feature *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Chores
+- [`4bf8089`](https://github.com/HydroRoll-Team/infini/commit/4bf8089999650b6e08796d4b7e6288a67b9cb2cd) - **docs**: update docs conf.py for new domain *(commit by [@HsiangNianian](https://github.com/HsiangNianian))*
+- [`9425a63`](https://github.com/HydroRoll-Team/infini/commit/9425a632d234229ee87178c69f572384e9713fae) - **docs**: delete chapter grps *(commit by [@HsiangNianian](https://github.com/HsiangNianian))*
+- [`ee6eea0`](https://github.com/HydroRoll-Team/infini/commit/ee6eea0831f14c85046f906d9ab3fbb5f7e81320) - **version**: bump version to v2.1.1 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.1.0] - 2024-03-04
 ### New Features
 - [`0f32d6f`](https://github.com/HydroRoll-Team/infini/commit/0f32d6f3520e03a48f9143f2a4f7e48be7742e9b) - **injector**: supports backend function injector *(commit by [@fu050409](https://github.com/fu050409))*
@@ -108,3 +123,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.0.6]: https://github.com/HydroRoll-Team/infini/compare/v2.0.5...v2.0.6
 [v2.0.7]: https://github.com/HydroRoll-Team/infini/compare/v2.0.6...v2.0.7
 [v2.1.0]: https://github.com/HydroRoll-Team/infini/compare/v2.0.7...v2.1.0
+[v2.1.1]: https://github.com/HydroRoll-Team/infini/compare/v2.1.0...v2.1.1

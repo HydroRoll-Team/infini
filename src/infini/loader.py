@@ -82,10 +82,7 @@ class InfiniLoader(importlib.abc.Loader):
 
 
 def _install():
-    if not sys.meta_path:
-        raise OSError("Var 'sys.meta_path' is empty, since Python is stop.")
-    if not isinstance(sys.meta_path[0], InfiniMetaFinder):
-        sys.meta_path.insert(0, InfiniMetaFinder())
+    sys.meta_path.insert(0, InfiniMetaFinder())
 
 
 def _uninstall():

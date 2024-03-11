@@ -1,7 +1,7 @@
 [project]
 name = "infini"
-version = "2.1.0"
-description = "Infini 轻量输入输出流框架"
+version = "2.1.1"
+description = "Infini 内容输入输出流框架"
 authors = [
     { name = "苏向夜", email = "fu050409@163.com" },
     { name = "简律纯", email = "leader@hydroroll.team" },
