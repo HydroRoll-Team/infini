@@ -1,14 +1,16 @@
-from infini.typing import Sequence, Literal
+from typing import Optional
+from infini.typing import Sequence, Literal, Tuple
 from infini.input import Input
 
 
 class Router:
     type: Literal["text"] = "text"
-    signs: set[str]
+    signs: Tuple[str, ...]
 
     def __init__(self, sign: str, alias: Sequence[str] = []) -> None:
-        self.signs = {sign}
-        self.signs.update(alias)
+        signs = {sign}
+        signs.update(alias)
+        self.signs = tuple(signs)
 
     def __eq__(self, __router: "Router") -> bool:
         return __router.type == self.type and __router.signs == self.signs
@@ -16,6 +18,10 @@ class Router:
     def match(self, plain_text: str) -> bool:
         text = plain_text.strip()
         return any([text == sign for sign in self.signs])
+
+    @property
+    def namespace(self) -> Optional[str]:
+        return self.signs[0] if self.signs else None
 
 
 class Startswith(Router):
