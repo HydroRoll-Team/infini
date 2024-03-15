@@ -13,4 +13,4 @@ def test_new_input_with_session_id():
 
 def test_new_input_without_session_id():
     input = Input("test plain_str", variables={"user_id": "test"})
-    assert input.get_session_id() == "session_unknown_test"
+    assert input.get_session_id() == "test"
