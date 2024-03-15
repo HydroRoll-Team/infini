@@ -56,26 +56,8 @@ class Register:
 
         return decorator
 
-    def regist_textevent(self, name: str, text: str):
-        import warnings
-
-        warnings.warn(
-            "Infini will soon deprecated `regist_textevent`, "
-            "use `register_textevent` instead."
-        )
-        self.events[name] = text
-
     def register_textevent(self, name: str, text: str):
         self.events[name] = text
-
-    def regist_variable(self, name: str, data: Any):
-        import warnings
-
-        warnings.warn(
-            "Infini will soon deprecated `regist_variable`, "
-            "use `register_variable` instead."
-        )
-        self.global_variables[name] = data
 
     def register_variable(self, name: str, data: Any):
         self.global_variables[name] = data
