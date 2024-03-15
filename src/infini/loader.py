@@ -99,6 +99,8 @@ class Loader:
     interceptors: List[RouterType]
     generators: Dict[str, BaseGenerator]
 
+    _core: Core
+
     def __init__(self) -> None:
         self.pre_interceptors = []
         self.handlers = []
@@ -125,12 +127,15 @@ class Loader:
         return register_variables
 
     def prepare(self) -> None:
+        self._core = Core()
         _install()
 
     def load(self, name: str) -> ModuleType:
         self.prepare()
 
         module = importlib.import_module(name)
+        vars(module)["__infini__"] = {"core": self._core, "loader": self}
+
         registers = self._find_register_variables(module)
         self.load_from_registers(registers)
         if not registers:
@@ -171,7 +176,7 @@ class Loader:
     def close(self):
         _uninstall()
 
-    def inject_core(self, core: Core):
+    def into_core(self) -> Core:
         pre_interceptor = Interceptor()
         handler = Handler()
         generator = TextGenerator()
@@ -184,16 +189,13 @@ class Loader:
         self.inject_generator(generator)
         self.inject_interceptor(interceptor)
         self.inject_injector(injector)
-        core.pre_interceptor = pre_interceptor
-        core.handler = handler
-        core.generator = generator
-        core.interceptor = interceptor
-        core.injector = injector
+        self._core.pre_interceptor = pre_interceptor
+        self._core.handler = handler
+        self._core.generator = generator
+        self._core.interceptor = interceptor
+        self._core.injector = injector
 
-    def into_core(self) -> Core:
-        core = Core()
-        self.inject_core(core)
-        return core
+        return self._core
 
     def inject_register(self, register: Register):
         register.pre_interceptors = self.pre_interceptors

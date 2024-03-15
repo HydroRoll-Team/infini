@@ -1,3 +1,4 @@
+from infini.core import Core
 from infini.loader import Loader
 from infini.register import Register
 from infini.typing import List, Optional
@@ -25,3 +26,18 @@ def require(name: str, paths: Optional[List] = None) -> Register:
 
     caller_frame.f_globals[f"{name}_register"] = register
     return register
+
+
+def acquire_core() -> Core:
+    caller_frame = inspect.stack()[1][0]
+    caller_file: str = caller_frame.f_globals["__file__"]
+    top_name, *_ = caller_file.split(".")
+    try:
+        core = getattr(sys.modules[top_name], "__infini__")["core"]
+        if not isinstance(core, Core):
+            raise ValueError("Infini stack returned a mismatch instance.")
+        return core
+    except Exception as err:
+        raise RuntimeError(
+            "Infini Runtime is not accessible, perhaps infini core is down."
+        ) from err
