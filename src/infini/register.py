@@ -22,7 +22,13 @@ class Register:
         self.interceptors = []
         self.generators = {}
 
-    def pre_interceptor(self, router: Union[Router, str], priority: int = 0):
+    def pre_interceptor(
+        self,
+        router: Union[Router, str],
+        *,
+        priority: int = 0,
+        namespace: Optional[str] = None,
+    ):
         def decorator(func):
             @wraps(func)
             def wrapper(*args, **kwargs) -> Union[Input, Output]:
@@ -33,13 +39,20 @@ class Register:
                     "priority": priority,
                     "router": Contains(router) if isinstance(router, str) else router,
                     "handler": wrapper,
+                    "namespace": namespace,
                 }
             )
             return wrapper
 
         return decorator
 
-    def handler(self, router: Union[Router, str], priority: int = 0):
+    def handler(
+        self,
+        router: Union[Router, str],
+        *,
+        priority: int = 0,
+        namespace: Optional[str] = None,
+    ):
         def decorator(func):
             @wraps(func)
             def wrapper(*args, **kwargs) -> Output:
@@ -50,6 +63,7 @@ class Register:
                     "priority": priority,
                     "router": Contains(router) if isinstance(router, str) else router,
                     "handler": wrapper,
+                    "namespace": namespace,
                 }
             )
             return wrapper
@@ -73,7 +87,13 @@ class Register:
 
         return decorator
 
-    def interceptor(self, router: Union[Router, str], priority: int = 0):
+    def interceptor(
+        self,
+        router: Union[Router, str],
+        *,
+        priority: int = 0,
+        namespace: Optional[str] = None,
+    ):
         def decorator(func):
             @wraps(func)
             def wrapper(*args, **kwargs) -> Union[Input, Output]:
@@ -84,6 +104,7 @@ class Register:
                     "priority": priority,
                     "router": Contains(router) if isinstance(router, str) else router,
                     "handler": wrapper,
+                    "namespace": namespace,
                 }
             )
             return wrapper

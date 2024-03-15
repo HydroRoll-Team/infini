@@ -31,3 +31,4 @@ class RouterType(TypedDict):
     priority: int
     router: "Router"
     handler: Callable[..., Union[Stream, OutputGenerator]]
+    namespace: Optional[str]
