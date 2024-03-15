@@ -1,5 +1,5 @@
 from infini.output import Output
-from infini.typing import Type, Dict, Callable, Union, Optional
+from infini.typing import Dict, Callable, Union, Optional
 from infini.exceptions import UnknownEvent, UnknownEventType
 from infini.injector import Injector
 from jinja2 import Template

@@ -3,6 +3,7 @@ from typing import (
     Dict as Dict,
     List as List,
     Any as Any,
+    Tuple as Tuple,
     Type as Type,
     Optional as Optional,
     Generic as Generic,
@@ -31,4 +32,3 @@ class RouterType(TypedDict):
     priority: int
     router: "Router"
     handler: Callable[..., Union[Stream, OutputGenerator]]
-    namespace: Optional[str]
