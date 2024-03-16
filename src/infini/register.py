@@ -36,6 +36,8 @@ class Register:
         description: Optional[str] = None,
         epilog: Optional[str] = None,
     ):
+        """注册一个文本输入拦截器"""
+
         def decorator(func):
             @wraps(func)
             def wrapper(*args, **kwargs) -> Union[Input, Output]:
@@ -97,6 +99,7 @@ class Register:
     def register_textevent(
         self, name: str, text: str, *, description: Optional[str] = None
     ):
+        """注册一个文本事件"""
         self.events[name] = text
         self.doc.events[name] = {
             "usage": None,
@@ -112,6 +115,7 @@ class Register:
         usage: Optional[str] = None,
         description: Optional[str] = None,
     ):
+        """注册一个静态全局变量"""
         self.global_variables[name] = data
         self.doc.global_variables[name] = {
             "usage": usage,
@@ -126,6 +130,8 @@ class Register:
         usage: Optional[str] = None,
         description: Optional[str] = None,
     ):
+        """注册一个动态全局变量"""
+
         def decorator(func):
             @wraps(func)
             def wrapper(*args, **kwargs) -> str:
@@ -151,6 +157,8 @@ class Register:
         description: Optional[str] = None,
         epilog: Optional[str] = None,
     ):
+        """注册一个产出文本拦截器"""
+
         def decorator(func):
             @wraps(func)
             def wrapper(*args, **kwargs) -> Union[Input, Output]:
@@ -176,6 +184,7 @@ class Register:
     def register_generator(
         self, generator: Union[BaseGenerator, Type[BaseGenerator]]
     ) -> None:
+        """注册一个生成器"""
         if not isinstance(generator, BaseGenerator):
             generator = generator()
         self.generators[generator.type] = generator

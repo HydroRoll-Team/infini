@@ -1,7 +1,9 @@
 from typing import Dict, Optional, TypedDict
 
+import json
 
-class Annotation(TypedDict):
+
+class Annotation(TypedDict, total=False):
     usage: Optional[str]
     description: Optional[str]
     epilog: Optional[str]
@@ -20,3 +22,14 @@ class Doc:
         self.events = {}
         self.global_variables = {}
         self.interceptors = {}
+
+    def dumps(self) -> str:
+        return json.dumps(
+            {
+                "pre_interceptors": self.pre_interceptors,
+                "handlers": self.handlers,
+                "events": self.events,
+                "global_variables": self.global_variables,
+                "interceptors": self.interceptors,
+            }
+        )
