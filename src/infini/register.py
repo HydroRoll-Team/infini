@@ -71,6 +71,7 @@ class Register:
         usage: Optional[str] = None,
         description: Optional[str] = None,
         epilog: Optional[str] = None,
+        sub_cmd: Optional[Dict[str, str]] = None,
     ):
         """注册一个业务函数"""
 
@@ -91,13 +92,19 @@ class Register:
                 "usage": usage,
                 "description": description,
                 "epilog": epilog,
+                "sub_cmd": sub_cmd or {},
             }
             return wrapper
 
         return decorator
 
     def register_textevent(
-        self, name: str, text: str, *, description: Optional[str] = None
+        self,
+        name: str,
+        text: str,
+        *,
+        description: Optional[str] = None,
+        var_doc: Optional[Dict[str, str]] = None,
     ):
         """注册一个文本事件"""
         self.events[name] = text
@@ -105,6 +112,7 @@ class Register:
             "usage": None,
             "description": description,
             "epilog": None,
+            "var_doc": var_doc or {},
         }
 
     def register_variable(
