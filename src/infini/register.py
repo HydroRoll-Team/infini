@@ -109,9 +109,7 @@ class Register:
         """注册一个文本事件"""
         self.events[name] = text
         self.doc.events[name] = {
-            "usage": None,
             "description": description,
-            "epilog": None,
             "var_doc": var_doc or {},
         }
 
@@ -128,7 +126,6 @@ class Register:
         self.doc.global_variables[name] = {
             "usage": usage,
             "description": description,
-            "epilog": None,
         }
 
     def dynamic_variable(
@@ -149,7 +146,6 @@ class Register:
             self.doc.global_variables[name or func.__name__] = {
                 "usage": usage,
                 "description": description,
-                "epilog": None,
             }
             return wrapper
 
