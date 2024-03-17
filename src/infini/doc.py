@@ -25,6 +25,13 @@ class Doc:
         self.global_variables = {}
         self.interceptors = {}
 
+    def update(self, __object: "Doc") -> None:
+        self.pre_interceptors.update(__object.pre_interceptors)
+        self.handlers.update(__object.handlers)
+        self.events.update(__object.events)
+        self.global_variables.update(__object.global_variables)
+        self.interceptors.update(__object.interceptors)
+
     def dumps(self) -> str:
         return json.dumps(
             {
