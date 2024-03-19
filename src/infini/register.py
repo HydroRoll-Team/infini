@@ -1,4 +1,4 @@
-from infini.doc import Doc
+from infini.doc import Annotation, Doc
 from infini.typing import List, Dict, Any, Callable, RouterType, Optional, Union, Type
 from infini.input import Input
 from infini.output import Output
@@ -34,11 +34,12 @@ class Register:
         namespace: Optional[str] = None,
         usage: Optional[str] = None,
         description: Optional[str] = None,
+        content: Optional[str] = None,
         epilog: Optional[str] = None,
     ):
         """注册一个文本输入拦截器"""
 
-        def decorator(func):
+        def decorator(func: Callable):
             @wraps(func)
             def wrapper(*args, **kwargs) -> Union[Input, Output]:
                 return func(*args, **kwargs)
@@ -56,6 +57,7 @@ class Register:
             ] = {
                 "usage": usage,
                 "description": description,
+                "content": content or func.__doc__,
                 "epilog": epilog,
             }
             return wrapper
@@ -70,8 +72,9 @@ class Register:
         namespace: Optional[str] = None,
         usage: Optional[str] = None,
         description: Optional[str] = None,
+        content: Optional[str] = None,
         epilog: Optional[str] = None,
-        sub_cmd: Optional[Dict[str, str]] = None,
+        sub_cmd: Optional[Dict[str, Annotation]] = None,
     ):
         """注册一个业务函数"""
 
@@ -91,6 +94,7 @@ class Register:
             self.doc.handlers[namespace or _router.namespace or func.__name__] = {
                 "usage": usage,
                 "description": description,
+                "content": content or func.__doc__,
                 "epilog": epilog,
                 "sub_cmd": sub_cmd or {},
             }
@@ -104,12 +108,14 @@ class Register:
         text: str,
         *,
         description: Optional[str] = None,
+        content: Optional[str] = None,
         var_doc: Optional[Dict[str, str]] = None,
     ):
         """注册一个文本事件"""
         self.events[name] = text
         self.doc.events[name] = {
             "description": description,
+            "content": content,
             "var_doc": var_doc or {},
         }
 
@@ -120,12 +126,14 @@ class Register:
         *,
         usage: Optional[str] = None,
         description: Optional[str] = None,
+        content: Optional[str] = None,
     ):
         """注册一个静态全局变量"""
         self.global_variables[name] = data
         self.doc.global_variables[name] = {
             "usage": usage,
             "description": description,
+            "content": content,
         }
 
     def dynamic_variable(
@@ -134,6 +142,7 @@ class Register:
         *,
         usage: Optional[str] = None,
         description: Optional[str] = None,
+        content: Optional[str] = None,
     ):
         """注册一个动态全局变量"""
 
@@ -146,6 +155,7 @@ class Register:
             self.doc.global_variables[name or func.__name__] = {
                 "usage": usage,
                 "description": description,
+                "content": content or func.__doc__,
             }
             return wrapper
 
@@ -159,6 +169,7 @@ class Register:
         namespace: Optional[str] = None,
         usage: Optional[str] = None,
         description: Optional[str] = None,
+        content: Optional[str] = None,
         epilog: Optional[str] = None,
     ):
         """注册一个产出文本拦截器"""
@@ -179,6 +190,7 @@ class Register:
             self.doc.interceptors[namespace or _router.namespace or func.__name__] = {
                 "usage": usage,
                 "description": description,
+                "content": content or func.__doc__,
                 "epilog": epilog,
             }
             return wrapper

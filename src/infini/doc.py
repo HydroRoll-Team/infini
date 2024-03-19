@@ -6,9 +6,10 @@ import json
 class Annotation(TypedDict, total=False):
     usage: Optional[str]
     description: Optional[str]
+    content: Optional[str]
     epilog: Optional[str]
     var_doc: Dict[str, str]
-    sub_cmd: Dict[str, str]
+    sub_cmd: Dict[str, "Annotation"]
 
 
 class Doc:
