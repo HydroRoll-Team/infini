@@ -28,8 +28,8 @@ import importlib.abc
 class InfiniMetaFinder(importlib.abc.MetaPathFinder):
     def find_spec(self, fullname: str, path: Optional[Sequence[str]], target=None):
         default_entries = [
-            Path.cwd() / "src",
-            Path.home() / ".ipm" / "src",
+            Path.cwd().joinpath("packages"),
+            Path.home().joinpath(".ipm", "src"),
         ] + [Path(path).resolve() for path in sys.path]
 
         entries: List[Path] = (
@@ -46,7 +46,7 @@ class InfiniMetaFinder(importlib.abc.MetaPathFinder):
         for entry in entries:
             if (entry / name).is_dir():
                 filename = entry / name / "src" / "__init__.py"
-                submodule_locations = [entry / name / "src"]
+                submodule_locations = [entry / name / "src", entry / name / "packages"]
                 if not filename.exists():
                     filename = entry / name / "src" / (name + ".py")
             else:
