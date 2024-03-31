@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.1.8] - 2024-03-19
+### New Features
+- [`b1f1500`](https://github.com/HydroRoll-Team/infini/commit/b1f15007a64e0a9744f4d00b2c232def56cca0ba) - **doc**: add content field *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Chores
+- [`2ad76f2`](https://github.com/HydroRoll-Team/infini/commit/2ad76f289e278b390ec168a7a7c80cc74ef872c1) - **version**: bump version to v2.1.8 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.1.6] - 2024-03-16
 ### New Features
 - [`daf6a4f`](https://github.com/HydroRoll-Team/infini/commit/daf6a4f7863ad82a3545eae4492b1863cb1bcaf0) - **doc**: add some document fields *(commit by [@fu050409](https://github.com/fu050409))*
@@ -158,3 +166,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.1.3]: https://github.com/HydroRoll-Team/infini/compare/v2.1.2...v2.1.3
 [v2.1.5]: https://github.com/HydroRoll-Team/infini/compare/v2.1.4...v2.1.5
 [v2.1.6]: https://github.com/HydroRoll-Team/infini/compare/v2.1.5...v2.1.6
+[v2.1.8]: https://github.com/HydroRoll-Team/infini/compare/v2.1.7...v2.1.8
