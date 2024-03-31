@@ -1,4 +1,5 @@
 from infini.typing import Callable, T, Optional, Dict, Any
+from typing import get_origin
 
 import inspect
 
@@ -18,7 +19,9 @@ class Injector:
         for param_name, param in signature.parameters.items():
             default = None if param.default == inspect._empty else param.default
             if param_name in parameters:
-                if not isinstance(parameters[param_name], param.annotation):
+                if type(parameters[param_name]) != (
+                    get_origin(param.annotation) or param.annotation
+                ):
                     raise ValueError(
                         f"Parameter with name '{param_name}' has a mismatch type, "
                         f"expected '{param.annotation!r}' but got '{type(parameters[param_name])!r}'."

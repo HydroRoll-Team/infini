@@ -22,25 +22,30 @@ def test_injector():
 def test_handler_injector():
     input = Input("test_message")
 
-    def absolute(input: Input, plain_text: str) -> Output:
+    def absolute(input: Input[str], plain_text: str) -> Output:
         return input.output(
             "text",
-            plain_text,
-            status=0,
+            "absolute",
             block=False,
+            variables={
+                "text": plain_text,
+            },
         )
 
     handler = Handler()
     handler.handlers = [
         {
             "priority": 2,
-            "router": Startswith(".add"),
+            "router": Startswith(""),
             "handler": absolute,
         },
     ]
 
     core = Loader().into_core()
     core.handler = handler
+    core.generator.events = {
+        "absolute": "{{ text }}",
+    }
 
     for output in core.input(input):
         assert output == "test_message"
