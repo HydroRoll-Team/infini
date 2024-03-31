@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.1.10] - 2024-03-31
+### Bug Fixes
+- [`50bbfe4`](https://github.com/HydroRoll-Team/infini/commit/50bbfe4ce91117ee88d6020fe194e7cd14d41f4e) - **injector**: fix injector error when subscrib annocation found *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Chores
+- [`b5c4f42`](https://github.com/HydroRoll-Team/infini/commit/b5c4f42b676cc4077354d06bdf325f276d256667) - **pyproject**: remove tests dev-dependencies group *(commit by [@fu050409](https://github.com/fu050409))*
+- [`a813642`](https://github.com/HydroRoll-Team/infini/commit/a81364221c55528910cbe8932041c4b0ea3b10d2) - **version**: bump version to v2.1.10 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.1.8] - 2024-03-19
 ### New Features
 - [`b1f1500`](https://github.com/HydroRoll-Team/infini/commit/b1f15007a64e0a9744f4d00b2c232def56cca0ba) - **doc**: add content field *(commit by [@fu050409](https://github.com/fu050409))*
@@ -167,3 +176,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.1.5]: https://github.com/HydroRoll-Team/infini/compare/v2.1.4...v2.1.5
 [v2.1.6]: https://github.com/HydroRoll-Team/infini/compare/v2.1.5...v2.1.6
 [v2.1.8]: https://github.com/HydroRoll-Team/infini/compare/v2.1.7...v2.1.8
+[v2.1.10]: https://github.com/HydroRoll-Team/infini/compare/v2.1.9...v2.1.10
