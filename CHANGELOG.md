@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.1.12] - 2024-04-01
+### Bug Fixes
+- [`4634be1`](https://github.com/HydroRoll-Team/infini/commit/4634be1aef800bf4c435d04bb11a2e31e847e604) - **version**: bump version to v2.1.12 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.1.10] - 2024-03-31
 ### Bug Fixes
 - [`50bbfe4`](https://github.com/HydroRoll-Team/infini/commit/50bbfe4ce91117ee88d6020fe194e7cd14d41f4e) - **injector**: fix injector error when subscrib annocation found *(commit by [@fu050409](https://github.com/fu050409))*
@@ -177,3 +182,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.1.6]: https://github.com/HydroRoll-Team/infini/compare/v2.1.5...v2.1.6
 [v2.1.8]: https://github.com/HydroRoll-Team/infini/compare/v2.1.7...v2.1.8
 [v2.1.10]: https://github.com/HydroRoll-Team/infini/compare/v2.1.9...v2.1.10
+[v2.1.12]: https://github.com/HydroRoll-Team/infini/compare/v2.1.11...v2.1.12
