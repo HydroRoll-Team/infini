@@ -30,8 +30,8 @@ def require(name: str, paths: Optional[List] = None) -> Register:
 
 def acquire_core() -> Core:
     caller_frame = inspect.stack()[1][0]
-    caller_file: str = caller_frame.f_globals["__file__"]
-    top_name, *_ = caller_file.split(".")
+    caller_name: str = caller_frame.f_globals["__name__"]
+    top_name, *_ = caller_name.split(".")
     try:
         core = getattr(sys.modules[top_name], "__infini__")["core"]
         if not isinstance(core, Core):
