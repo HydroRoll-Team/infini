@@ -200,6 +200,8 @@ class Loader:
         self._core.interceptor = interceptor
         self._core.injector = injector
 
+        self._core.doc = self.doc
+
         return self._core
 
     def inject_register(self, register: Register):

@@ -1,3 +1,4 @@
+from infini.doc import Doc
 from infini.input import Input
 from infini.interceptor import Interceptor
 from infini.generator import Generator
@@ -14,6 +15,7 @@ class Core:
     generator: Generator
     interceptor: Interceptor
     injector: Injector
+    doc: Doc
 
     def input(self, input: Input) -> GeneratorT[Union[str, Output], Any, None]:
         for pre_intercepted_stream in self.pre_intercept(input):
