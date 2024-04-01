@@ -28,7 +28,11 @@ class Injector:
                 else:
                     param_types = (origin,)
 
-                if type(parameters[param_name]) not in param_types:
+                if not any(
+                    isinstance(parameters[param_name], param_type)
+                    for param_type in param_types
+                    if not isinstance(param_type, typing._SpecialForm)
+                ):
                     raise ValueError(
                         f"Parameter with name '{param_name}' has a mismatch type, "
                         f"expected '{param.annotation!r}' but got '{type(parameters[param_name])!r}'."

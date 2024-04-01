@@ -1,4 +1,5 @@
-from typing import Optional
+from typing import Dict, List, Optional
+from unittest.mock import Base
 from infini.handler import Handler
 from infini.injector import Injector
 from infini.input import Input
@@ -32,7 +33,7 @@ def test_handler_injector():
                 "text": plain_text,
             },
         )
-    
+
     def absolute_2(input: Input[str], plain_text: Optional[str]) -> Output:
         return input.output(
             "text",
@@ -65,3 +66,37 @@ def test_handler_injector():
 
     for output in core.input(input):
         assert output == "test_message"
+
+
+def test_instance_injector():
+    class BaseClass: ...
+
+    class Class(BaseClass):
+        value = 10
+
+    def test(
+        a: int,
+        base: BaseClass,
+        b: int = 0,
+        cls: Optional[BaseClass] = None,
+    ):
+        assert isinstance(base, Class)
+        assert isinstance(cls, Class)
+        assert cls.value == 10
+        return a + b
+
+    injector = Injector()
+    injector.parameters = {"a": 12, "b": 20, "c": 0, "cls": Class(), "base": Class()}
+
+    assert injector.output(test) == 32
+
+
+def test_complex_injector():
+    def test(data: Dict[str, Dict[str, List[str]]]):
+        assert isinstance(data, dict)
+        return data["value"]
+
+    injector = Injector()
+    injector.parameters = {"data": {"value": 32}}
+
+    assert injector.output(test) == 32
