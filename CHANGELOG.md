@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.1.13] - 2024-04-01
+### New Features
+- [`1cbd9bd`](https://github.com/HydroRoll-Team/infini/commit/1cbd9bd2dd16ddaa263f2eb69970dd8e45dfa370) - **injector**: allow complex and instance annocation *(commit by [@fu050409](https://github.com/fu050409))*
+
+### Chores
+- [`327c215`](https://github.com/HydroRoll-Team/infini/commit/327c2151176ad46cff97335a61e7ba9399ae9d99) - **version**: bump version to v2.1.13 *(commit by [@fu050409](https://github.com/fu050409))*
+
+
 ## [v2.1.12] - 2024-04-01
 ### Bug Fixes
 - [`4634be1`](https://github.com/HydroRoll-Team/infini/commit/4634be1aef800bf4c435d04bb11a2e31e847e604) - **version**: bump version to v2.1.12 *(commit by [@fu050409](https://github.com/fu050409))*
@@ -183,3 +191,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v2.1.8]: https://github.com/HydroRoll-Team/infini/compare/v2.1.7...v2.1.8
 [v2.1.10]: https://github.com/HydroRoll-Team/infini/compare/v2.1.9...v2.1.10
 [v2.1.12]: https://github.com/HydroRoll-Team/infini/compare/v2.1.11...v2.1.12
+[v2.1.13]: https://github.com/HydroRoll-Team/infini/compare/v2.1.12...v2.1.13
