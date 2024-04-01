@@ -1,3 +1,4 @@
+from typing import Optional
 from infini.handler import Handler
 from infini.injector import Injector
 from infini.input import Input
@@ -31,6 +32,16 @@ def test_handler_injector():
                 "text": plain_text,
             },
         )
+    
+    def absolute_2(input: Input[str], plain_text: Optional[str]) -> Output:
+        return input.output(
+            "text",
+            "absolute",
+            block=False,
+            variables={
+                "text": plain_text,
+            },
+        )
 
     handler = Handler()
     handler.handlers = [
@@ -38,6 +49,11 @@ def test_handler_injector():
             "priority": 2,
             "router": Startswith(""),
             "handler": absolute,
+        },
+        {
+            "priority": 2,
+            "router": Startswith(""),
+            "handler": absolute_2,
         },
     ]
 
