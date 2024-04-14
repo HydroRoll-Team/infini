@@ -15,8 +15,8 @@ readme = "README.md"
 license = { text = "MIT" }
 
 [project.urls]
-Homepage = "https://grps.hydroroll.team"
-Documentation = "https://grps.hydroroll.team"
+Homepage = "https://infini.hydroroll.team"
+Documentation = "https://infini.hydroroll.team"
 Repository = "https://github.com/HydroRoll-Team/infini"
 Changelog = "https://infini.hydroroll.team/zh_CN/latest/changelog.html"
 
