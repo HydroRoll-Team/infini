@@ -50,3 +50,8 @@ html 网页与 latex 源码以及 text 文本文档将会生成于 `docs/_build`
 pdm run sphinx-build source _build html
 ```
 
+关于文档的写法并没有太多严格要求，同时，如果想知道更多 sphinx 的快速配置与 furo 的快捷语法，还请跳转到相应官网。
+
+最后，你的工作环境可能或许会是这样的：
+
+![workspace](https://infini.hydroroll.team/zh-cn/latest/_static/workspace.png)
