@@ -45,7 +45,6 @@ def test_generator_injector():
         == "[苏向夜]Event1 文本: 变量测试"
     )
 
-
 def test_register_generator():
     def name(nickname: str = "苏向夜"):
         return nickname

@@ -9,16 +9,17 @@ from infini.router import Startswith
 
 
 def test_injector():
-    def name(name: str):
-        return name
+    def name(nickname: str, c: int = 0):
+        return nickname, c
 
     def add(a: int, b: int = 0):
         return a + b
 
     injector = Injector()
-    injector.parameters = {"a": 12, "b": 20, "c": 0, "card_name": name}
+    injector.parameters = {"a": 12, "b": 20, "c": 10, "nickname": "苏向夜"}
     assert injector.inject(add)() == 32
     assert injector.output(add) == 32
+    assert injector.output(name) == ("苏向夜", 10)
 
 
 def test_handler_injector():
