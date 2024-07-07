@@ -187,12 +187,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [`23721ca`](https://github.com/HydroRoll-Team/infini/commit/23721caef53fff8374a6e4f75afa3278fc571206) - **deps**: bump actions/checkout from 3 to 4 *(commit by [@dependabot[bot]](https://github.com/apps/dependabot))*
 
 
-## [v2.0.2a3] - 2024-01-28
-### Chores
-- [`e288e40`](https://github.com/HydroRoll-Team/infini/commit/e288e4024744b340e2df424a85262706c476a362) - **version**: bump version to 2.0.2a3 *(commit by [@HsiangNianian](https://github.com/HsiangNianian))*
-
-
-[v2.0.2a3]: https://github.com/HydroRoll-Team/infini/compare/v2.0.2-alpha.2...v2.0.2a3
 [v2.0.3a1]: https://github.com/HydroRoll-Team/infini/compare/v2.0.2...v2.0.3a1
 [v2.0.4]: https://github.com/HydroRoll-Team/infini/compare/v2.0.3...v2.0.4
 [v2.0.5]: https://github.com/HydroRoll-Team/infini/compare/v2.0.4...v2.0.5
