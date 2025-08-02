@@ -20,8 +20,8 @@ Repository = "https://github.com/HydroRoll-Team/infini"
 Changelog = "https://infini.hydroroll.team/zh_CN/latest/changelog.html"
 
 [build-system]
-requires = ["hataich"]
-build-backend = "hataich"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
