@@ -3,5 +3,7 @@
     "python.analysis.typeCheckingMode": "basic",
     "iis.configDir": "",
     "python.analysis.autoImportCompletions": true,
-    "restructuredtext.pythonRecommendation.disabled": true
+    "restructuredtext.pythonRecommendation.disabled": true,
+    "cursorpyright.analysis.autoImportCompletions": true,
+    "cursorpyright.analysis.typeCheckingMode": "basic"
 }
